@@ -1,6 +1,6 @@
-package ParserParameter;
+package maxparser;
 
-public class ParserOptions {
+public class MaxParser {
 
 	/**
 	 * @param args
