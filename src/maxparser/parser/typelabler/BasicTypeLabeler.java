@@ -1,5 +1,5 @@
 package maxparser.parser.typelabler;
 
-public class BasicTypeLabeler {
+public class BasicTypeLabeler extends DefaultTypeLabeler{
 
 }
