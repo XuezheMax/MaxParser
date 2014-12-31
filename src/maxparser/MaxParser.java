@@ -24,7 +24,7 @@ public class MaxParser {
 			TypeLabeler typeLabeler = (TypeLabeler) Class.forName(options.getTypeLabeler()).newInstance();
 			ParserModel model = new ParserModel(options);
 			try {
-				parser.train(trainer, typeLabeler, model, options.getTrainingFile(), options.getDevFile(), options.getLogFile());
+				parser.train(trainer, typeLabeler, model, options.getTrainingFile(), options.getDevFile(), options.getLogFile(), options.getModeFile());
 			} catch (TrainingException e) {
 				e.printStackTrace();
 			}

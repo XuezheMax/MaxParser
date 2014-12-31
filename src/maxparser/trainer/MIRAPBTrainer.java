@@ -1,13 +1,14 @@
 package maxparser.trainer;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import maxparser.io.ObjectIO;
 
 import maxparser.DependencyInstance;
 import maxparser.FeatureVector;
 import maxparser.Pair;
 import maxparser.exception.TrainingException;
+import maxparser.io.DependencyWriter;
 import maxparser.model.ParserModel;
 import maxparser.parser.decoder.Decoder;
 import maxparser.parser.manager.Manager;
@@ -15,112 +16,147 @@ import maxparser.parser.manager.Manager;
 public class MIRAPBTrainer extends Trainer{
 	
 	@Override
-	public void train(Manager manager, Decoder decoder, ParserModel model, String trainfile, String devfile, String logfile, int numTrainInst, int numDevInst) throws TrainingException{
+	public void train(Manager manager, Decoder decoder, ParserModel model, String trainfile, String devfile, String logfile, String modelfile, int numTrainInst, int numDevInst) throws TrainingException{
 		if(devfile != null){
-			trainWithDev(manager, decoder, model, trainfile, devfile, logfile, numTrainInst, numDevInst);
+			trainWithDev(manager, decoder, model, trainfile, devfile, logfile, modelfile, numTrainInst, numDevInst);
 		}
 		else{
-			trainWithoutDev(manager, decoder, model, trainfile, numTrainInst);
+			trainWithoutDev(manager, decoder, model, trainfile, modelfile, numTrainInst);
 		}
 	}
 	
-	protected void trainWithDev(Manager manager, Decoder decoder, ParserModel model, String trainfile, String devfile, String logfile, int numTrainInst, int numDevInst) throws TrainingException{
+	protected void trainWithDev(Manager manager, Decoder decoder, ParserModel model, String trainfile, String devfile, String logfile, String modelfile, int numTrainInst, int numDevInst) throws TrainingException{
 		int numIters = model.iterNum();
-		int threadNum = model.threadNum();
-		String[] tokens = model.trainforest().split("\\.");
-		int unit = (numTrainInst % threadNum == 0) ? numTrainInst / threadNum : numTrainInst / threadNum + 1;
+		
 		for(int i = 0; i < numIters; ++i){
 			System.out.print("Iteration " + i + "[");
 			long clock = System.currentTimeMillis() / 1000;
 			//training iteration
-			ObjectInputStream in = null;
-			for(int j = 0; j < numTrainInst; ++j){
-				if(j % 500 == 0){
-					int percent = j * 100 / numTrainInst;
-					System.out.print("\b\b\b" + (percent < 10 ? " " : "") + percent + "%");
-					System.out.flush();
-				}
-				if(j % unit == 0){
-					try{
-						if(in != null){
-							in.close();
-						}
-						String forestfile = tokens[0] + (j / unit) + "." + tokens[1];
-						in = new ObjectInputStream(new FileInputStream(forestfile));
-					} catch(IOException e){
-						throw new TrainingException(e.getMessage());
-					}
-				}
-				DependencyInstance inst = manager.readInstance(in, model);
-				Pair<FeatureVector, String>[] d = decoder.decode(manager, inst, model.trainingK());
-				this.updateParams(inst, d, model);
-			}
-			try {
-				in.close();
-			} catch (IOException e) {
-				throw new TrainingException(e.getMessage());
-			}
+			trainWithDevIter(manager, decoder, model, numTrainInst);
+			System.out.println("\b\b\b" + numTrainInst);
+			System.out.flush();
 			
-			//write logfile
+			//calc current accuracy
 			ParserModel tempModel = model.getTemporalModel((i + 1) * numTrainInst);
-			try {
-				in = new ObjectInputStream(new FileInputStream(model.devforest()));
-			} catch (IOException e) {
-				throw new TrainingException(e.getMessage());
-			}
-			// TODO
-			
-			try {
-				in.close();
-			} catch (IOException e) {
-				throw new TrainingException(e.getMessage());
-			}
-			System.out.println("\b\b\b" + numTrainInst + "|Time:" + (System.currentTimeMillis() / 1000 - clock) + "]");
+			evalCurrentAcc(manager, decoder, tempModel, devfile, logfile, modelfile, numDevInst);
+			System.out.println("|Time:" + (System.currentTimeMillis() / 1000 - clock) + "]");
+			System.out.flush();
 		}
 	}
 	
-	protected void trainWithoutDev(Manager manager, Decoder decoder, ParserModel model, String trainfile, int numTrainInst) throws TrainingException{
-		int numIters = model.iterNum();
+	protected void trainWithDevIter(Manager manager, Decoder decoder, ParserModel model, int numTrainInst) throws TrainingException{
+		ObjectInputStream in = null;
 		int threadNum = model.threadNum();
 		String[] tokens = model.trainforest().split("\\.");
 		int unit = (numTrainInst % threadNum == 0) ? numTrainInst / threadNum : numTrainInst / threadNum + 1;
-		for(int i = 0; i < numIters; ++i){
-			System.out.print("Iteration " + i + "[");
-			long clock = System.currentTimeMillis() / 1000;
-			ObjectInputStream in = null;
-			for(int j = 0; j < numTrainInst; ++j){
-				if(j % 500 == 0){
-					int percent = j * 100 / numTrainInst;
-					System.out.print("\b\b\b" + (percent < 10 ? " " : "") + percent + "%");
-					System.out.flush();
-				}
-				if(j % unit == 0){
-					try{
-						if(in != null){
-							in.close();
-						}
-						String forestfile = tokens[0] + (j / unit) + "." + tokens[1];
-						in = new ObjectInputStream(new FileInputStream(forestfile));
-					} catch(IOException e){
-						throw new TrainingException(e.getMessage());
-					}
-				}
-				double upd = (numIters * numTrainInst - (numTrainInst * i + (j + 1)) + 1);
-				DependencyInstance inst = manager.readInstance(in, model);
-				Pair<FeatureVector, String>[] d = decoder.decode(manager, inst, model.trainingK());
-				this.updateParams(inst, d, upd, model);
+		for(int j = 0; j < numTrainInst; ++j){
+			if(j % 500 == 0){
+				int percent = j * 100 / numTrainInst;
+				System.out.print("\b\b\b" + (percent < 10 ? " " : "") + percent + "%");
+				System.out.flush();
 			}
+			if(j % unit == 0){
+				ObjectIO.close(in);
+				String forestfile = tokens[0] + (j / unit) + "." + tokens[1];
+				in = ObjectIO.getObjectInputStream(forestfile);
+			}
+			DependencyInstance inst = manager.readInstance(in, model);
+			Pair<FeatureVector, String>[] d = decoder.decode(manager, inst, model.trainingK());
+			this.updateParams(inst, d, model);
+		}
+		
+		//close in
+		ObjectIO.close(in);
+	}
+	
+	protected void evalCurrentAcc(Manager manager, Decoder decoder, ParserModel tempModel, String devfile, String logfile, String modelfile, int numDevInst) throws TrainingException{
+		DependencyWriter tempWriter = null;
+		ObjectInputStream in = ObjectIO.getObjectInputStream(tempModel.devforest());
+		String tempfile = "tmp/result.tmp";
+		
+		try {
+			tempWriter = DependencyWriter.createDependencyWriter(tempModel.getWriter());
+			tempWriter.startWriting(tempfile);
+		} catch (IOException | InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+			throw new TrainingException(e.getMessage());
+		}
+		
+		for(int j = 0; j < numDevInst; ++j){
+			DependencyInstance inst = manager.readInstance(in, tempModel);
+			Pair<FeatureVector, String>[] d = decoder.decode(manager, inst, 1);
+			String[] res = d[0].second.split(" ");
+			int[] heads = new int[inst.length()];
+			String[] types = new String[inst.length()];
+			heads[0] = -1;
+			types[0] = "<no-type>";
+			for(int k = 1; k < inst.length(); k++){
+				String[] trip = res[k - 1].split("\\|:");
+				heads[k] = Integer.parseInt(trip[0]);
+				types[k] = tempModel.getType(Integer.parseInt(trip[2]));
+			}
+			
 			try {
-				in.close();
+				tempWriter.write(inst, heads, types);
 			} catch (IOException e) {
 				throw new TrainingException(e.getMessage());
 			}
-			System.out.println("\b\b\b" + numTrainInst + "|Time:" + (System.currentTimeMillis() / 1000 - clock) + "]");
 		}
-		model.averageParams(numIters * numTrainInst);
+		
+		//evaluate current acc
+		// TODO
+		
+		//close in & tempWriter
+		ObjectIO.close(in);
+		try {
+			tempWriter.close();
+		} catch (IOException e) {
+			throw new TrainingException(e.getMessage());
+		}
 	}
 	
-	@Override
+	protected void trainWithoutDev(Manager manager, Decoder decoder, ParserModel model, String trainfile, String modelfile, int numTrainInst) throws TrainingException{
+		int numIters = model.iterNum();
+		for(int i = 0; i < numIters; ++i){
+			System.out.print("Iteration " + i + "[");
+			long clock = System.currentTimeMillis() / 1000;
+			trainWithoutDevIter(manager, decoder, model, numTrainInst, numIters, i);
+			System.out.println(numTrainInst + "|Time:" + (System.currentTimeMillis() / 1000 - clock) + "]");
+			System.out.flush();
+		}
+		model.averageParams(numIters * numTrainInst);
+		System.out.print("Saving Model...");
+		long clock = System.currentTimeMillis() / 1000;
+		saveModel(model, modelfile);
+		System.out.println("Done. Took: " + (System.currentTimeMillis() / 1000 - clock) + "s.");
+	}
+	
+	protected void trainWithoutDevIter(Manager manager, Decoder decoder, ParserModel model, int numTrainInst, int numIters, int iter) throws TrainingException{
+		ObjectInputStream in = null;
+		int threadNum = model.threadNum();
+		String[] tokens = model.trainforest().split("\\.");
+		int unit = (numTrainInst % threadNum == 0) ? numTrainInst / threadNum : numTrainInst / threadNum + 1;
+		for(int j = 0; j < numTrainInst; ++j){
+			if(j % 500 == 0){
+				int percent = j * 100 / numTrainInst;
+				System.out.print("\b\b\b" + (percent < 10 ? " " : "") + percent + "%");
+				System.out.flush();
+			}
+			if(j % unit == 0){
+				ObjectIO.close(in);
+				String forestfile = tokens[0] + (j / unit) + "." + tokens[1];
+				in = ObjectIO.getObjectInputStream(forestfile);
+			}
+			double upd = (numIters * numTrainInst - (numTrainInst * iter + (j + 1)) + 1);
+			DependencyInstance inst = manager.readInstance(in, model);
+			Pair<FeatureVector, String>[] d = decoder.decode(manager, inst, model.trainingK());
+			this.updateParams(inst, d, upd, model);
+		}
+		System.out.print("\b\b\b");
+		
+		//close in
+		ObjectIO.close(in);
+	}
+	
 	public void updateParams(DependencyInstance inst, Pair<FeatureVector, String>[] d, double upd, ParserModel model){
 		String actParseTree = inst.getTreeString();
 		FeatureVector actFV = inst.getFeatureVector();
@@ -148,7 +184,6 @@ public class MIRAPBTrainer extends Trainer{
 		}
 	}
 	
-	@Override
 	public void updateParams(DependencyInstance inst, Pair<FeatureVector, String>[] d, ParserModel model){
 		String actParseTree = inst.getTreeString();
 		FeatureVector actFV = inst.getFeatureVector();

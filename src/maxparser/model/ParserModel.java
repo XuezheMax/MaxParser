@@ -36,8 +36,20 @@ public class ParserModel implements Serializable{
 		typeAlphabet = new Alphabet(default_pos_size);
 	}
 	
-	private ParserModel(Parameters params){
+	private ParserModel(Parameters params, ParserOptions options, Alphabet featAlphabet, 
+			Alphabet formAlphabet, Alphabet lemmaAlphabet, 
+			Alphabet cposAlphabet, Alphabet posAlphabet, 
+			Alphabet morphAlphabet, Alphabet typeAlphabet,
+			String[] types){
 		this.params = params;
+		this.options = options;
+		this.featAlphabet = featAlphabet;
+		this.formAlphabet = formAlphabet;
+		this.lemmaAlphabet = lemmaAlphabet;
+		this.cposAlphabet = cposAlphabet;
+		this.posAlphabet = posAlphabet;
+		this.morphAlphabet = morphAlphabet;
+		this.types = types;
 	}
 	
 	public void createParameters(int size){
@@ -79,7 +91,9 @@ public class ParserModel implements Serializable{
 	
 	public ParserModel getTemporalModel(double avVal){
 		Parameters tempParams = params.getTemporalParames(avVal);
-		return new ParserModel(tempParams);
+		return new ParserModel(tempParams, this.options, this.featAlphabet,
+				this.formAlphabet, this.lemmaAlphabet, this.cposAlphabet, this.posAlphabet,
+				this.morphAlphabet, this.typeAlphabet, this.types);
 	}
 	
 	public void averageParams(double avVal){
@@ -210,6 +224,7 @@ public class ParserModel implements Serializable{
 		out.writeObject(morphAlphabet);
 		out.writeObject(typeAlphabet);
 		out.writeObject(params);
+		out.writeObject(types);
 	}
 	
 	private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException{
@@ -222,5 +237,6 @@ public class ParserModel implements Serializable{
 		morphAlphabet = (Alphabet) in.readObject();
 		typeAlphabet = (Alphabet) in.readObject();
 		params = (Parameters) in.readObject();
+		types = (String[]) in.readObject();
 	}
 }

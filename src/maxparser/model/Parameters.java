@@ -74,5 +74,6 @@ public class Parameters implements Serializable{
 	
 	private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException{
 		parameters = (double[]) in.readObject();
+		total = null;
 	}
 }

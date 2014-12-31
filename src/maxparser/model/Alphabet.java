@@ -1,19 +1,20 @@
 package maxparser.model;
 
+import gnu.trove.map.hash.TObjectIntHashMap;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 public class Alphabet implements Serializable{
-	gnu.trove.map.hash.TObjectIntHashMap<String> map;
+	TObjectIntHashMap<String> map;
 	
 	int numEntries;
 
 	boolean growthStopped = false;
 
 	public Alphabet(int capacity) {
-		this.map = new gnu.trove.map.hash.TObjectIntHashMap<String>(capacity);
+		this.map = new TObjectIntHashMap<String>(capacity);
 		numEntries = 0;
 	}
 
@@ -84,7 +85,7 @@ public class Alphabet implements Serializable{
 			System.exit(1);
 		}
 		numEntries = in.readInt();
-		map = (gnu.trove.map.hash.TObjectIntHashMap<String>) in.readObject();
+		map = (TObjectIntHashMap<String>) in.readObject();
 		growthStopped = in.readBoolean();
 	}
 }

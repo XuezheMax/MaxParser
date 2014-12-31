@@ -7,9 +7,11 @@ import maxparser.model.ParserModel;
 public class FirstOrderFeatureGenerator extends FeatureGenerator{
 	
 	public FirstOrderFeatureGenerator(){}
-	
+
 	@Override
-	public FeatureVector createFeatureVector(DependencyInstance instance, ParserModel model){
+	public FeatureVector createFeatureVector(DependencyInstance instance,
+			ParserModel model) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 }

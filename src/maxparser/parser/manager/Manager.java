@@ -1,6 +1,5 @@
 package maxparser.parser.manager;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -8,7 +7,9 @@ import java.util.ArrayList;
 
 import maxparser.DependencyInstance;
 import maxparser.Pair;
+import maxparser.exception.TrainingException;
 import maxparser.io.DependencyReader;
+import maxparser.io.ObjectIO;
 import maxparser.model.ParserModel;
 import maxparser.parser.featgen.FeatureGenerator;
 import maxparser.parser.typelabler.TypeLabeler;
@@ -19,7 +20,7 @@ public abstract class Manager {
 	
 	public String genTreeString(int[] heads, int[] types){
 		StringBuffer spans = new StringBuffer(heads.length * 5);
-		for(int i = 0; i < heads.length; i++){
+		for(int i = 1; i < heads.length; i++){
 			spans.append(heads[i]).append("|").append(i).append(":")
                 .append(types[i]).append(" ");
 		}
@@ -48,7 +49,7 @@ public abstract class Manager {
 		return instList;
 	}
 	
-	public int[] createInstance(String trainfile, String trainforest, String devfile, String devforest, ParserModel model){
+	public int[] createInstance(String trainfile, String trainforest, String devfile, String devforest, ParserModel model) throws TrainingException{
 		long clock = System.currentTimeMillis();
 		int[] results = new int[3];
 		ArrayList<DependencyInstance> instList = null;
@@ -56,7 +57,7 @@ public abstract class Manager {
 			instList = createAlphabets(trainfile, model);
 		} catch (InstantiationException | IllegalAccessException
 				| ClassNotFoundException | IOException e) {
-			e.printStackTrace();
+			throw new TrainingException(e.getMessage());
 		}
 		System.out.println("Num Features: " + model.featureSize());
 		System.out.println("Num Forms: " + model.formSize());
@@ -96,7 +97,7 @@ public abstract class Manager {
 				try {
 					thread.join();
 				} catch (InterruptedException e) {
-					e.printStackTrace();
+					throw new TrainingException(e.getMessage());
 				}
 			}
 		}
@@ -105,7 +106,7 @@ public abstract class Manager {
 		
 		if(devfile != null){
 			try {
-				ObjectOutputStream out = createforest ? new ObjectOutputStream(new FileOutputStream(devforest)) : null;
+				ObjectOutputStream out = createforest ? ObjectIO.getObjectOutputStream(devforest) : null;
 				DependencyReader reader = DependencyReader.createDependencyReader(model.getReader());
 				reader.startReading(devfile);
 				DependencyInstance instance = reader.getNext(model);
@@ -126,7 +127,7 @@ public abstract class Manager {
 					out.close();
 				}
 			} catch (IOException | ReflectiveOperationException e) {
-				e.printStackTrace();
+				throw new TrainingException(e.getMessage());
 			}
 		}
 		results[0] = maxLength;
@@ -157,7 +158,7 @@ class CreateForestThread extends Thread{
 	
 	public void run(){
 		try {
-			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(forestfile));
+			ObjectOutputStream out = ObjectIO.getObjectOutputStream(forestfile);
 			for(int i = start; i < end; i++){
 				manager.writeInstance(instList.get(i), out, model);
 			}
