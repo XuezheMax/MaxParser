@@ -1,5 +1,5 @@
 package maxparser.parser.decoder;
 
-public class FirstOrderProjDecoder {
+public class FirstOrderProjDecoder extends Decoder{
 
 }

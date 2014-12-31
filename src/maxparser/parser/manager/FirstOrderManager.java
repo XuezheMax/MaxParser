@@ -1,5 +1,5 @@
 package maxparser.parser.manager;
 
-public class FirstOrderManager {
+public class FirstOrderManager extends Manager{
 
 }

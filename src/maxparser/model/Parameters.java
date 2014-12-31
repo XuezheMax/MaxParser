@@ -32,6 +32,7 @@ public class Parameters implements Serializable{
 	
 	public Parameters(double[] parameters){
 		this.parameters = parameters;
+		this.total = null;
 	}
 	
 	public void averageParams(double avVal){
@@ -49,8 +50,22 @@ public class Parameters implements Serializable{
 		return new Parameters(tempParams);
 	}
 	
+	public void updateTotal(){
+		for(int i = 0; i < total.length; ++i){
+			total[i] += parameters[i];
+		}
+	}
+	
 	public double getScore(FeatureVector fv){
 		return fv.getScore(parameters);
+	}
+	
+	public void update(FeatureVector fv, double alpha_k, double upd){
+		fv.update(parameters,  total, alpha_k, upd);
+	}
+	
+	public void update(FeatureVector fv, double alpha_k){
+		fv.update(parameters, alpha_k);
 	}
 	
 	private void writeObject(ObjectOutputStream out) throws IOException{

@@ -1,5 +1,5 @@
 package maxparser.parser;
 
-public class FirstOrderNonProjParser {
+public class FirstOrderNonProjParser extends Parser{
 
 }

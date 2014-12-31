@@ -64,6 +64,14 @@ public class DependencyInstance implements Serializable{
 		this.deprelIds = deprelIds;
 	}
 	
+	public void setTreeString(String treeStr){
+		this.actParseTree = treeStr;
+	}
+	
+	public String getTreeString(){
+		return actParseTree;
+	}
+	
 	public FeatureVector getFeatureVector(){
 		return fv;
 	}
