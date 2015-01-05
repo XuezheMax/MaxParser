@@ -24,6 +24,7 @@ public class ParserModel implements Serializable{
 	private Alphabet morphAlphabet = null;
 	private Alphabet typeAlphabet = null;
 	private String[] types = null;
+	private Alphabet prefixAlphabet = null;
 	
 	public ParserModel(ParserOptions options){
 		this.options = options;
@@ -34,13 +35,14 @@ public class ParserModel implements Serializable{
 		cposAlphabet = new Alphabet(default_pos_size);
 		morphAlphabet = new Alphabet(default_pos_size);
 		typeAlphabet = new Alphabet(default_pos_size);
+		prefixAlphabet = new Alphabet(default_pos_size);
 	}
 	
 	private ParserModel(Parameters params, ParserOptions options, Alphabet featAlphabet, 
 			Alphabet formAlphabet, Alphabet lemmaAlphabet, 
 			Alphabet cposAlphabet, Alphabet posAlphabet, 
 			Alphabet morphAlphabet, Alphabet typeAlphabet,
-			String[] types){
+			String[] types, Alphabet prefixAlphabet){
 		this.params = params;
 		this.options = options;
 		this.featAlphabet = featAlphabet;
@@ -50,6 +52,7 @@ public class ParserModel implements Serializable{
 		this.posAlphabet = posAlphabet;
 		this.morphAlphabet = morphAlphabet;
 		this.types = types;
+		this.prefixAlphabet = prefixAlphabet;
 	}
 	
 	public void createParameters(int size){
@@ -64,6 +67,7 @@ public class ParserModel implements Serializable{
 		posAlphabet.stopGrowth();
 		morphAlphabet.stopGrowth();
 		typeAlphabet.stopGrowth();
+		prefixAlphabet.stopGrowth();
 		
 		types = new String[typeAlphabet.size()];
 		String[] keys = typeAlphabet.toArray();
@@ -93,7 +97,7 @@ public class ParserModel implements Serializable{
 		Parameters tempParams = params.getTemporalParames(avVal);
 		return new ParserModel(tempParams, this.options, this.featAlphabet,
 				this.formAlphabet, this.lemmaAlphabet, this.cposAlphabet, this.posAlphabet,
-				this.morphAlphabet, this.typeAlphabet, this.types);
+				this.morphAlphabet, this.typeAlphabet, this.types, this.prefixAlphabet);
 	}
 	
 	public void averageParams(double avVal){
@@ -168,6 +172,11 @@ public class ParserModel implements Serializable{
 	//get type size
 	public int typeSize(){
 		return typeAlphabet.size();
+	}
+	
+	//get prefix index
+	public int getPrefixIndex(String prefix){
+		return prefixAlphabet.lookupIndex(prefix);
 	}
 	
 	public boolean isPunct(String pos){

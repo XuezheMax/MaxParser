@@ -6,12 +6,13 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import maxparser.DependencyInstance;
-import maxparser.Pair;
+import maxparser.FeatureVector;
 import maxparser.exception.TrainingException;
 import maxparser.io.DependencyReader;
 import maxparser.io.ObjectIO;
 import maxparser.model.ParserModel;
 import maxparser.parser.featgen.FeatureGenerator;
+import maxparser.parser.indextuple.IndexTuple;
 import maxparser.parser.typelabler.TypeLabeler;
 
 public abstract class Manager {
@@ -38,7 +39,7 @@ public abstract class Manager {
 		System.out.println("Creating Alphabet ... ");
 		DependencyInstance instance = reader.getNext(model);
 		while(instance != null){
-			instance.setFeatureVector(featGen.createFeatureVector(instance, model));
+			instance.setFeatureVector(createFeatureVector(instance, model));
 			instance.setTreeString(genTreeString(instance.heads, instance.deprelIds));
 			instList.add(instance);
 			instance = reader.getNext(model);
@@ -49,7 +50,7 @@ public abstract class Manager {
 		return instList;
 	}
 	
-	public int[] createInstance(String trainfile, String trainforest, String devfile, String devforest, ParserModel model) throws TrainingException{
+	public final int[] createInstance(String trainfile, String trainforest, String devfile, String devforest, ParserModel model) throws TrainingException{
 		long clock = System.currentTimeMillis();
 		int[] results = new int[3];
 		ArrayList<DependencyInstance> instList = null;
@@ -112,7 +113,7 @@ public abstract class Manager {
 				DependencyInstance instance = reader.getNext(model);
 				while(instance != null){
 					results[2]++;
-					instance.setFeatureVector(featGen.createFeatureVector(instance, model));
+					instance.setFeatureVector(createFeatureVector(instance, model));
 					instance.setTreeString(genTreeString(instance.heads, instance.deprelIds));
 					if(createforest){
 						this.writeInstance(instance, out, model);
@@ -135,9 +136,38 @@ public abstract class Manager {
 		return results;
 	}
 	
-	protected abstract void writeInstance(DependencyInstance inst, ObjectOutputStream out, ParserModel model);
-	public abstract DependencyInstance readInstance(ObjectInputStream in, ParserModel model);
+	public final FeatureVector createFeatureVector(DependencyInstance inst, ParserModel model){
+		FeatureVector fv = new FeatureVector();
+		featGen.genUnlabeledFeatures(inst, model, fv);
+		typelabeler.genLabeledFeatures(inst, model, fv);
+		return fv;
+	}
+	
+	protected final void writeInstance(DependencyInstance inst, ObjectOutputStream out, ParserModel model) throws IOException{
+		writeUnlabeledInstance(inst, out, model);
+		typelabeler.writeLabeledInstance(inst, out, model);
+	}
+	
+	public final DependencyInstance readInstance(ObjectInputStream in, ParserModel model) throws IOException, ClassNotFoundException{
+		DependencyInstance inst = readUnlabeledInstance(in, model);
+		typelabeler.readLabeledInstance(in, model);
+		return inst;
+	}
+	
+	public final void fillFeatureVector(DependencyInstance inst, ParserModel model){
+		fillUnlabeledFeatureVector(inst, model);
+		typelabeler.fillLabeledFeatureVector(inst, model);
+	}
+	
+	protected abstract void writeUnlabeledInstance(DependencyInstance inst, ObjectOutputStream out, ParserModel model) throws IOException;
+	
+	protected abstract DependencyInstance readUnlabeledInstance(ObjectInputStream in, ParserModel model) throws IOException, ClassNotFoundException;
+	
+	protected abstract void fillUnlabeledFeatureVector(DependencyInstance inst, ParserModel model);
+	
 	public abstract void init(int maxLength);
+	
+	public abstract double getScore(IndexTuple itemId);
 }
 
 class CreateForestThread extends Thread{

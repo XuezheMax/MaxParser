@@ -19,6 +19,7 @@ public abstract class Parser {
 		manager.setTypeLabeler(typeLabeler);
 		int[] nums= manager.createInstance(trainfile, model.trainforest(), devfile, model.devforest(), model);
 		manager.init(nums[0]);
+		typeLabeler.init(nums[0]);
 		trainer.train(manager, decoder, model, trainfile, devfile, logfile, modelfile, nums[1], nums[2]);
 	}
 }
