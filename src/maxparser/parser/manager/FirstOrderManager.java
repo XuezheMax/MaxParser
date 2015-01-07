@@ -91,7 +91,7 @@ public class FirstOrderManager extends Manager{
 	}
 
 	@Override
-	public double getScore(IndexTuple itemId) {
+	public double getUnlabeledScore(IndexTuple itemId) {
 		FirstOrderIndexTuple id = (FirstOrderIndexTuple) itemId;
 		return probs[id.par][id.ch];
 	}

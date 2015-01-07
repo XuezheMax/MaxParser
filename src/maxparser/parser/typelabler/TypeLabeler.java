@@ -21,7 +21,9 @@ public abstract class TypeLabeler {
 	
 	public abstract void fillLabeledFeatureVector(DependencyInstance inst, ParserModel model);
 	
-	public abstract double getScore(IndexTuple itemId);
+	public abstract double getLabeledScore(IndexTuple itemId);
 	
-	public abstract void getType(IndexTuple itemId);
+	public abstract int getType(IndexTuple itemId);
+	
+	public abstract void getTypes(int length);
 }

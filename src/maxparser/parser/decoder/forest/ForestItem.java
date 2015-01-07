@@ -2,7 +2,7 @@ package maxparser.parser.decoder.forest;
 
 public class ForestItem {
 	public short s, r, t, dir, comp, type;
-	double score;
+	public double score;
 	
 	ForestItem left;
 	ForestItem right;

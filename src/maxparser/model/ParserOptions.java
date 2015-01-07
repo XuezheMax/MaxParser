@@ -1,6 +1,9 @@
 package maxparser.model;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -39,6 +42,7 @@ public class ParserOptions implements Serializable{
 								DEFAULT_TRAININGK = "1",
 								CREATE_FOREST = "create-forest",
 								DEFAULT_CREATE_FOREST = Boolean.FALSE.toString(),
+								CONFIGURATION = "config",
 								TRAININGFILE = "train-file",
 								TESTFILE = "test-file",
 								DEVFILE = "dev-file",
@@ -109,6 +113,7 @@ public class ParserOptions implements Serializable{
 		valid_opt_set.add(GOLDFILE);
 		valid_opt_set.add(MODELFILE);
 		valid_opt_set.add(LOGFILE);
+		valid_opt_set.add(CONFIGURATION);
 	}
 	
 	private String helpInfo(){
@@ -132,12 +137,42 @@ public class ParserOptions implements Serializable{
 				}
 			}
 		}
+		String configfile = getArgValue(CONFIGURATION);
+		if(configfile != null){
+			parseOptions(configfile);
+		}
+		
 		labeled = !getArgValue(TYPE_LABELER).equals(DEFAULT_TYPELABELER_CLASS);
 		String[] tokens = getArgValue(PUNCTUATION).split("\\|");
 		for(String punc : tokens){
 			punctSet.add(punc);
 		}
 		checkError();
+	}
+	
+	private void parseOptions(String configfile) throws OptionException{
+		try {
+			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(configfile)));
+			String line = reader.readLine().trim();
+			while(line != null){
+				if(line.length() == 0){
+					line = reader.readLine().trim();
+					continue;
+				}
+				String[] tokens = line.split("=");
+				if(!valid_opt_set.contains(tokens[0])){
+					reader.close();
+					throw new OptionException("unexpected argument name: " + tokens[0] + "\n" + helpInfo());
+				}
+				else{
+					argToValueMap.put(tokens[0], tokens[1]);
+				}
+				line = reader.readLine().trim();
+			}
+			reader.close();
+		} catch (IOException e) {
+			throw new OptionException(e.getMessage());
+		}
 	}
 	
 	private void checkError() throws OptionException{

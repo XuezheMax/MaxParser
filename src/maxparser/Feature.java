@@ -2,6 +2,7 @@ package maxparser;
 
 import gnu.trove.list.TLinkableAdapter;
 
+@SuppressWarnings("rawtypes")
 public class Feature extends TLinkableAdapter{
 	/**
 	 * 

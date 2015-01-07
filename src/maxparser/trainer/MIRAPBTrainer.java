@@ -87,7 +87,7 @@ public class MIRAPBTrainer extends Trainer{
 			
 			try{
 				DependencyInstance inst = manager.readInstance(in, model);
-				Pair<FeatureVector, String>[] d = decoder.decode(manager, inst, model.trainingK());
+				Pair<FeatureVector, String>[] d = decoder.decode(manager, inst, model.trainingK(), model);
 				this.updateParams(inst, d, model);
 			} catch (IOException | ClassNotFoundException e) {
 				throw new TrainingException(e.getMessage());
@@ -118,7 +118,7 @@ public class MIRAPBTrainer extends Trainer{
 				throw new TrainingException(e.getMessage());
 			}
 			
-			Pair<FeatureVector, String>[] d = decoder.decode(manager, inst, 1);
+			Pair<FeatureVector, String>[] d = decoder.decode(manager, inst, 1, tempModel);
 			String[] res = d[0].second.split(" ");
 			int[] heads = new int[inst.length()];
 			String[] types = new String[inst.length()];
@@ -186,7 +186,7 @@ public class MIRAPBTrainer extends Trainer{
 			try{
 				double upd = (numIters * numTrainInst - (numTrainInst * iter + (j + 1)) + 1);
 				DependencyInstance inst = manager.readInstance(in, model);
-				Pair<FeatureVector, String>[] d = decoder.decode(manager, inst, model.trainingK());
+				Pair<FeatureVector, String>[] d = decoder.decode(manager, inst, model.trainingK(), model);
 				this.updateParams(inst, d, upd, model);
 			} catch (IOException | ClassNotFoundException e) {
 				throw new TrainingException(e.getMessage());
@@ -203,7 +203,7 @@ public class MIRAPBTrainer extends Trainer{
 		FeatureVector actFV = inst.getFeatureVector();
 
 		int K = 0;
-		for (int i = 0; i < d.length && d[i].first != null; i++) {
+		for (int i = 0; i < d.length && d[i] != null; i++) {
 			K = i + 1;
 		}
 
@@ -230,7 +230,7 @@ public class MIRAPBTrainer extends Trainer{
 		FeatureVector actFV = inst.getFeatureVector();
 
 		int K = 0;
-		for (int i = 0; i < d.length && d[i].first != null; i++) {
+		for (int i = 0; i < d.length && d[i] != null; i++) {
 			K = i + 1;
 		}
 

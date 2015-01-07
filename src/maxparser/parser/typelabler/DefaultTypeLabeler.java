@@ -28,12 +28,17 @@ public class DefaultTypeLabeler extends TypeLabeler{
 	public void fillLabeledFeatureVector(DependencyInstance inst, ParserModel model) {}
 
 	@Override
-	public double getScore(IndexTuple itemId) {
+	public double getLabeledScore(IndexTuple itemId) {
 		return 0;
 	}
 
 	@Override
-	public void getType(IndexTuple itemId) {}
+	public int getType(IndexTuple itemId) {
+		return 0;
+	}
+
+	@Override
+	public void getTypes(int length) {}
 	
 	
 }

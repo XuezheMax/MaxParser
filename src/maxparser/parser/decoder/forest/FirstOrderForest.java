@@ -1,7 +1,12 @@
 package maxparser.parser.decoder.forest;
 
+import maxparser.DependencyInstance;
+import maxparser.FeatureVector;
+import maxparser.Pair;
+import maxparser.model.ParserModel;
 import maxparser.parser.decoder.forest.indextuple.FirstOrderForestIndexTuple;
 import maxparser.parser.decoder.forest.indextuple.ForestIndexTuple;
+import maxparser.parser.manager.Manager;
 
 public class FirstOrderForest extends Forest{
 	protected ForestItem[][] chart = null;
@@ -44,7 +49,7 @@ public class FirstOrderForest extends Forest{
 	}
 
 	@Override
-	public boolean addItem(ForestIndexTuple forestIndex, short type, double score, ForestItem left, ForestItem right) {
+	public boolean addItem(ForestIndexTuple forestIndex, short r, short type, double score, ForestItem left, ForestItem right) {
 		boolean added = false;
 		int key = getKey(forestIndex);
 		if(chart[key][K - 1].score > score){
@@ -55,7 +60,7 @@ public class FirstOrderForest extends Forest{
 		for(int k = 0; k < K; ++k){
 			if(chart[key][k].score < score){
 				ForestItem tmp = chart[key][k];
-				chart[key][k] = new ForestItem(id.s, id.r, id.t, type, id.dir, id.comp, score, left, right);
+				chart[key][k] = new ForestItem(id.s, r, id.t, type, id.dir, id.comp, score, left, right);
 				for(int j = k + 1; j < K && tmp.score != Double.NEGATIVE_INFINITY; ++j){
 					ForestItem tmp1 = chart[key][j];
 					chart[key][j] = tmp;
@@ -66,6 +71,59 @@ public class FirstOrderForest extends Forest{
 			}
 		}
 		return added;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Pair<FeatureVector, String>[] getBestParses(DependencyInstance inst, Manager manager, ParserModel model) {
+		Pair<FeatureVector, String>[] d = (Pair<FeatureVector, String>[]) new Pair[K];
+		int key = getKey((short) 0, (short) end, (short) 0, (short) 1);
+		for(int k = 0; k < K; ++k){
+			d[k] = null;
+			if(chart[key][k].score != Double.NEGATIVE_INFINITY){
+				d[k] = new Pair<FeatureVector, String>();
+				d[k].second = getDepString(chart[key][k]);
+				d[k].first = getFeatureVector(inst, manager, model, d[k].second);
+			}
+		}
+		return d;
+	}
+
+	@Override
+	protected FeatureVector getFeatureVector(DependencyInstance inst, Manager manager, ParserModel model, String depStr) {
+		Pair<int[], int[]> p = manager.getHeadsTypesfromTreeString(depStr);
+		
+		int[] heads_tmp = inst.heads;
+		int[] typeIds_tmp = inst.deprelIds;
+		
+		inst.heads = p.first;
+		inst.deprelIds = p.second;
+		
+		FeatureVector fv = manager.createFeatureVector(inst, model);
+		
+		inst.heads = heads_tmp;
+		inst.deprelIds = typeIds_tmp;
+		
+		return fv;
+	}
+
+	@Override
+	protected String getDepString(ForestItem item) {
+		if(item.left == null){
+			return "";
+		}
+		
+		if(item.comp == 1){
+			return (getDepString(item.left) + " " + getDepString(item.right)).trim();
+		}
+		else if(item.dir == 0){
+			return ((getDepString(item.left) + " " + getDepString(item.right)).trim() 
+					+ " " + item.s + "|" + item.t + ":" + item.type).trim();
+		}
+		else{
+			return (item.t + "|" + item.s + ":" + item.type + " " 
+					+ (getDepString(item.left) + " " + getDepString(item.right)).trim()).trim();
+		}
 	}
 
 }

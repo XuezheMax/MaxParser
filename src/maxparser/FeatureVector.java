@@ -3,6 +3,7 @@ package maxparser;
 import gnu.trove.list.linked.TLinkedList;
 import gnu.trove.map.hash.TIntDoubleHashMap;
 
+@SuppressWarnings("rawtypes")
 public class FeatureVector extends TLinkedList {
 	private FeatureVector subfv1 = null;
 
@@ -18,12 +19,14 @@ public class FeatureVector extends TLinkedList {
 		negateSecondSubFV = negSecond;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public FeatureVector(int[] keys){
 		for(int i = 0; i < keys.length; ++i){
 			this.add(new Feature(keys[i], 1.0));		
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void add(int index, double value){
 		this.add(new Feature(index, value));
 	}

@@ -76,6 +76,7 @@ public class Alphabet implements Serializable{
 		out.writeBoolean(growthStopped);
 	}
 
+	@SuppressWarnings("unchecked")
 	private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
 		int version = in.readInt();
 		if(version != CURRENT_SERIAL_VERSION){

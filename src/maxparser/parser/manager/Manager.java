@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import maxparser.DependencyInstance;
 import maxparser.FeatureVector;
+import maxparser.Pair;
 import maxparser.exception.TrainingException;
 import maxparser.io.DependencyReader;
 import maxparser.io.ObjectIO;
@@ -17,7 +18,7 @@ import maxparser.parser.typelabler.TypeLabeler;
 
 public abstract class Manager {
 	protected FeatureGenerator featGen = null;
-	protected TypeLabeler typelabeler = null;
+	private TypeLabeler typelabeler = null;
 	
 	public String genTreeString(int[] heads, int[] types){
 		StringBuffer spans = new StringBuffer(heads.length * 5);
@@ -26,6 +27,20 @@ public abstract class Manager {
                 .append(types[i]).append(" ");
 		}
 		return spans.substring(0, spans.length() - 1);
+	}
+	
+	public Pair<int[], int[]> getHeadsTypesfromTreeString(String treeStr){
+		String[] tokens = treeStr.split(" ");
+		int length = tokens.length + 1;
+		Pair<int[], int[]> result = new Pair<int[], int[]>(new int[length], new int[length]);
+		result.first[0] = -1;
+		result.second[0] = 0;
+		for(int k = 1; k < length; ++k){
+			String[] trip = tokens[k - 1].split("\\|:");
+			result.first[k] = Integer.parseInt(trip[0]);
+			result.second[k] = Integer.parseInt(trip[2]);
+		}
+		return result;
 	}
 	
 	public void setTypeLabeler(TypeLabeler typeLabeler){
@@ -159,6 +174,18 @@ public abstract class Manager {
 		typelabeler.fillLabeledFeatureVector(inst, model);
 	}
 	
+	public final double getScore(IndexTuple itemId){
+		return getUnlabeledScore(itemId) + typelabeler.getLabeledScore(itemId);
+	}
+	
+	public int getType(IndexTuple itemId){
+		return typelabeler.getType(itemId);
+	}
+	
+	public void getTypes(int length){
+		typelabeler.getTypes(length);
+	}
+	
 	protected abstract void writeUnlabeledInstance(DependencyInstance inst, ObjectOutputStream out, ParserModel model) throws IOException;
 	
 	protected abstract DependencyInstance readUnlabeledInstance(ObjectInputStream in, ParserModel model) throws IOException, ClassNotFoundException;
@@ -167,7 +194,7 @@ public abstract class Manager {
 	
 	public abstract void init(int maxLength);
 	
-	public abstract double getScore(IndexTuple itemId);
+	protected abstract double getUnlabeledScore(IndexTuple itemId);
 }
 
 class CreateForestThread extends Thread{
