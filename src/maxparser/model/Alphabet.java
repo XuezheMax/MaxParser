@@ -11,15 +11,16 @@ public class Alphabet implements Serializable{
 	
 	int numEntries;
 
-	boolean growthStopped = false;
+	boolean growthStopped;
 
 	public Alphabet(int capacity) {
 		this.map = new TObjectIntHashMap<String>(capacity);
 		numEntries = 0;
+		growthStopped = false;
 	}
 
 	public Alphabet() {
-	this(10000);
+		this(10000);
 	}
 
 	/** Return -1 if entry isn't present. */
@@ -28,7 +29,7 @@ public class Alphabet implements Serializable{
 			throw new IllegalArgumentException("Can't lookup \"null\" in an Alphabet.");
 		}
 		
-		int ret = map.get(entry);
+		int ret = map.containsKey(entry) ? map.get(entry) : -1;
 		
 		if (ret == -1 && !growthStopped) {
 			ret = numEntries;
@@ -38,8 +39,8 @@ public class Alphabet implements Serializable{
 		return ret;
 	}
 	
-	public String[] toArray() {
-		return (String[])map.keys();
+	public Object[] toArray() {
+		return map.keys();
 	}
 
 	public boolean contains(String entry) {

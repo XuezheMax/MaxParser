@@ -13,6 +13,11 @@ import maxparser.parser.indextuple.IndexTuple;
 
 public class FirstOrderManager extends Manager{
 	
+	public FirstOrderManager(){
+		super();
+		featGen = new FirstOrderFeatureGenerator();
+	}
+	
 	protected double[][] probs = null;
 
 	@Override
@@ -66,7 +71,11 @@ public class FirstOrderManager extends Manager{
 				FeatureVector fv = new FeatureVector((int[]) in.readObject());
 				probs[par][ch] = model.getScore(fv);
 			}
-		}		
+		}
+		last = in.readInt();
+		if(last != -3){
+			throw new IOException("last number is not equal to -3");
+		}
 		return inst;
 	}
 
@@ -94,5 +103,27 @@ public class FirstOrderManager extends Manager{
 	public double getUnlabeledScore(IndexTuple itemId) {
 		FirstOrderIndexTuple id = (FirstOrderIndexTuple) itemId;
 		return probs[id.par][id.ch];
+	}
+
+	@Override
+	public void adjustEdgeLoss(DependencyInstance inst, ParserModel model) {
+		boolean nopunc = model.nopunc();
+		int length = inst.length();
+		for(int par = 0; par < length; ++par){
+			for(int ch = 0; ch < length; ++ch){
+				if(par == ch){
+					continue;
+				}
+				if(!nopunc || !model.isPunct(inst.postags[ch])){
+					probs[par][ch] += 1.0;
+				}
+			}
+		}
+		
+		for(int i = 1; i < length; ++i){
+			if(!nopunc || !model.isPunct(inst.postags[i])){
+				probs[inst.heads[i]][i] -= 1.0;
+			}
+		}
 	}
 }

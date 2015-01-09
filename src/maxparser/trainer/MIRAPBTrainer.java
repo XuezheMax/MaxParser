@@ -1,18 +1,14 @@
 package maxparser.trainer;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-
 import maxparser.io.ObjectIO;
-
 import maxparser.DependencyInstance;
 import maxparser.FeatureVector;
 import maxparser.Pair;
-import maxparser.exception.TrainingException;
 import maxparser.io.DependencyWriter;
 import maxparser.model.ParserModel;
 import maxparser.parser.decoder.Decoder;
@@ -21,7 +17,7 @@ import maxparser.parser.manager.Manager;
 public class MIRAPBTrainer extends Trainer{
 	
 	@Override
-	public void train(Manager manager, Decoder decoder, ParserModel model, String trainfile, String devfile, String logfile, String modelfile, int numTrainInst, int numDevInst) throws TrainingException{
+	public void train(Manager manager, Decoder decoder, ParserModel model, String trainfile, String devfile, String logfile, String modelfile, int numTrainInst, int numDevInst) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException{
 		if(devfile != null){
 			trainWithDev(manager, decoder, model, trainfile, devfile, logfile, modelfile, numTrainInst, numDevInst);
 		}
@@ -30,25 +26,19 @@ public class MIRAPBTrainer extends Trainer{
 		}
 	}
 	
-	protected void trainWithDev(Manager manager, Decoder decoder, ParserModel model, String trainfile, String devfile, String logfile, String modelfile, int numTrainInst, int numDevInst) throws TrainingException{
+	protected void trainWithDev(Manager manager, Decoder decoder, ParserModel model, String trainfile, String devfile, String logfile, String modelfile, int numTrainInst, int numDevInst) throws ClassNotFoundException, IOException, InstantiationException, IllegalAccessException{
 		int numIters = model.iterNum();
 		
-		PrintWriter logWriter = null;
-		
-		try {
-			logWriter = new PrintWriter(new OutputStreamWriter(new FileOutputStream(logfile)));
-		} catch (FileNotFoundException e) {
-			throw new TrainingException(e.getMessage());
-		}
+		PrintWriter logWriter = new PrintWriter(new OutputStreamWriter(new FileOutputStream(logfile)));
 		
 		double bestAcc = 0.0;
 		int bestIter = 0;
 		for(int i = 0; i < numIters; ++i){
-			System.out.print("Iteration " + (i + 1) + "[");
+			System.out.print("Iteration " + (i + 1) + "[   ");
 			long clock = System.currentTimeMillis() / 1000;
 			//training iteration
 			trainWithDevIter(manager, decoder, model, numTrainInst);
-			System.out.println("\b\b\b" + numTrainInst);
+			System.out.print(numTrainInst);
 			System.out.flush();
 			
 			//calc current accuracy
@@ -56,6 +46,7 @@ public class MIRAPBTrainer extends Trainer{
 			logWriter.println("Iter: " + (i + 1));
 			double acc = evalCurrentAcc(manager, decoder, tempModel, devfile, logWriter, numDevInst);
 			logWriter.println("------------------------------------------");
+			logWriter.flush();
 			if(bestAcc < acc){
 				bestAcc = acc;
 				saveModel(tempModel, modelfile);
@@ -68,7 +59,7 @@ public class MIRAPBTrainer extends Trainer{
 		System.out.println("Final Dev Accuracy: " + bestAcc + "% (Iter: " + bestIter + ")");
 	}
 	
-	protected void trainWithDevIter(Manager manager, Decoder decoder, ParserModel model, int numTrainInst) throws TrainingException{
+	protected void trainWithDevIter(Manager manager, Decoder decoder, ParserModel model, int numTrainInst) throws ClassNotFoundException, IOException{
 		ObjectInputStream in = null;
 		int threadNum = model.threadNum();
 		String[] tokens = model.trainforest().split("\\.");
@@ -85,38 +76,25 @@ public class MIRAPBTrainer extends Trainer{
 				in = ObjectIO.getObjectInputStream(forestfile);
 			}
 			
-			try{
-				DependencyInstance inst = manager.readInstance(in, model);
-				Pair<FeatureVector, String>[] d = decoder.decode(manager, inst, model.trainingK(), model);
-				this.updateParams(inst, d, model);
-			} catch (IOException | ClassNotFoundException e) {
-				throw new TrainingException(e.getMessage());
-			}
+			DependencyInstance inst = manager.readInstance(in, model);
+			Pair<FeatureVector, String>[] d = decoder.decode(manager, inst, model.trainingK(), model);
+			this.updateParams(inst, d, model);
 		}
-		
+		System.out.print("\b\b\b");
 		//close in
 		ObjectIO.close(in);
 	}
 	
-	protected double evalCurrentAcc(Manager manager, Decoder decoder, ParserModel tempModel, String devfile, PrintWriter logWriter, int numDevInst) throws TrainingException{
-		DependencyWriter tempWriter = null;
+	protected double evalCurrentAcc(Manager manager, Decoder decoder, ParserModel tempModel, String devfile, PrintWriter logWriter, int numDevInst) throws InstantiationException, IllegalAccessException, ClassNotFoundException, IOException{
 		ObjectInputStream in = ObjectIO.getObjectInputStream(tempModel.devforest());
 		String tempfile = "tmp/result.tmp";
 		
-		try {
-			tempWriter = DependencyWriter.createDependencyWriter(tempModel.getWriter());
-			tempWriter.startWriting(tempfile);
-		} catch (IOException | InstantiationException | IllegalAccessException | ClassNotFoundException e) {
-			throw new TrainingException(e.getMessage());
-		}
+		DependencyWriter tempWriter = DependencyWriter.createDependencyWriter(tempModel.getWriter());
+		tempWriter.startWriting(tempfile);
 		
 		for(int j = 0; j < numDevInst; ++j){
 			DependencyInstance inst = null;
-			try{
-				inst = manager.readInstance(in, tempModel);
-			} catch (IOException | ClassNotFoundException e) {
-				throw new TrainingException(e.getMessage());
-			}
+			inst = manager.readInstance(in, tempModel);
 			
 			Pair<FeatureVector, String>[] d = decoder.decode(manager, inst, 1, tempModel);
 			String[] res = d[0].second.split(" ");
@@ -125,35 +103,26 @@ public class MIRAPBTrainer extends Trainer{
 			heads[0] = -1;
 			types[0] = "<no-type>";
 			for(int k = 1; k < inst.length(); k++){
-				String[] trip = res[k - 1].split("\\|:");
+				String[] trip = res[k - 1].split("[\\|:]");
 				heads[k] = Integer.parseInt(trip[0]);
 				types[k] = tempModel.getType(Integer.parseInt(trip[2]));
 			}
 			
-			try {
-				tempWriter.write(inst, heads, types);
-			} catch (IOException e) {
-				throw new TrainingException(e.getMessage());
-			}
+			tempWriter.write(inst, heads, types);
 		}
-		
-		//evaluate current acc
-		double acc = maxparser.Evaluator.evaluate(devfile, tempfile, logWriter, tempModel);
 		
 		//close in & tempWriter
 		ObjectIO.close(in);
-		try {
-			tempWriter.close();
-		} catch (IOException e) {
-			throw new TrainingException(e.getMessage());
-		}
-		return acc;
+		tempWriter.close();
+		
+		//evaluate current acc
+		return maxparser.Evaluator.evaluate(devfile, tempfile, logWriter, tempModel);
 	}
 	
-	protected void trainWithoutDev(Manager manager, Decoder decoder, ParserModel model, String trainfile, String modelfile, int numTrainInst) throws TrainingException{
+	protected void trainWithoutDev(Manager manager, Decoder decoder, ParserModel model, String trainfile, String modelfile, int numTrainInst) throws ClassNotFoundException, IOException{
 		int numIters = model.iterNum();
 		for(int i = 0; i < numIters; ++i){
-			System.out.print("Iteration " + (i + 1) + "[");
+			System.out.print("Iteration " + (i + 1) + "[   ");
 			long clock = System.currentTimeMillis() / 1000;
 			trainWithoutDevIter(manager, decoder, model, numTrainInst, numIters, i);
 			System.out.println(numTrainInst + "|Time:" + (System.currentTimeMillis() / 1000 - clock) + "]");
@@ -166,7 +135,7 @@ public class MIRAPBTrainer extends Trainer{
 		System.out.println("Done. Took: " + (System.currentTimeMillis() / 1000 - clock) + "s.");
 	}
 	
-	protected void trainWithoutDevIter(Manager manager, Decoder decoder, ParserModel model, int numTrainInst, int numIters, int iter) throws TrainingException{
+	protected void trainWithoutDevIter(Manager manager, Decoder decoder, ParserModel model, int numTrainInst, int numIters, int iter) throws ClassNotFoundException, IOException{
 		ObjectInputStream in = null;
 		int threadNum = model.threadNum();
 		String[] tokens = model.trainforest().split("\\.");
@@ -183,14 +152,10 @@ public class MIRAPBTrainer extends Trainer{
 				in = ObjectIO.getObjectInputStream(forestfile);
 			}
 			
-			try{
-				double upd = (numIters * numTrainInst - (numTrainInst * iter + (j + 1)) + 1);
-				DependencyInstance inst = manager.readInstance(in, model);
-				Pair<FeatureVector, String>[] d = decoder.decode(manager, inst, model.trainingK(), model);
-				this.updateParams(inst, d, upd, model);
-			} catch (IOException | ClassNotFoundException e) {
-				throw new TrainingException(e.getMessage());
-			}
+			double upd = (numIters * numTrainInst - (numTrainInst * iter + (j + 1)) + 1);
+			DependencyInstance inst = manager.readInstance(in, model);
+			Pair<FeatureVector, String>[] d = decoder.decode(manager, inst, model.trainingK(), model);
+			this.updateParams(inst, d, upd, model);
 		}
 		System.out.print("\b\b\b");
 		
@@ -332,7 +297,7 @@ public class MIRAPBTrainer extends Trainer{
 	}
 	
 	public double numErrors(DependencyInstance inst, String pred, String act, ParserModel model) {
-		if (model.lossType().equals("nopunc")){
+		if (model.nopunc()){
 			return numErrorsDepNoPunc(inst, pred, act, model) + numErrorsLabelNoPunc(inst, pred, act, model);
 		}
 		else{

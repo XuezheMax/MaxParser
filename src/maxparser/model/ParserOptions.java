@@ -17,7 +17,7 @@ public class ParserOptions implements Serializable{
 	private final static String PARSER = "parser",
 								DEFAULT_PARSER_CLASS = maxparser.parser.FirstOrderProjParser.class.getName(),
 								TRAINER = "trainer",
-								DEFAULT_TRAINER_CLASS = maxparser.trainer.MIRAPBTrainer.class.getName(),
+								DEFAULT_TRAINER_CLASS = maxparser.trainer.MIRAMLTrainer.class.getName(),
 								TYPE_LABELER = "typelabeler",
 								DEFAULT_TYPELABELER_CLASS = maxparser.parser.typelabler.DefaultTypeLabeler.class.getName(),
 								SENT_READER = "reader",
@@ -35,7 +35,7 @@ public class ParserOptions implements Serializable{
 								COST = "cost",
 								DEFAULT_COST = "1.0",
 								MAP_SIZE = "map-size",
-								DEFAULT_MAP_SIZE = "100000",
+								DEFAULT_MAP_SIZE = "1000000",
 								ITER_NUMBER = "iters",
 								DEFAULT_ITER_NUMBER = "10",
 								TRAININGK = "training-k",
@@ -51,9 +51,9 @@ public class ParserOptions implements Serializable{
 								LOGFILE = "log-file",
 								MODELFILE = "model-file";
 	
-	private gnu.trove.map.hash.THashMap<String, String> argToValueMap = new gnu.trove.map.hash.THashMap<String, String>();
+	private gnu.trove.map.hash.THashMap<String, String> argToValueMap = null;
 	private HashSet<String> valid_opt_set = null;
-	private HashSet<String> punctSet;
+	private HashSet<String> punctSet = null;
 	private static final long serialVersionUID = 1L;
 	private final int maxiter = 5000;
 	private final double stop_eta = 0.000001;
@@ -62,7 +62,9 @@ public class ParserOptions implements Serializable{
 	private final String dev_forest = "tmp/dev.forest";
 	
 	private void init(){
+		argToValueMap = new gnu.trove.map.hash.THashMap<String, String>();
 		valid_opt_set = new HashSet<String>();
+		punctSet = new HashSet<String>(0);
 		//parser
 		valid_opt_set.add(PARSER);
 		argToValueMap.put(PARSER, DEFAULT_PARSER_CLASS);
@@ -117,6 +119,7 @@ public class ParserOptions implements Serializable{
 	}
 	
 	private String helpInfo(){
+		// TODO
 		return "Usage:\n";
 	}
 	
@@ -176,6 +179,7 @@ public class ParserOptions implements Serializable{
 	}
 	
 	private void checkError() throws OptionException{
+		// TODO
 		String mode = getArgValue(MODE);
 		if(mode.equals("test")){
 			if(getArgValue(TESTFILE) == null){
@@ -204,11 +208,16 @@ public class ParserOptions implements Serializable{
 			parseOptions(args);
 		} catch (OptionException e) {
 			e.printStackTrace();
+			System.exit(0);
 		}
 	}
 	
 	private String getArgValue(String argName){
 		return argToValueMap.get(argName);
+	}
+	
+	private void putArgValue(String argName, String value){
+		argToValueMap.put(argName, value);
 	}
 	
 	private void writeObject(ObjectOutputStream out) throws IOException{
@@ -219,6 +228,8 @@ public class ParserOptions implements Serializable{
 	private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException{
 		String parser = (String) in.readObject();
 		String typeLabeler = (String) in.readObject();
+		punctSet = new HashSet<String>(0);
+		argToValueMap = new gnu.trove.map.hash.THashMap<String, String>();
 		argToValueMap.put(PARSER, parser);
 		argToValueMap.put(TYPE_LABELER, typeLabeler);
 		labeled = !typeLabeler.equals(DEFAULT_TYPELABELER_CLASS);
@@ -316,7 +327,7 @@ public class ParserOptions implements Serializable{
 		return getArgValue(LOGFILE);
 	}
 	
-	public String getModeFile(){
+	public String getModelFile(){
 		return getArgValue(MODELFILE);
 	}
 	
@@ -326,5 +337,21 @@ public class ParserOptions implements Serializable{
 	
 	public String getDevForest(){
 		return dev_forest;
+	}
+	
+	public void putReader(String reader){
+		putArgValue(SENT_READER, reader);
+	}
+	
+	public void putWriter(String writer){
+		putArgValue(SENT_WRITER, writer);
+	}
+	
+	public HashSet<String> getPunctSet(){
+		return this.punctSet;
+	}
+	
+	public void setPunctSet(HashSet<String> punctSet){
+		this.punctSet = punctSet;
 	}
 }

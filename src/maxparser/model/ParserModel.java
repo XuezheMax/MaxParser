@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.HashSet;
 
 import maxparser.FeatureVector;
 
@@ -51,12 +52,13 @@ public class ParserModel implements Serializable{
 		this.cposAlphabet = cposAlphabet;
 		this.posAlphabet = posAlphabet;
 		this.morphAlphabet = morphAlphabet;
+		this.typeAlphabet = typeAlphabet;
 		this.types = types;
 		this.prefixAlphabet = prefixAlphabet;
 	}
 	
-	public void createParameters(int size){
-		params = new Parameters(size);
+	public void createParameters(){
+		params = new Parameters(featAlphabet.size());
 	}
 	
 	public void closeAlphabets(){
@@ -70,10 +72,10 @@ public class ParserModel implements Serializable{
 		prefixAlphabet.stopGrowth();
 		
 		types = new String[typeAlphabet.size()];
-		String[] keys = typeAlphabet.toArray();
-		for (String key : keys) {
-			int indx = typeAlphabet.lookupIndex(key);
-			types[indx] = key;
+		Object[] keys = typeAlphabet.toArray();
+		for (Object key : keys) {
+			int indx = typeAlphabet.lookupIndex((String) key);
+			types[indx] = (String) key;
 		}
 	}
 	
@@ -187,8 +189,8 @@ public class ParserModel implements Serializable{
 		return options.labeled();
 	}
 	
-	public String lossType(){
-		return options.lossType();
+	public boolean nopunc(){
+		return options.lossType().equals("nopunc");
 	}
 	
 	public boolean createforest(){
@@ -211,6 +213,18 @@ public class ParserModel implements Serializable{
 		return options.getWriter();
 	}
 	
+	public String getParser(){
+		return options.getParser();
+	}
+	
+	public String getTrainer(){
+		return options.getTrainer();
+	}
+	
+	public String getTypeLabeler(){
+		return options.getTypeLabeler();
+	}
+	
 	public int threadNum(){
 		return options.getThreadNum();
 	}
@@ -223,6 +237,18 @@ public class ParserModel implements Serializable{
 		return options.getTrainingK();
 	}
 	
+	public void putReader(String reader){
+		options.putReader(reader);
+	}
+	
+	public void putWriter(String writer){
+		options.putWriter(writer);
+	}
+	
+	public void setPunctSet(HashSet<String> punctSet){
+		options.setPunctSet(punctSet);
+	}
+	
 	private void writeObject(ObjectOutputStream out) throws IOException{
 		out.writeObject(options);
 		out.writeObject(featAlphabet);
@@ -232,6 +258,7 @@ public class ParserModel implements Serializable{
 		out.writeObject(posAlphabet);
 		out.writeObject(morphAlphabet);
 		out.writeObject(typeAlphabet);
+		out.writeObject(prefixAlphabet);
 		out.writeObject(params);
 		out.writeObject(types);
 	}
@@ -245,6 +272,7 @@ public class ParserModel implements Serializable{
 		posAlphabet = (Alphabet) in.readObject();
 		morphAlphabet = (Alphabet) in.readObject();
 		typeAlphabet = (Alphabet) in.readObject();
+		prefixAlphabet = (Alphabet) in.readObject();
 		params = (Parameters) in.readObject();
 		types = (String[]) in.readObject();
 	}

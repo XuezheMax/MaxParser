@@ -36,7 +36,7 @@ public abstract class Manager {
 		result.first[0] = -1;
 		result.second[0] = 0;
 		for(int k = 1; k < length; ++k){
-			String[] trip = tokens[k - 1].split("\\|:");
+			String[] trip = tokens[k - 1].split("[\\|:]");
 			result.first[k] = Integer.parseInt(trip[0]);
 			result.second[k] = Integer.parseInt(trip[2]);
 		}
@@ -65,16 +65,11 @@ public abstract class Manager {
 		return instList;
 	}
 	
-	public final int[] createInstance(String trainfile, String trainforest, String devfile, String devforest, ParserModel model) throws TrainingException{
+	public final int[] createInstance(String trainfile, String trainforest, String devfile, String devforest, ParserModel model) throws TrainingException, InstantiationException, IllegalAccessException, ClassNotFoundException, IOException{
 		long clock = System.currentTimeMillis();
 		int[] results = new int[3];
-		ArrayList<DependencyInstance> instList = null;
-		try {
-			instList = createAlphabets(trainfile, model);
-		} catch (InstantiationException | IllegalAccessException
-				| ClassNotFoundException | IOException e) {
-			throw new TrainingException(e.getMessage());
-		}
+		ArrayList<DependencyInstance> instList = createAlphabets(trainfile, model);
+		
 		System.out.println("Num Features: " + model.featureSize());
 		System.out.println("Num Forms: " + model.formSize());
 		System.out.println("Num Lemmas: " + model.lemmaSize());
@@ -116,40 +111,44 @@ public abstract class Manager {
 					throw new TrainingException(e.getMessage());
 				}
 			}
+			System.out.println("Done.");
 		}
 		results[1] = instList.size();
 		results[2] = 0;
 		
 		if(devfile != null){
-			try {
-				ObjectOutputStream out = createforest ? ObjectIO.getObjectOutputStream(devforest) : null;
-				DependencyReader reader = DependencyReader.createDependencyReader(model.getReader());
-				reader.startReading(devfile);
-				DependencyInstance instance = reader.getNext(model);
-				while(instance != null){
-					results[2]++;
-					instance.setFeatureVector(createFeatureVector(instance, model));
-					instance.setTreeString(genTreeString(instance.heads, instance.deprelIds));
-					if(createforest){
-						this.writeInstance(instance, out, model);
-					}
-					if(instance.length() > maxLength){
-						maxLength = instance.length();
-					}
-					instance = reader.getNext(model);
-				}
-				reader.close();
+			ObjectOutputStream out = createforest ? ObjectIO.getObjectOutputStream(devforest) : null;
+			DependencyReader reader = DependencyReader.createDependencyReader(model.getReader());
+			reader.startReading(devfile);
+			System.out.println("Creating development Instances: ");
+			int i = 0;
+			DependencyInstance instance = reader.getNext(model);
+			while(instance != null){
+				System.out.print(i++ + " ");
+				System.out.flush();
+				results[2]++;
+				instance.setFeatureVector(createFeatureVector(instance, model));
+				instance.setTreeString(genTreeString(instance.heads, instance.deprelIds));
 				if(createforest){
-					out.close();
+					this.writeInstance(instance, out, model);
 				}
-			} catch (IOException | ReflectiveOperationException e) {
-				throw new TrainingException(e.getMessage());
+				if(instance.length() > maxLength){
+					maxLength = instance.length();
+				}
+				instance = reader.getNext(model);
 			}
+			reader.close();
+			if(createforest){
+				out.close();
+			}
+			System.out.println("Done.");
 		}
 		results[0] = maxLength;
 		System.out.println("Took " + (System.currentTimeMillis() - clock) / 1000 + "s.");
 		return results;
 	}
+	
+	public abstract void adjustEdgeLoss(DependencyInstance inst, ParserModel model);
 	
 	public final FeatureVector createFeatureVector(DependencyInstance inst, ParserModel model){
 		FeatureVector fv = new FeatureVector();
@@ -217,6 +216,8 @@ class CreateForestThread extends Thread{
 		try {
 			ObjectOutputStream out = ObjectIO.getObjectOutputStream(forestfile);
 			for(int i = start; i < end; i++){
+				System.out.print(i + " ");
+				System.out.flush();
 				manager.writeInstance(instList.get(i), out, model);
 			}
 			out.close();

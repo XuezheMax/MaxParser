@@ -72,6 +72,7 @@ public class CONLLReader extends DependencyReader{
 			posIds[i] = model.getPOSIndex(pos[i]);
 			
 			morphs[i] = info[5].split("\\|");
+			morphIds[i] = new int[morphs[i].length];
 			int j = 0;
 			for(String morph : morphs[i]){
 				morphIds[i][j++] = model.getMorphIndex(morph);
@@ -86,8 +87,10 @@ public class CONLLReader extends DependencyReader{
 		}
 		
 		morphs[0] = new String[morphs[1].length];
+		morphIds[0] = new int[morphs[0].length];
 		for(int j = 0; j < morphs[0].length; ++j){
 			morphs[0][j] = "<root-feat>" + j;
+			morphIds[0][j] = model.getMorphIndex(morphs[0][j]);
 		}
 		
 		return new DependencyInstance(forms, formIds, lemmas, lemmaIds, cpos, cposIds, pos, posIds, morphs, morphIds, heads, deprels, deprelIds);
