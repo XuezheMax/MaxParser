@@ -18,7 +18,22 @@ public abstract class Forest {
 	
 	public abstract Pair<FeatureVector, String>[] getBestParses(DependencyInstance inst, Manager manager, ParserModel model);
 	
-	protected abstract FeatureVector getFeatureVector(DependencyInstance inst, Manager manager, ParserModel model, String depStr);
+	protected FeatureVector getFeatureVector(DependencyInstance inst, Manager manager, ParserModel model, String depStr){
+		Pair<int[], int[]> p = manager.getHeadsTypesfromTreeString(depStr);
+		
+		int[] heads_tmp = inst.heads;
+		int[] typeIds_tmp = inst.deprelIds;
+		
+		inst.heads = p.first;
+		inst.deprelIds = p.second;
+		
+		FeatureVector fv = manager.createFeatureVector(inst, model);
+		
+		inst.heads = heads_tmp;
+		inst.deprelIds = typeIds_tmp;
+		
+		return fv;
+	}
 	
 	protected abstract String getDepString(ForestItem item);
 	

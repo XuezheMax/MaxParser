@@ -90,24 +90,6 @@ public class FirstOrderForest extends Forest{
 	}
 
 	@Override
-	protected FeatureVector getFeatureVector(DependencyInstance inst, Manager manager, ParserModel model, String depStr) {
-		Pair<int[], int[]> p = manager.getHeadsTypesfromTreeString(depStr);
-		
-		int[] heads_tmp = inst.heads;
-		int[] typeIds_tmp = inst.deprelIds;
-		
-		inst.heads = p.first;
-		inst.deprelIds = p.second;
-		
-		FeatureVector fv = manager.createFeatureVector(inst, model);
-		
-		inst.heads = heads_tmp;
-		inst.deprelIds = typeIds_tmp;
-		
-		return fv;
-	}
-
-	@Override
 	protected String getDepString(ForestItem item) {
 		if(item.left == null){
 			return "";
