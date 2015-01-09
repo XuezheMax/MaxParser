@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import gnu.trove.map.hash.TIntIntHashMap;
+import gnu.trove.iterator.TIntIntIterator;
+
 public class Test {
 
 	/**
@@ -16,17 +19,14 @@ public class Test {
 	 * @throws ClassNotFoundException 
 	 */
 	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
-		int[] keys = new int[5];
-		keys[0] = 1;
-		keys[1] = 2;
-		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("out.txt"));
-		out.writeObject(keys);
-		out.close();
-		
-		ObjectInputStream in = new ObjectInputStream(new FileInputStream("out.txt"));
-		int[] kk = (int[]) in.readObject();
-		in.close();
-		System.out.println(kk[0] + " " + kk[1]);
+		TIntIntHashMap map = new TIntIntHashMap();
+		map.put(0, 1);
+		map.put(1, 2);
+		TIntIntIterator iter = map.iterator();
+		while(iter.hasNext()){
+			iter.advance();
+			System.out.println(iter.key() + " " + iter.value());
+		}
 	}
 
 }

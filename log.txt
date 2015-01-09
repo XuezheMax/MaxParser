@@ -1,0 +1,33 @@
+Iter: 1
+Tokens: 4639
+Correct: 3225
+Unlabeled Accuracy: 69.52%
+Unlabeled Complete Correct: 5.50%
+
+Tokens (Non-Punct): 4639
+Correct (Non-Punct): 3225
+Unlabeled Accuracy (Non-Punct): 69.52%
+Unlabeled Complete Correct (Non-Punct): 5.50%
+------------------------------------------
+Iter: 2
+Tokens: 4639
+Correct: 3368
+Unlabeled Accuracy: 72.60%
+Unlabeled Complete Correct: 7.00%
+
+Tokens (Non-Punct): 4639
+Correct (Non-Punct): 3368
+Unlabeled Accuracy (Non-Punct): 72.60%
+Unlabeled Complete Correct (Non-Punct): 7.00%
+------------------------------------------
+Iter: 3
+Tokens: 4639
+Correct: 3407
+Unlabeled Accuracy: 73.44%
+Unlabeled Complete Correct: 7.50%
+
+Tokens (Non-Punct): 4639
+Correct (Non-Punct): 3407
+Unlabeled Accuracy (Non-Punct): 73.44%
+Unlabeled Complete Correct (Non-Punct): 7.50%
+------------------------------------------

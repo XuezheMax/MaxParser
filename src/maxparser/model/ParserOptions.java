@@ -15,7 +15,7 @@ public class ParserOptions implements Serializable{
 	 * 
 	 */
 	private final static String PARSER = "parser",
-								DEFAULT_PARSER_CLASS = maxparser.parser.FirstOrderProjParser.class.getName(),
+								DEFAULT_PARSER_CLASS = maxparser.parser.SingleEdgeProjParser.class.getName(),
 								TRAINER = "trainer",
 								DEFAULT_TRAINER_CLASS = maxparser.trainer.MIRAMLTrainer.class.getName(),
 								TYPE_LABELER = "typelabeler",
