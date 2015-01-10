@@ -347,19 +347,4 @@ public class MSTDecoder extends Decoder{
 			l = par[l];
 		}
 	}
-	
-	protected FeatureVector getFeatureVector(DependencyInstance inst, Manager manager, ParserModel model, int[] heads, int[] types) {
-		int[] heads_tmp = inst.heads;
-		int[] typeIds_tmp = inst.deprelIds;
-		
-		inst.heads = heads;
-		inst.deprelIds = types;
-		
-		FeatureVector fv = manager.createFeatureVector(inst, model);
-		
-		inst.heads = heads_tmp;
-		inst.deprelIds = typeIds_tmp;
-		
-		return fv;
-	}
 }

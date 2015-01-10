@@ -14,7 +14,6 @@ import maxparser.parser.indextuple.IndexTuple;
 public class SingleEdgeManager extends Manager{
 	
 	public SingleEdgeManager(){
-		super();
 		featGen = new SingleEdgeFeatureGenerator();
 	}
 	
