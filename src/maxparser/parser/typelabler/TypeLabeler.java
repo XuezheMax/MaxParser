@@ -23,7 +23,7 @@ public abstract class TypeLabeler {
 	
 	public abstract double getLabeledScore(IndexTuple itemId);
 	
-	public abstract int getType(IndexTuple itemId);
+	public abstract void getType(DependencyInstance inst, IndexTuple itemId);
 	
 	public abstract void getTypes(int length);
 }

@@ -5,8 +5,6 @@ import maxparser.FeatureVector;
 import maxparser.model.ParserModel;
 
 public class SingleEdgeFeatureGenerator extends FeatureGenerator{
-	
-	public SingleEdgeFeatureGenerator(){}
 
 	@Override
 	public void genUnlabeledFeatures(DependencyInstance inst, ParserModel model, FeatureVector fv) {

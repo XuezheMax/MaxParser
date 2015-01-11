@@ -5,6 +5,9 @@ import maxparser.FeatureVector;
 import maxparser.model.ParserModel;
 
 public abstract class FeatureGenerator {
+	
+	public FeatureGenerator(){}
+	
 	public abstract void genUnlabeledFeatures(DependencyInstance inst, ParserModel model, FeatureVector fv);
 	
 	protected final void addFeature(String prefix, String feat, ParserModel model, FeatureVector fv){

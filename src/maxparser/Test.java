@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import maxparser.parser.manager.Manager;
+import maxparser.parser.manager.SiblingManager;
+
 import gnu.trove.map.hash.TIntIntHashMap;
 import gnu.trove.iterator.TIntIntIterator;
 
@@ -19,14 +22,7 @@ public class Test {
 	 * @throws ClassNotFoundException 
 	 */
 	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
-		TIntIntHashMap map = new TIntIntHashMap();
-		map.put(0, 1);
-		map.put(1, 2);
-		TIntIntIterator iter = map.iterator();
-		while(iter.hasNext()){
-			iter.advance();
-			System.out.println(iter.key() + " " + iter.value());
-		}
+		Manager manager = new SiblingManager();
 	}
 
 }

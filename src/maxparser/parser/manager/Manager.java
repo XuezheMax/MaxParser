@@ -177,8 +177,8 @@ public abstract class Manager {
 		return getUnlabeledScore(itemId) + typelabeler.getLabeledScore(itemId);
 	}
 	
-	public int getType(IndexTuple itemId){
-		return typelabeler.getType(itemId);
+	public void getType(DependencyInstance inst, IndexTuple itemId){
+		typelabeler.getType(inst, itemId);
 	}
 	
 	public void getTypes(int length){

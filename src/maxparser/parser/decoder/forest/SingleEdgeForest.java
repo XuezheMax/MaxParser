@@ -4,12 +4,14 @@ import maxparser.DependencyInstance;
 import maxparser.FeatureVector;
 import maxparser.Pair;
 import maxparser.model.ParserModel;
-import maxparser.parser.decoder.forest.indextuple.SingleEdgeForestIndexTuple;
+import maxparser.parser.decoder.forest.indextuple.BasicForestIndexTuple;
 import maxparser.parser.decoder.forest.indextuple.ForestIndexTuple;
 import maxparser.parser.manager.Manager;
 
 public class SingleEdgeForest extends Forest{
 	protected ForestItem[][] chart = null;
+	
+	public SingleEdgeForest(){}
 	
 	public SingleEdgeForest(int end, int K){
 		this.end = end;
@@ -31,7 +33,7 @@ public class SingleEdgeForest extends Forest{
 
 	@Override
 	protected int getKey(ForestIndexTuple forestIndex) {
-		SingleEdgeForestIndexTuple id = (SingleEdgeForestIndexTuple) forestIndex;
+		BasicForestIndexTuple id = (BasicForestIndexTuple) forestIndex;
 		return getKey(id.s, id.t, id.dir, id.comp);
 	}
 	
@@ -56,7 +58,7 @@ public class SingleEdgeForest extends Forest{
 			return false;
 		}
 		
-		SingleEdgeForestIndexTuple id = (SingleEdgeForestIndexTuple) forestIndex;
+		BasicForestIndexTuple id = (BasicForestIndexTuple) forestIndex;
 		for(int k = 0; k < K; ++k){
 			if(chart[key][k].score < score){
 				ForestItem tmp = chart[key][k];
@@ -107,5 +109,4 @@ public class SingleEdgeForest extends Forest{
 					+ (getDepString(item.left) + " " + getDepString(item.right)).trim()).trim();
 		}
 	}
-
 }

@@ -10,6 +10,8 @@ import maxparser.Pair;
 public abstract class Forest {
 	protected int end, K;
 	
+	public Forest(){}
+	
 	protected abstract int getKey(ForestIndexTuple forestIndex);
 	
 	public abstract ForestItem[] getItems(ForestIndexTuple forestIndex);

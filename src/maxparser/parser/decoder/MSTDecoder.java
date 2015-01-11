@@ -38,7 +38,7 @@ public class MSTDecoder extends Decoder{
 				//positive index
 				index0.par = s;
 				index0.ch = t;
-				index0.type = manager.getType(index0);
+				manager.getType(inst, index0);
 				scoreMatrix[s][t] = manager.getScore(index0);
 				orig_scoreMatrix[s][t] = scoreMatrix[s][t];
 				oldI[s][t] = s;
@@ -47,7 +47,7 @@ public class MSTDecoder extends Decoder{
 				//negative index
 				index1.par = t;
 				index1.ch = s;
-				index1.type = manager.getType(index1);
+				manager.getType(inst, index1);
 				scoreMatrix[t][s] = manager.getScore(index1);
 				orig_scoreMatrix[t][s] = scoreMatrix[t][s];
 				oldI[t][s] = t;
@@ -69,7 +69,8 @@ public class MSTDecoder extends Decoder{
 			par[ch] = pa;
 			index0.ch = ch;
 			index0.par = pa;
-			types[ch] = manager.getType(index0);
+			manager.getType(inst, index0);
+			types[ch] = index0.type;
 		}
 	
 		int[] n_par = getKChanges(par, orig_scoreMatrix, (K - 1 < length) ? K - 1 : length, length);
@@ -100,7 +101,8 @@ public class MSTDecoder extends Decoder{
 				par[nc] = n_par[nc];
 				index0.ch = nc;
 				index0.par = par[nc];
-				types[nc] = manager.getType(index0);
+				manager.getType(inst, index0);
+				types[nc] = index0.type;
 				d[k].first = getFeatureVector(inst, manager, model, par, types);
 				d[k].second = manager.genTreeString(par, types);
 				par[nc] = tmp_par;

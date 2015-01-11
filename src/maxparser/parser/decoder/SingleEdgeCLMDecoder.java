@@ -64,7 +64,7 @@ public class SingleEdgeCLMDecoder extends SingleEdgeProjDecoder{
 					}
 					
 					index.par = pa;
-					index.type = manager.getType(index);
+					manager.getType(inst, index);
 					double change1 = manager.getScore(index);
 					if(max < change0 + change1){
 						max = change0 + change1;

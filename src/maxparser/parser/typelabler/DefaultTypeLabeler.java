@@ -33,8 +33,8 @@ public class DefaultTypeLabeler extends TypeLabeler{
 	}
 
 	@Override
-	public int getType(IndexTuple itemId) {
-		return 0;
+	public void getType(DependencyInstance inst, IndexTuple itemId) {
+		itemId.type = 0;
 	}
 
 	@Override
