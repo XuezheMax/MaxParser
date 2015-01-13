@@ -28,6 +28,7 @@ public class SiblingFeatureGenerator extends SingleEdgeFeatureGenerator{
 			}
 			
 			//left children
+			prev = i;
 			for(int j = i - 1; j >= 0; --j){
 				if(inst.heads[j] == i){
 					addTripFeatures(inst, i, prev, j, model, fv);

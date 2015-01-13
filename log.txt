@@ -1,33 +1,33 @@
 Iter: 1
 Tokens: 4639
-Correct: 3209
-Unlabeled Accuracy: 69.17%
+Correct: 3312
+Unlabeled Accuracy: 71.39%
 Unlabeled Complete Correct: 5.50%
 
 Tokens (Non-Punct): 4639
-Correct (Non-Punct): 3209
-Unlabeled Accuracy (Non-Punct): 69.17%
+Correct (Non-Punct): 3312
+Unlabeled Accuracy (Non-Punct): 71.39%
 Unlabeled Complete Correct (Non-Punct): 5.50%
 ------------------------------------------
 Iter: 2
 Tokens: 4639
-Correct: 3364
-Unlabeled Accuracy: 72.52%
+Correct: 3445
+Unlabeled Accuracy: 74.26%
 Unlabeled Complete Correct: 7.50%
 
 Tokens (Non-Punct): 4639
-Correct (Non-Punct): 3364
-Unlabeled Accuracy (Non-Punct): 72.52%
+Correct (Non-Punct): 3445
+Unlabeled Accuracy (Non-Punct): 74.26%
 Unlabeled Complete Correct (Non-Punct): 7.50%
 ------------------------------------------
 Iter: 3
 Tokens: 4639
-Correct: 3427
-Unlabeled Accuracy: 73.87%
-Unlabeled Complete Correct: 8.50%
+Correct: 3503
+Unlabeled Accuracy: 75.51%
+Unlabeled Complete Correct: 10.00%
 
 Tokens (Non-Punct): 4639
-Correct (Non-Punct): 3427
-Unlabeled Accuracy (Non-Punct): 73.87%
-Unlabeled Complete Correct (Non-Punct): 8.50%
+Correct (Non-Punct): 3503
+Unlabeled Accuracy (Non-Punct): 75.51%
+Unlabeled Complete Correct (Non-Punct): 10.00%
 ------------------------------------------
