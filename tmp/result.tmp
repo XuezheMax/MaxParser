@@ -20,23 +20,23 @@
 11	apart	apart	RB	RB	_	10	<no-type>	_	_
 12	friday	friday	NNP	NNP	_	8	<no-type>	_	_
 13	as	as	IN	IN	_	8	<no-type>	_	_
-14	the	the	DT	DT	_	18	<no-type>	_	_
+14	the	the	DT	DT	_	15	<no-type>	_	_
 15	dow	dow	NNP	NNP	_	18	<no-type>	_	_
 16	jones	jones	NNP	NNP	_	18	<no-type>	_	_
 17	industrial	industrial	NNP	NNP	_	18	<no-type>	_	_
 18	average	average	NNP	NNP	_	19	<no-type>	_	_
-19	plunged	plunged	VBD	VBD	_	13	<no-type>	_	_
+19	plunged	plunged	VBD	VBD	_	1	<no-type>	_	_
 20	190.58	190.58	CD	CD	_	21	<no-type>	_	_
 21	points	points	NNS	NNS	_	19	<no-type>	_	_
 22	--	--	:	:	_	23	<no-type>	_	_
 23	most	most	JJS	JJS	_	21	<no-type>	_	_
 24	of	of	IN	IN	_	23	<no-type>	_	_
 25	it	it	PRP	PRP	_	24	<no-type>	_	_
-26	in	in	IN	IN	_	19	<no-type>	_	_
+26	in	in	IN	IN	_	23	<no-type>	_	_
 27	the	the	DT	DT	_	29	<no-type>	_	_
 28	final	final	JJ	JJ	_	29	<no-type>	_	_
 29	hour	hour	NN	NN	_	26	<no-type>	_	_
-30	--	--	:	:	_	19	<no-type>	_	_
+30	--	--	:	:	_	23	<no-type>	_	_
 31	it	it	PRP	PRP	_	33	<no-type>	_	_
 32	barely	barely	RB	RB	_	33	<no-type>	_	_
 33	managed	managed	VBD	VBD	_	30	<no-type>	_	_
@@ -48,8 +48,8 @@
 39	chaos	chaos	NN	NN	_	38	<no-type>	_	_
 40	.	.	.	.	_	8	<no-type>	_	_
 
-1	some	some	DT	DT	_	4	<no-type>	_	_
-2	``	``	``	``	_	4	<no-type>	_	_
+1	some	some	DT	DT	_	3	<no-type>	_	_
+2	``	``	``	``	_	3	<no-type>	_	_
 3	circuit	circuit	NN	NN	_	4	<no-type>	_	_
 4	breakers	breakers	NNS	NNS	_	12	<no-type>	_	_
 5	''	''	''	''	_	4	<no-type>	_	_
@@ -58,14 +58,14 @@
 8	the	the	DT	DT	_	11	<no-type>	_	_
 9	october	october	NNP	NNP	_	11	<no-type>	_	_
 10	1987	1987	CD	CD	_	11	<no-type>	_	_
-11	crash	crash	NN	NN	_	7	<no-type>	_	_
+11	crash	crash	NN	NN	_	12	<no-type>	_	_
 12	failed	failed	VBD	VBD	_	0	<no-type>	_	_
 13	their	their	PRP$	PRP$	_	15	<no-type>	_	_
 14	first	first	JJ	JJ	_	15	<no-type>	_	_
 15	test	test	NN	NN	_	12	<no-type>	_	_
 16	,	,	,	,	_	18	<no-type>	_	_
 17	traders	traders	NNS	NNS	_	18	<no-type>	_	_
-18	say	say	VBP	VBP	_	15	<no-type>	_	_
+18	say	say	VBP	VBP	_	7	<no-type>	_	_
 19	,	,	,	,	_	18	<no-type>	_	_
 20	unable	unable	JJ	JJ	_	18	<no-type>	_	_
 21	to	to	TO	TO	_	22	<no-type>	_	_
@@ -108,7 +108,7 @@
 26	--	--	:	:	_	21	<no-type>	_	_
 27	once	once	RB	RB	_	29	<no-type>	_	_
 28	again	again	RB	RB	_	29	<no-type>	_	_
-29	could	could	MD	MD	_	26	<no-type>	_	_
+29	could	could	MD	MD	_	19	<no-type>	_	_
 30	n't	n't	RB	RB	_	29	<no-type>	_	_
 31	handle	handle	VB	VB	_	29	<no-type>	_	_
 32	the	the	DT	DT	_	34	<no-type>	_	_
@@ -146,8 +146,8 @@
 1	heavy	heavy	JJ	JJ	_	2	<no-type>	_	_
 2	selling	selling	NN	NN	_	14	<no-type>	_	_
 3	of	of	IN	IN	_	2	<no-type>	_	_
-4	standard	standard	NNP	NNP	_	7	<no-type>	_	_
-5	&	&	CC	CC	_	7	<no-type>	_	_
+4	standard	standard	NNP	NNP	_	6	<no-type>	_	_
+5	&	&	CC	CC	_	6	<no-type>	_	_
 6	poor	poor	NNP	NNP	_	7	<no-type>	_	_
 7	's	's	POS	POS	_	10	<no-type>	_	_
 8	500-stock	500-stock	JJ	JJ	_	10	<no-type>	_	_
@@ -161,7 +161,7 @@
 16	downward	downward	RB	RB	_	14	<no-type>	_	_
 17	.	.	.	.	_	14	<no-type>	_	_
 
-1	seven	seven	CD	CD	_	4	<no-type>	_	_
+1	seven	seven	CD	CD	_	2	<no-type>	_	_
 2	big	big	NNP	NNP	_	3	<no-type>	_	_
 3	board	board	NNP	NNP	_	4	<no-type>	_	_
 4	stocks	stocks	NNS	NNS	_	23	<no-type>	_	_
@@ -176,8 +176,8 @@
 13	disney	disney	NNP	NNP	_	16	<no-type>	_	_
 14	,	,	,	,	_	16	<no-type>	_	_
 15	capital	capital	NNP	NNP	_	16	<no-type>	_	_
-16	cities\/abc	cities\/abc	NNP	NNP	_	23	<no-type>	_	_
-17	,	,	,	,	_	23	<no-type>	_	_
+16	cities\/abc	cities\/abc	NNP	NNP	_	18	<no-type>	_	_
+17	,	,	,	,	_	18	<no-type>	_	_
 18	philip	philip	NNP	NNP	_	19	<no-type>	_	_
 19	morris	morris	NNP	NNP	_	23	<no-type>	_	_
 20	and	and	CC	CC	_	23	<no-type>	_	_
@@ -185,8 +185,8 @@
 22	telesis	telesis	NNP	NNP	_	23	<no-type>	_	_
 23	group	group	NNP	NNP	_	25	<no-type>	_	_
 24	--	--	:	:	_	25	<no-type>	_	_
-25	stopped	stopped	VBD	VBD	_	0	<no-type>	_	_
-26	trading	trading	NN	NN	_	25	<no-type>	_	_
+25	stopped	stopped	VBD	VBD	_	26	<no-type>	_	_
+26	trading	trading	NN	NN	_	29	<no-type>	_	_
 27	and	and	CC	CC	_	29	<no-type>	_	_
 28	never	never	RB	RB	_	29	<no-type>	_	_
 29	resumed	resumed	VBD	VBD	_	0	<no-type>	_	_
@@ -207,12 +207,12 @@
 6	illiquid	illiquid	JJ	JJ	_	5	<no-type>	_	_
 7	.	.	.	.	_	5	<no-type>	_	_
 
-1	once	once	RB	RB	_	25	<no-type>	_	_
+1	once	once	RB	RB	_	2	<no-type>	_	_
 2	again	again	RB	RB	_	3	<no-type>	_	_
 3	{	{	-LRB-	-LRB-	_	5	<no-type>	_	_
 4	the	the	DT	DT	_	5	<no-type>	_	_
 5	specialists	specialists	NNS	NNS	_	7	<no-type>	_	_
-6	}	}	-RRB-	-RRB-	_	5	<no-type>	_	_
+6	}	}	-RRB-	-RRB-	_	7	<no-type>	_	_
 7	were	were	VBD	VBD	_	25	<no-type>	_	_
 8	not	not	RB	RB	_	9	<no-type>	_	_
 9	able	able	JJ	JJ	_	7	<no-type>	_	_
@@ -228,7 +228,7 @@
 19	new	new	NNP	NNP	_	22	<no-type>	_	_
 20	york	york	NNP	NNP	_	22	<no-type>	_	_
 21	stock	stock	NNP	NNP	_	22	<no-type>	_	_
-22	exchange	exchange	NNP	NNP	_	17	<no-type>	_	_
+22	exchange	exchange	NNP	NNP	_	31	<no-type>	_	_
 23	,	,	,	,	_	25	<no-type>	_	_
 24	''	''	''	''	_	25	<no-type>	_	_
 25	said	said	VBD	VBD	_	0	<no-type>	_	_
@@ -242,28 +242,28 @@
 33	twenty-first	twenty-first	NNP	NNP	_	35	<no-type>	_	_
 34	securities	securities	NNP	NNP	_	35	<no-type>	_	_
 35	corp	corp	NNP	NNP	_	32	<no-type>	_	_
-36	.	.	.	.	_	25	<no-type>	_	_
+36	.	.	.	.	_	7	<no-type>	_	_
 
 1	countered	countered	VBD	VBD	_	0	<no-type>	_	_
 2	james	james	NNP	NNP	_	3	<no-type>	_	_
 3	maguire	maguire	NNP	NNP	_	5	<no-type>	_	_
 4	,	,	,	,	_	5	<no-type>	_	_
-5	chairman	chairman	NN	NN	_	1	<no-type>	_	_
+5	chairman	chairman	NN	NN	_	14	<no-type>	_	_
 6	of	of	IN	IN	_	5	<no-type>	_	_
 7	specialists	specialists	NNS	NNS	_	6	<no-type>	_	_
 8	henderson	henderson	NNP	NNP	_	10	<no-type>	_	_
 9	brothers	brothers	NNP	NNP	_	10	<no-type>	_	_
-10	inc.	inc.	NNP	NNP	_	6	<no-type>	_	_
-11	:	:	:	:	_	20	<no-type>	_	_
-12	``	``	``	``	_	20	<no-type>	_	_
+10	inc.	inc.	NNP	NNP	_	11	<no-type>	_	_
+11	:	:	:	:	_	14	<no-type>	_	_
+12	``	``	``	``	_	14	<no-type>	_	_
 13	it	it	PRP	PRP	_	14	<no-type>	_	_
-14	is	is	VBZ	VBZ	_	20	<no-type>	_	_
+14	is	is	VBZ	VBZ	_	1	<no-type>	_	_
 15	easy	easy	JJ	JJ	_	14	<no-type>	_	_
 16	to	to	TO	TO	_	17	<no-type>	_	_
 17	say	say	VB	VB	_	15	<no-type>	_	_
 18	the	the	DT	DT	_	19	<no-type>	_	_
 19	specialist	specialist	NN	NN	_	20	<no-type>	_	_
-20	is	is	VBZ	VBZ	_	10	<no-type>	_	_
+20	is	is	VBZ	VBZ	_	17	<no-type>	_	_
 21	n't	n't	RB	RB	_	20	<no-type>	_	_
 22	doing	doing	VBG	VBG	_	20	<no-type>	_	_
 23	his	his	PRP$	PRP$	_	24	<no-type>	_	_
@@ -278,7 +278,7 @@
 6	a	a	DT	DT	_	7	<no-type>	_	_
 7	free-fall	free-fall	NN	NN	_	5	<no-type>	_	_
 8	,	,	,	,	_	12	<no-type>	_	_
-9	even	even	RB	RB	_	11	<no-type>	_	_
+9	even	even	RB	RB	_	10	<no-type>	_	_
 10	central	central	JJ	JJ	_	11	<no-type>	_	_
 11	banks	banks	NNS	NNS	_	12	<no-type>	_	_
 12	ca	ca	MD	MD	_	5	<no-type>	_	_
@@ -325,7 +325,7 @@
 18	autumn	autumn	NN	NN	_	19	<no-type>	_	_
 19	day	day	NN	NN	_	15	<no-type>	_	_
 20	--	--	:	:	_	15	<no-type>	_	_
-21	because	because	IN	IN	_	9	<no-type>	_	_
+21	because	because	IN	IN	_	20	<no-type>	_	_
 22	the	the	DT	DT	_	24	<no-type>	_	_
 23	stock	stock	NN	NN	_	24	<no-type>	_	_
 24	market	market	NN	NN	_	25	<no-type>	_	_
@@ -334,7 +334,7 @@
 27	quiet	quiet	JJ	JJ	_	25	<no-type>	_	_
 28	.	.	.	.	_	7	<no-type>	_	_
 
-1	then	then	RB	RB	_	15	<no-type>	_	_
+1	then	then	RB	RB	_	2	<no-type>	_	_
 2	in	in	IN	IN	_	15	<no-type>	_	_
 3	a	a	DT	DT	_	5	<no-type>	_	_
 4	lightning	lightning	NN	NN	_	5	<no-type>	_	_
@@ -343,11 +343,11 @@
 7	the	the	DT	DT	_	10	<no-type>	_	_
 8	dow	dow	NNP	NNP	_	10	<no-type>	_	_
 9	jones	jones	NNP	NNP	_	10	<no-type>	_	_
-10	industrials	industrials	NNS	NNS	_	15	<no-type>	_	_
+10	industrials	industrials	NNS	NNS	_	19	<no-type>	_	_
 11	in	in	IN	IN	_	10	<no-type>	_	_
-12	barely	barely	RB	RB	_	14	<no-type>	_	_
+12	barely	barely	RB	RB	_	11	<no-type>	_	_
 13	an	an	DT	DT	_	14	<no-type>	_	_
-14	hour	hour	NN	NN	_	11	<no-type>	_	_
+14	hour	hour	NN	NN	_	15	<no-type>	_	_
 15	surrendered	surrendered	VBD	VBD	_	0	<no-type>	_	_
 16	about	about	IN	IN	_	15	<no-type>	_	_
 17	a	a	DT	DT	_	34	<no-type>	_	_
@@ -381,17 +381,17 @@
 2	trading	trading	NN	NN	_	0	<no-type>	_	_
 3	accelerated	accelerated	VBN	VBN	_	2	<no-type>	_	_
 4	to	to	TO	TO	_	3	<no-type>	_	_
-5	108.1	108.1	CD	CD	_	7	<no-type>	_	_
+5	108.1	108.1	CD	CD	_	6	<no-type>	_	_
 6	million	million	CD	CD	_	7	<no-type>	_	_
 7	shares	shares	NNS	NNS	_	4	<no-type>	_	_
-8	,	,	,	,	_	10	<no-type>	_	_
+8	,	,	,	,	_	2	<no-type>	_	_
 9	a	a	DT	DT	_	10	<no-type>	_	_
-10	record	record	NN	NN	_	7	<no-type>	_	_
+10	record	record	NN	NN	_	8	<no-type>	_	_
 11	for	for	IN	IN	_	10	<no-type>	_	_
 12	the	the	DT	DT	_	14	<no-type>	_	_
 13	big	big	NNP	NNP	_	14	<no-type>	_	_
 14	board	board	NNP	NNP	_	11	<no-type>	_	_
-15	.	.	.	.	_	3	<no-type>	_	_
+15	.	.	.	.	_	11	<no-type>	_	_
 
 1	at	at	IN	IN	_	11	<no-type>	_	_
 2	the	the	DT	DT	_	3	<no-type>	_	_
@@ -400,7 +400,7 @@
 5	the	the	DT	DT	_	6	<no-type>	_	_
 6	day	day	NN	NN	_	4	<no-type>	_	_
 7	,	,	,	,	_	11	<no-type>	_	_
-8	251.2	251.2	CD	CD	_	10	<no-type>	_	_
+8	251.2	251.2	CD	CD	_	9	<no-type>	_	_
 9	million	million	CD	CD	_	10	<no-type>	_	_
 10	shares	shares	NNS	NNS	_	11	<no-type>	_	_
 11	were	were	VBD	VBD	_	0	<no-type>	_	_
@@ -425,7 +425,7 @@
 7	in	in	IN	IN	_	5	<no-type>	_	_
 8	point	point	NN	NN	_	9	<no-type>	_	_
 9	terms	terms	NNS	NNS	_	7	<no-type>	_	_
-10	only	only	RB	RB	_	7	<no-type>	_	_
+10	only	only	RB	RB	_	9	<no-type>	_	_
 11	to	to	TO	TO	_	10	<no-type>	_	_
 12	the	the	DT	DT	_	16	<no-type>	_	_
 13	508-point	508-point	JJ	JJ	_	16	<no-type>	_	_
@@ -436,7 +436,7 @@
 18	occurred	occurred	VBD	VBD	_	17	<no-type>	_	_
 19	oct.	oct.	NNP	NNP	_	18	<no-type>	_	_
 20	19	19	CD	CD	_	19	<no-type>	_	_
-21	,	,	,	,	_	16	<no-type>	_	_
+21	,	,	,	,	_	18	<no-type>	_	_
 22	1987	1987	CD	CD	_	21	<no-type>	_	_
 23	.	.	.	.	_	5	<no-type>	_	_
 
@@ -453,8 +453,8 @@
 11	was	was	VBD	VBD	_	0	<no-type>	_	_
 12	the	the	DT	DT	_	13	<no-type>	_	_
 13	12th-worst	12th-worst	NN	NN	_	11	<no-type>	_	_
-14	ever	ever	RB	RB	_	21	<no-type>	_	_
-15	and	and	CC	CC	_	21	<no-type>	_	_
+14	ever	ever	RB	RB	_	15	<no-type>	_	_
+15	and	and	CC	CC	_	11	<no-type>	_	_
 16	the	the	DT	DT	_	20	<no-type>	_	_
 17	sharpest	sharpest	JJS	JJS	_	20	<no-type>	_	_
 18	since	since	IN	IN	_	17	<no-type>	_	_
@@ -468,13 +468,13 @@
 26	%	%	NN	NN	_	29	<no-type>	_	_
 27	,	,	,	,	_	29	<no-type>	_	_
 28	a	a	DT	DT	_	29	<no-type>	_	_
-29	week	week	NN	NN	_	21	<no-type>	_	_
+29	week	week	NN	NN	_	18	<no-type>	_	_
 30	after	after	IN	IN	_	29	<no-type>	_	_
 31	black	black	NNP	NNP	_	32	<no-type>	_	_
 32	monday	monday	NNP	NNP	_	30	<no-type>	_	_
 33	.	.	.	.	_	11	<no-type>	_	_
 
-1	the	the	DT	DT	_	3	<no-type>	_	_
+1	the	the	DT	DT	_	2	<no-type>	_	_
 2	dow	dow	NNP	NNP	_	3	<no-type>	_	_
 3	fell	fell	VBD	VBD	_	0	<no-type>	_	_
 4	22.6	22.6	CD	CD	_	5	<no-type>	_	_
@@ -498,9 +498,9 @@
 12	extremely	extremely	RB	RB	_	13	<no-type>	_	_
 13	active	active	JJ	JJ	_	15	<no-type>	_	_
 14	all	all	DT	DT	_	15	<no-type>	_	_
-15	day	day	NN	NN	_	18	<no-type>	_	_
-16	friday	friday	NNP	NNP	_	18	<no-type>	_	_
-17	,	,	,	,	_	16	<no-type>	_	_
+15	day	day	NN	NN	_	11	<no-type>	_	_
+16	friday	friday	NNP	NNP	_	11	<no-type>	_	_
+17	,	,	,	,	_	11	<no-type>	_	_
 18	reacting	reacting	VBG	VBG	_	11	<no-type>	_	_
 19	to	to	TO	TO	_	18	<no-type>	_	_
 20	news	news	NN	NN	_	22	<no-type>	_	_
@@ -509,10 +509,10 @@
 23	about	about	IN	IN	_	22	<no-type>	_	_
 24	the	the	DT	DT	_	26	<no-type>	_	_
 25	proposed	proposed	VBN	VBN	_	26	<no-type>	_	_
-26	$	$	$	$	_	29	<no-type>	_	_
+26	$	$	$	$	_	23	<no-type>	_	_
 27	6.79	6.79	CD	CD	_	26	<no-type>	_	_
 28	billion	billion	CD	CD	_	26	<no-type>	_	_
-29	buy-out	buy-out	NN	NN	_	23	<no-type>	_	_
+29	buy-out	buy-out	NN	NN	_	26	<no-type>	_	_
 30	of	of	IN	IN	_	29	<no-type>	_	_
 31	the	the	DT	DT	_	32	<no-type>	_	_
 32	airline	airline	NN	NN	_	30	<no-type>	_	_
@@ -524,7 +524,7 @@
 
 1	wall	wall	NNP	NNP	_	3	<no-type>	_	_
 2	street	street	NNP	NNP	_	3	<no-type>	_	_
-3	's	's	POS	POS	_	5	<no-type>	_	_
+3	's	's	POS	POS	_	4	<no-type>	_	_
 4	takeover-stock	takeover-stock	NN	NN	_	5	<no-type>	_	_
 5	speculators	speculators	NNS	NNS	_	10	<no-type>	_	_
 6	,	,	,	,	_	10	<no-type>	_	_
@@ -546,7 +546,7 @@
 22	succeed	succeed	VB	VB	_	21	<no-type>	_	_
 23	and	and	CC	CC	_	25	<no-type>	_	_
 24	ual	ual	NNP	NNP	_	25	<no-type>	_	_
-25	stock	stock	NN	NN	_	22	<no-type>	_	_
+25	stock	stock	NN	NN	_	26	<no-type>	_	_
 26	would	would	MD	MD	_	18	<no-type>	_	_
 27	rise	rise	VB	VB	_	26	<no-type>	_	_
 28	.	.	.	.	_	13	<no-type>	_	_
@@ -569,10 +569,10 @@
 16	trading	trading	NN	NN	_	15	<no-type>	_	_
 17	in	in	IN	IN	_	16	<no-type>	_	_
 18	ual	ual	NNP	NNP	_	17	<no-type>	_	_
-19	,	,	,	,	_	22	<no-type>	_	_
-20	``	``	``	``	_	22	<no-type>	_	_
-21	pending	pending	VBG	VBG	_	22	<no-type>	_	_
-22	news	news	NN	NN	_	17	<no-type>	_	_
+19	,	,	,	,	_	16	<no-type>	_	_
+20	``	``	``	``	_	17	<no-type>	_	_
+21	pending	pending	VBG	VBG	_	20	<no-type>	_	_
+22	news	news	NN	NN	_	21	<no-type>	_	_
 23	.	.	.	.	_	6	<no-type>	_	_
 24	''	''	''	''	_	6	<no-type>	_	_
 
@@ -601,7 +601,7 @@
 23	top	top	JJ	JJ	_	25	<no-type>	_	_
 24	floor	floor	NN	NN	_	25	<no-type>	_	_
 25	trader	trader	NN	NN	_	22	<no-type>	_	_
-26	.	.	.	.	_	21	<no-type>	_	_
+26	.	.	.	.	_	11	<no-type>	_	_
 
 1	several	several	JJ	JJ	_	2	<no-type>	_	_
 2	traders	traders	NNS	NNS	_	3	<no-type>	_	_
@@ -611,7 +611,7 @@
 6	shaking	shaking	VBG	VBG	_	5	<no-type>	_	_
 7	their	their	PRP$	PRP$	_	8	<no-type>	_	_
 8	heads	heads	NNS	NNS	_	6	<no-type>	_	_
-9	when	when	WRB	WRB	_	12	<no-type>	_	_
+9	when	when	WRB	WRB	_	11	<no-type>	_	_
 10	the	the	DT	DT	_	11	<no-type>	_	_
 11	news	news	NN	NN	_	12	<no-type>	_	_
 12	flashed	flashed	VBD	VBD	_	0	<no-type>	_	_
@@ -624,7 +624,7 @@
 5	market	market	NN	NN	_	6	<no-type>	_	_
 6	had	had	VBD	VBD	_	0	<no-type>	_	_
 7	been	been	VBN	VBN	_	6	<no-type>	_	_
-8	nervous	nervous	JJ	JJ	_	7	<no-type>	_	_
+8	nervous	nervous	JJ	JJ	_	10	<no-type>	_	_
 9	about	about	IN	IN	_	7	<no-type>	_	_
 10	takeovers	takeovers	NNS	NNS	_	9	<no-type>	_	_
 11	,	,	,	,	_	7	<no-type>	_	_
@@ -633,9 +633,9 @@
 14	corp.	corp.	NNP	NNP	_	15	<no-type>	_	_
 15	's	's	POS	POS	_	17	<no-type>	_	_
 16	cash	cash	NN	NN	_	17	<no-type>	_	_
-17	crunch	crunch	NN	NN	_	19	<no-type>	_	_
-18	spurred	spurred	VBN	VBN	_	19	<no-type>	_	_
-19	concern	concern	NN	NN	_	12	<no-type>	_	_
+17	crunch	crunch	NN	NN	_	12	<no-type>	_	_
+18	spurred	spurred	VBN	VBN	_	17	<no-type>	_	_
+19	concern	concern	NN	NN	_	18	<no-type>	_	_
 20	about	about	IN	IN	_	19	<no-type>	_	_
 21	the	the	DT	DT	_	22	<no-type>	_	_
 22	prospects	prospects	NNS	NNS	_	20	<no-type>	_	_
@@ -650,10 +650,10 @@
 2	10	10	CD	CD	_	3	<no-type>	_	_
 3	minutes	minutes	NNS	NNS	_	9	<no-type>	_	_
 4	after	after	IN	IN	_	3	<no-type>	_	_
-5	the	the	DT	DT	_	8	<no-type>	_	_
-6	ual	ual	NNP	NNP	_	8	<no-type>	_	_
+5	the	the	DT	DT	_	7	<no-type>	_	_
+6	ual	ual	NNP	NNP	_	7	<no-type>	_	_
 7	trading	trading	NN	NN	_	8	<no-type>	_	_
-8	halt	halt	NN	NN	_	4	<no-type>	_	_
+8	halt	halt	NN	NN	_	9	<no-type>	_	_
 9	came	came	VBD	VBD	_	0	<no-type>	_	_
 10	news	news	NN	NN	_	9	<no-type>	_	_
 11	that	that	IN	IN	_	9	<no-type>	_	_
@@ -677,7 +677,7 @@
 6	dow	dow	NNP	NNP	_	7	<no-type>	_	_
 7	was	was	VBD	VBD	_	0	<no-type>	_	_
 8	down	down	IN	IN	_	7	<no-type>	_	_
-9	about	about	IN	IN	_	11	<no-type>	_	_
+9	about	about	IN	IN	_	7	<no-type>	_	_
 10	35	35	CD	CD	_	9	<no-type>	_	_
 11	points	points	NNS	NNS	_	8	<no-type>	_	_
 12	.	.	.	.	_	7	<no-type>	_	_
@@ -700,7 +700,7 @@
 11	rid	rid	VB	VB	_	9	<no-type>	_	_
 12	themselves	themselves	PRP	PRP	_	11	<no-type>	_	_
 13	of	of	IN	IN	_	12	<no-type>	_	_
-14	nearly	nearly	RB	RB	_	17	<no-type>	_	_
+14	nearly	nearly	RB	RB	_	11	<no-type>	_	_
 15	every	every	DT	DT	_	17	<no-type>	_	_
 16	``	``	``	``	_	17	<no-type>	_	_
 17	rumor	rumor	NN	NN	_	13	<no-type>	_	_
@@ -729,7 +729,7 @@
 17	closed	closed	VBD	VBD	_	16	<no-type>	_	_
 18	down	down	IN	IN	_	17	<no-type>	_	_
 19	3	3	CD	CD	_	18	<no-type>	_	_
-20	7\/8	7\/8	CD	CD	_	17	<no-type>	_	_
+20	7\/8	7\/8	CD	CD	_	18	<no-type>	_	_
 21	to	to	TO	TO	_	20	<no-type>	_	_
 22	41	41	CD	CD	_	21	<no-type>	_	_
 23	1\/2	1\/2	CD	CD	_	21	<no-type>	_	_
@@ -776,15 +776,15 @@
 10	blue-chip	blue-chip	JJ	JJ	_	11	<no-type>	_	_
 11	stocks	stocks	NNS	NNS	_	9	<no-type>	_	_
 12	such	such	JJ	JJ	_	13	<no-type>	_	_
-13	as	as	IN	IN	_	11	<no-type>	_	_
+13	as	as	IN	IN	_	9	<no-type>	_	_
 14	philip	philip	NNP	NNP	_	15	<no-type>	_	_
 15	morris	morris	NNP	NNP	_	18	<no-type>	_	_
 16	and	and	CC	CC	_	18	<no-type>	_	_
 17	international	international	NNP	NNP	_	18	<no-type>	_	_
 18	business	business	NNP	NNP	_	19	<no-type>	_	_
-19	machines	machines	NNS	NNS	_	13	<no-type>	_	_
+19	machines	machines	NNS	NNS	_	21	<no-type>	_	_
 20	to	to	TO	TO	_	21	<no-type>	_	_
-21	offset	offset	VB	VB	_	19	<no-type>	_	_
+21	offset	offset	VB	VB	_	7	<no-type>	_	_
 22	their	their	PRP$	PRP$	_	23	<no-type>	_	_
 23	losses	losses	NNS	NNS	_	21	<no-type>	_	_
 24	.	.	.	.	_	7	<no-type>	_	_
@@ -799,18 +799,18 @@
 8	,	,	,	,	_	11	<no-type>	_	_
 9	the	the	DT	DT	_	10	<no-type>	_	_
 10	stock	stock	NN	NN	_	11	<no-type>	_	_
-11	was	was	VBD	VBD	_	22	<no-type>	_	_
+11	was	was	VBD	VBD	_	1	<no-type>	_	_
 12	trading	trading	VBG	VBG	_	11	<no-type>	_	_
 13	at	at	IN	IN	_	12	<no-type>	_	_
 14	41	41	CD	CD	_	13	<no-type>	_	_
-15	,	,	,	,	_	22	<no-type>	_	_
-16	down	down	RB	RB	_	22	<no-type>	_	_
+15	,	,	,	,	_	11	<no-type>	_	_
+16	down	down	RB	RB	_	13	<no-type>	_	_
 17	3	3	CD	CD	_	18	<no-type>	_	_
-18	3\/8	3\/8	CD	CD	_	19	<no-type>	_	_
+18	3\/8	3\/8	CD	CD	_	22	<no-type>	_	_
 19	,	,	,	,	_	22	<no-type>	_	_
 20	while	while	IN	IN	_	22	<no-type>	_	_
 21	ibm	ibm	NNP	NNP	_	22	<no-type>	_	_
-22	closed	closed	VBD	VBD	_	28	<no-type>	_	_
+22	closed	closed	VBD	VBD	_	1	<no-type>	_	_
 23	5	5	CD	CD	_	22	<no-type>	_	_
 24	5\/8	5\/8	CD	CD	_	22	<no-type>	_	_
 25	lower	lower	JJR	JJR	_	22	<no-type>	_	_
@@ -828,8 +828,8 @@
 8	``	``	``	``	_	9	<no-type>	_	_
 9	stop-loss	stop-loss	NN	NN	_	6	<no-type>	_	_
 10	''	''	''	''	_	11	<no-type>	_	_
-11	orders	orders	NNS	NNS	_	1	<no-type>	_	_
-12	,	,	,	,	_	11	<no-type>	_	_
+11	orders	orders	NNS	NNS	_	20	<no-type>	_	_
+12	,	,	,	,	_	20	<no-type>	_	_
 13	which	which	WDT	WDT	_	11	<no-type>	_	_
 14	are	are	VBP	VBP	_	13	<no-type>	_	_
 15	triggered	triggered	VBN	VBN	_	14	<no-type>	_	_
@@ -841,14 +841,14 @@
 21	to	to	TO	TO	_	20	<no-type>	_	_
 22	certain	certain	JJ	JJ	_	23	<no-type>	_	_
 23	levels	levels	NNS	NNS	_	21	<no-type>	_	_
-24	.	.	.	.	_	20	<no-type>	_	_
+24	.	.	.	.	_	14	<no-type>	_	_
 
-1	most	most	JJS	JJS	_	7	<no-type>	_	_
+1	most	most	JJS	JJS	_	5	<no-type>	_	_
 2	of	of	IN	IN	_	1	<no-type>	_	_
 3	the	the	DT	DT	_	5	<no-type>	_	_
 4	stock	stock	NN	NN	_	5	<no-type>	_	_
 5	selling	selling	NN	NN	_	6	<no-type>	_	_
-6	pressure	pressure	NN	NN	_	2	<no-type>	_	_
+6	pressure	pressure	NN	NN	_	7	<no-type>	_	_
 7	came	came	VBD	VBD	_	0	<no-type>	_	_
 8	from	from	IN	IN	_	7	<no-type>	_	_
 9	wall	wall	NNP	NNP	_	10	<no-type>	_	_
@@ -870,12 +870,12 @@
 7	institutional	institutional	JJ	JJ	_	8	<no-type>	_	_
 8	investors	investors	NNS	NNS	_	4	<no-type>	_	_
 9	,	,	,	,	_	8	<no-type>	_	_
-10	on	on	IN	IN	_	8	<no-type>	_	_
+10	on	on	IN	IN	_	15	<no-type>	_	_
 11	the	the	DT	DT	_	13	<no-type>	_	_
 12	other	other	JJ	JJ	_	13	<no-type>	_	_
 13	hand	hand	NN	NN	_	10	<no-type>	_	_
-14	,	,	,	,	_	13	<no-type>	_	_
-15	sat	sat	VBD	VBD	_	10	<no-type>	_	_
+14	,	,	,	,	_	15	<no-type>	_	_
+15	sat	sat	VBD	VBD	_	17	<no-type>	_	_
 16	tight	tight	RB	RB	_	15	<no-type>	_	_
 17	.	.	.	.	_	2	<no-type>	_	_
 
@@ -895,7 +895,7 @@
 14	''	''	''	''	_	13	<no-type>	_	_
 15	took	took	VBD	VBD	_	0	<no-type>	_	_
 16	hold	hold	NN	NN	_	15	<no-type>	_	_
-17	as	as	IN	IN	_	15	<no-type>	_	_
+17	as	as	IN	IN	_	16	<no-type>	_	_
 18	the	the	DT	DT	_	21	<no-type>	_	_
 19	s&p	s&p	NNP	NNP	_	21	<no-type>	_	_
 20	500	500	CD	CD	_	21	<no-type>	_	_
@@ -905,8 +905,8 @@
 24	plunged	plunged	VBN	VBN	_	23	<no-type>	_	_
 25	12	12	CD	CD	_	26	<no-type>	_	_
 26	points	points	NNS	NNS	_	24	<no-type>	_	_
-27	,	,	,	,	_	23	<no-type>	_	_
-28	equivalent	equivalent	JJ	JJ	_	23	<no-type>	_	_
+27	,	,	,	,	_	26	<no-type>	_	_
+28	equivalent	equivalent	JJ	JJ	_	26	<no-type>	_	_
 29	to	to	TO	TO	_	28	<no-type>	_	_
 30	around	around	RB	RB	_	33	<no-type>	_	_
 31	a	a	DT	DT	_	33	<no-type>	_	_
@@ -950,8 +950,8 @@
 8	500	500	CD	CD	_	9	<no-type>	_	_
 9	pit	pit	NN	NN	_	5	<no-type>	_	_
 10	in	in	IN	IN	_	9	<no-type>	_	_
-11	chicago	chicago	NNP	NNP	_	13	<no-type>	_	_
-12	,	,	,	,	_	11	<no-type>	_	_
+11	chicago	chicago	NNP	NNP	_	10	<no-type>	_	_
+12	,	,	,	,	_	9	<no-type>	_	_
 13	waves	waves	NNS	NNS	_	10	<no-type>	_	_
 14	of	of	IN	IN	_	13	<no-type>	_	_
 15	selling	selling	VBG	VBG	_	14	<no-type>	_	_
@@ -959,7 +959,7 @@
 17	to	to	TO	TO	_	18	<no-type>	_	_
 18	hit	hit	VB	VB	_	16	<no-type>	_	_
 19	stocks	stocks	NNS	NNS	_	18	<no-type>	_	_
-20	themselves	themselves	PRP	PRP	_	19	<no-type>	_	_
+20	themselves	themselves	PRP	PRP	_	18	<no-type>	_	_
 21	on	on	IN	IN	_	18	<no-type>	_	_
 22	the	the	DT	DT	_	24	<no-type>	_	_
 23	big	big	NNP	NNP	_	24	<no-type>	_	_
@@ -979,18 +979,18 @@
 3	result	result	NN	NN	_	1	<no-type>	_	_
 4	,	,	,	,	_	13	<no-type>	_	_
 5	the	the	DT	DT	_	6	<no-type>	_	_
-6	link	link	NN	NN	_	13	<no-type>	_	_
+6	link	link	NN	NN	_	1	<no-type>	_	_
 7	between	between	IN	IN	_	6	<no-type>	_	_
 8	the	the	DT	DT	_	9	<no-type>	_	_
-9	futures	futures	NNS	NNS	_	12	<no-type>	_	_
+9	futures	futures	NNS	NNS	_	7	<no-type>	_	_
 10	and	and	CC	CC	_	12	<no-type>	_	_
 11	stock	stock	NN	NN	_	12	<no-type>	_	_
-12	markets	markets	NNS	NNS	_	7	<no-type>	_	_
+12	markets	markets	NNS	NNS	_	13	<no-type>	_	_
 13	ripped	ripped	VBD	VBD	_	0	<no-type>	_	_
 14	apart	apart	RB	RB	_	13	<no-type>	_	_
 15	.	.	.	.	_	13	<no-type>	_	_
 
-1	without	without	IN	IN	_	18	<no-type>	_	_
+1	without	without	IN	IN	_	19	<no-type>	_	_
 2	the	the	DT	DT	_	3	<no-type>	_	_
 3	guidepost	guidepost	NN	NN	_	1	<no-type>	_	_
 4	of	of	IN	IN	_	3	<no-type>	_	_
@@ -1002,17 +1002,17 @@
 10	of	of	IN	IN	_	9	<no-type>	_	_
 11	where	where	WRB	WRB	_	12	<no-type>	_	_
 12	traders	traders	NNS	NNS	_	10	<no-type>	_	_
-13	think	think	VBP	VBP	_	12	<no-type>	_	_
+13	think	think	VBP	VBP	_	11	<no-type>	_	_
 14	the	the	DT	DT	_	17	<no-type>	_	_
 15	overall	overall	JJ	JJ	_	17	<no-type>	_	_
 16	stock	stock	NN	NN	_	17	<no-type>	_	_
 17	market	market	NN	NN	_	18	<no-type>	_	_
 18	is	is	VBZ	VBZ	_	0	<no-type>	_	_
 19	headed	headed	VBN	VBN	_	18	<no-type>	_	_
-20	--	--	:	:	_	22	<no-type>	_	_
+20	--	--	:	:	_	19	<no-type>	_	_
 21	many	many	JJ	JJ	_	22	<no-type>	_	_
 22	traders	traders	NNS	NNS	_	23	<no-type>	_	_
-23	were	were	VBD	VBD	_	19	<no-type>	_	_
+23	were	were	VBD	VBD	_	20	<no-type>	_	_
 24	afraid	afraid	JJ	JJ	_	23	<no-type>	_	_
 25	to	to	TO	TO	_	26	<no-type>	_	_
 26	trust	trust	VB	VB	_	24	<no-type>	_	_
@@ -1033,16 +1033,16 @@
 6	assailed	assailed	VBN	VBN	_	4	<no-type>	_	_
 7	by	by	IN	IN	_	6	<no-type>	_	_
 8	big	big	NNP	NNP	_	9	<no-type>	_	_
-9	board	board	NNP	NNP	_	7	<no-type>	_	_
+9	board	board	NNP	NNP	_	10	<no-type>	_	_
 10	floor	floor	NN	NN	_	11	<no-type>	_	_
-11	traders	traders	NNS	NNS	_	9	<no-type>	_	_
+11	traders	traders	NNS	NNS	_	7	<no-type>	_	_
 12	.	.	.	.	_	4	<no-type>	_	_
 
 1	``	``	``	``	_	3	<no-type>	_	_
 2	it	it	PRP	PRP	_	3	<no-type>	_	_
 3	screwed	screwed	VBD	VBD	_	8	<no-type>	_	_
 4	things	things	NNS	NNS	_	3	<no-type>	_	_
-5	up	up	RP	RP	_	4	<no-type>	_	_
+5	up	up	RP	RP	_	3	<no-type>	_	_
 6	,	,	,	,	_	8	<no-type>	_	_
 7	''	''	''	''	_	8	<no-type>	_	_
 8	said	said	VBD	VBD	_	0	<no-type>	_	_
@@ -1060,12 +1060,12 @@
 7	of	of	IN	IN	_	6	<no-type>	_	_
 8	program	program	NN	NN	_	9	<no-type>	_	_
 9	trading	trading	NN	NN	_	7	<no-type>	_	_
-10	,	,	,	,	_	25	<no-type>	_	_
+10	,	,	,	,	_	13	<no-type>	_	_
 11	stock	stock	NNP	NNP	_	13	<no-type>	_	_
 12	index	index	NNP	NNP	_	13	<no-type>	_	_
-13	arbitrage	arbitrage	NN	NN	_	25	<no-type>	_	_
-14	,	,	,	,	_	25	<no-type>	_	_
-15	that	that	WDT	WDT	_	14	<no-type>	_	_
+13	arbitrage	arbitrage	NN	NN	_	4	<no-type>	_	_
+14	,	,	,	,	_	13	<no-type>	_	_
+15	that	that	WDT	WDT	_	13	<no-type>	_	_
 16	closely	closely	RB	RB	_	17	<no-type>	_	_
 17	links	links	VBZ	VBZ	_	15	<no-type>	_	_
 18	the	the	DT	DT	_	19	<no-type>	_	_
@@ -1075,7 +1075,7 @@
 22	markets	markets	NNS	NNS	_	25	<no-type>	_	_
 23	,	,	,	,	_	25	<no-type>	_	_
 24	and	and	CC	CC	_	25	<no-type>	_	_
-25	has	has	VBZ	VBZ	_	4	<no-type>	_	_
+25	has	has	VBZ	VBZ	_	17	<no-type>	_	_
 26	been	been	VBN	VBN	_	25	<no-type>	_	_
 27	blamed	blamed	VBN	VBN	_	26	<no-type>	_	_
 28	by	by	IN	IN	_	27	<no-type>	_	_
@@ -1149,7 +1149,7 @@
 28	largest	largest	JJS	JJS	_	30	<no-type>	_	_
 29	program-trading	program-trading	NN	NN	_	30	<no-type>	_	_
 30	firms	firms	NNS	NNS	_	26	<no-type>	_	_
-31	.	.	.	.	_	20	<no-type>	_	_
+31	.	.	.	.	_	10	<no-type>	_	_
 
 1	``	``	``	``	_	3	<no-type>	_	_
 2	we	we	PRP	PRP	_	3	<no-type>	_	_
@@ -1194,7 +1194,7 @@
 
 1	at	at	IN	IN	_	18	<no-type>	_	_
 2	3:30	3:30	CD	CD	_	1	<no-type>	_	_
-3	p.m.	p.m.	RB	RB	_	2	<no-type>	_	_
+3	p.m.	p.m.	RB	RB	_	1	<no-type>	_	_
 4	,	,	,	,	_	1	<no-type>	_	_
 5	at	at	IN	IN	_	1	<no-type>	_	_
 6	the	the	DT	DT	_	7	<no-type>	_	_
@@ -1215,17 +1215,17 @@
 21	points	points	NNS	NNS	_	18	<no-type>	_	_
 22	.	.	.	.	_	18	<no-type>	_	_
 
-1	meanwhile	meanwhile	RB	RB	_	14	<no-type>	_	_
-2	,	,	,	,	_	14	<no-type>	_	_
-3	during	during	IN	IN	_	2	<no-type>	_	_
+1	meanwhile	meanwhile	RB	RB	_	2	<no-type>	_	_
+2	,	,	,	,	_	12	<no-type>	_	_
+3	during	during	IN	IN	_	14	<no-type>	_	_
 4	the	the	DT	DT	_	8	<no-type>	_	_
 5	the	the	DT	DT	_	8	<no-type>	_	_
 6	s&p	s&p	NNP	NNP	_	8	<no-type>	_	_
 7	trading	trading	NN	NN	_	8	<no-type>	_	_
 8	halt	halt	NN	NN	_	3	<no-type>	_	_
-9	,	,	,	,	_	13	<no-type>	_	_
+9	,	,	,	,	_	14	<no-type>	_	_
 10	s&p	s&p	NNP	NNP	_	11	<no-type>	_	_
-11	futures	futures	NNS	NNS	_	13	<no-type>	_	_
+11	futures	futures	NNS	NNS	_	12	<no-type>	_	_
 12	sell	sell	NN	NN	_	13	<no-type>	_	_
 13	orders	orders	NNS	NNS	_	14	<no-type>	_	_
 14	began	began	VBD	VBD	_	0	<no-type>	_	_
@@ -1273,7 +1273,7 @@
 12	into	into	IN	IN	_	11	<no-type>	_	_
 13	a	a	DT	DT	_	14	<no-type>	_	_
 14	debate	debate	NN	NN	_	12	<no-type>	_	_
-15	if	if	IN	IN	_	11	<no-type>	_	_
+15	if	if	IN	IN	_	14	<no-type>	_	_
 16	index	index	NN	NN	_	17	<no-type>	_	_
 17	arbitrage	arbitrage	NN	NN	_	15	<no-type>	_	_
 18	would	would	MD	MD	_	15	<no-type>	_	_
@@ -1301,8 +1301,8 @@
 14	was	was	VBD	VBD	_	0	<no-type>	_	_
 15	flying	flying	VBG	VBG	_	14	<no-type>	_	_
 16	to	to	TO	TO	_	15	<no-type>	_	_
-17	bangkok	bangkok	NNP	NNP	_	18	<no-type>	_	_
-18	as	as	IN	IN	_	47	<no-type>	_	_
+17	bangkok	bangkok	NNP	NNP	_	15	<no-type>	_	_
+18	as	as	IN	IN	_	15	<no-type>	_	_
 19	the	the	DT	DT	_	20	<no-type>	_	_
 20	market	market	NN	NN	_	21	<no-type>	_	_
 21	was	was	VBD	VBD	_	18	<no-type>	_	_
@@ -1321,7 +1321,7 @@
 34	the	the	DT	DT	_	36	<no-type>	_	_
 35	other	other	JJ	JJ	_	36	<no-type>	_	_
 36	exchanges	exchanges	NNS	NNS	_	33	<no-type>	_	_
-37	,	,	,	,	_	47	<no-type>	_	_
+37	,	,	,	,	_	36	<no-type>	_	_
 38	the	the	DT	DT	_	42	<no-type>	_	_
 39	securities	securities	NNPS	NNPS	_	42	<no-type>	_	_
 40	and	and	CC	CC	_	42	<no-type>	_	_
@@ -1356,9 +1356,9 @@
 20	watch	watch	VB	VB	_	19	<no-type>	_	_
 21	updates	updates	NNS	NNS	_	20	<no-type>	_	_
 22	on	on	IN	IN	_	21	<no-type>	_	_
-23	prices	prices	NNS	NNS	_	27	<no-type>	_	_
+23	prices	prices	NNS	NNS	_	22	<no-type>	_	_
 24	and	and	CC	CC	_	27	<no-type>	_	_
-25	pending	pending	VBG	VBG	_	26	<no-type>	_	_
+25	pending	pending	VBG	VBG	_	27	<no-type>	_	_
 26	stock	stock	NN	NN	_	27	<no-type>	_	_
 27	orders	orders	NNS	NNS	_	22	<no-type>	_	_
 28	.	.	.	.	_	2	<no-type>	_	_
@@ -1367,7 +1367,7 @@
 2	about	about	IN	IN	_	1	<no-type>	_	_
 3	3:30	3:30	CD	CD	_	2	<no-type>	_	_
 4	p.m.	p.m.	RB	RB	_	5	<no-type>	_	_
-5	edt	edt	NNP	NNP	_	2	<no-type>	_	_
+5	edt	edt	NNP	NNP	_	7	<no-type>	_	_
 6	,	,	,	,	_	9	<no-type>	_	_
 7	s&p	s&p	NNP	NNP	_	8	<no-type>	_	_
 8	futures	futures	NNS	NNS	_	9	<no-type>	_	_
@@ -1401,7 +1401,7 @@
 7	pit	pit	NN	NN	_	4	<no-type>	_	_
 8	.	.	.	.	_	2	<no-type>	_	_
 
-1	but	but	CC	CC	_	9	<no-type>	_	_
+1	but	but	CC	CC	_	19	<no-type>	_	_
 2	the	the	DT	DT	_	8	<no-type>	_	_
 3	build-up	build-up	JJ	JJ	_	8	<no-type>	_	_
 4	of	of	IN	IN	_	3	<no-type>	_	_
@@ -1434,10 +1434,10 @@
 7	market	market	NN	NN	_	8	<no-type>	_	_
 8	careened	careened	VBD	VBD	_	0	<no-type>	_	_
 9	to	to	TO	TO	_	8	<no-type>	_	_
-10	still	still	RB	RB	_	12	<no-type>	_	_
+10	still	still	RB	RB	_	8	<no-type>	_	_
 11	another	another	DT	DT	_	12	<no-type>	_	_
 12	limit	limit	NN	NN	_	9	<no-type>	_	_
-13	,	,	,	,	_	21	<no-type>	_	_
+13	,	,	,	,	_	8	<no-type>	_	_
 14	of	of	IN	IN	_	13	<no-type>	_	_
 15	30	30	CD	CD	_	16	<no-type>	_	_
 16	points	points	NNS	NNS	_	14	<no-type>	_	_
@@ -1458,11 +1458,11 @@
 6	was	was	VBD	VBD	_	0	<no-type>	_	_
 7	signaling	signaling	VBG	VBG	_	6	<no-type>	_	_
 8	that	that	IN	IN	_	7	<no-type>	_	_
-9	the	the	DT	DT	_	11	<no-type>	_	_
+9	the	the	DT	DT	_	10	<no-type>	_	_
 10	dow	dow	NNP	NNP	_	11	<no-type>	_	_
 11	could	could	MD	MD	_	8	<no-type>	_	_
 12	fall	fall	VB	VB	_	11	<no-type>	_	_
-13	as	as	RB	RB	_	15	<no-type>	_	_
+13	as	as	RB	RB	_	12	<no-type>	_	_
 14	much	much	JJ	JJ	_	15	<no-type>	_	_
 15	as	as	IN	IN	_	12	<no-type>	_	_
 16	200	200	CD	CD	_	17	<no-type>	_	_
@@ -1512,7 +1512,7 @@
 22	the	the	DT	DT	_	24	<no-type>	_	_
 23	final	final	JJ	JJ	_	24	<no-type>	_	_
 24	confidence-crusher	confidence-crusher	NN	NN	_	21	<no-type>	_	_
-25	.	.	.	.	_	20	<no-type>	_	_
+25	.	.	.	.	_	7	<no-type>	_	_
 
 1	that	that	DT	DT	_	2	<no-type>	_	_
 2	's	's	VBZ	VBZ	_	0	<no-type>	_	_
@@ -1563,7 +1563,7 @@
 12	something	something	NN	NN	_	11	<no-type>	_	_
 13	`	`	``	``	_	11	<no-type>	_	_
 14	more	more	RBR	RBR	_	15	<no-type>	_	_
-15	ado	ado	JJ	JJ	_	11	<no-type>	_	_
+15	ado	ado	JJ	JJ	_	10	<no-type>	_	_
 16	about	about	IN	IN	_	15	<no-type>	_	_
 17	less	less	RBR	RBR	_	16	<no-type>	_	_
 18	.	.	.	.	_	3	<no-type>	_	_
@@ -1595,14 +1595,14 @@
 24	told	told	VBD	VBD	_	0	<no-type>	_	_
 25	the	the	DT	DT	_	26	<no-type>	_	_
 26	brokers	brokers	NNS	NNS	_	24	<no-type>	_	_
-27	.	.	.	.	_	24	<no-type>	_	_
+27	.	.	.	.	_	2	<no-type>	_	_
 
-1	at	at	IN	IN	_	5	<no-type>	_	_
+1	at	at	IN	IN	_	19	<no-type>	_	_
 2	merrill	merrill	NNP	NNP	_	5	<no-type>	_	_
 3	lynch	lynch	NNP	NNP	_	5	<no-type>	_	_
 4	&	&	CC	CC	_	5	<no-type>	_	_
-5	co.	co.	NNP	NNP	_	12	<no-type>	_	_
-6	,	,	,	,	_	12	<no-type>	_	_
+5	co.	co.	NNP	NNP	_	1	<no-type>	_	_
+6	,	,	,	,	_	5	<no-type>	_	_
 7	the	the	DT	DT	_	9	<no-type>	_	_
 8	nation	nation	NN	NN	_	9	<no-type>	_	_
 9	's	's	POS	POS	_	12	<no-type>	_	_
@@ -1639,12 +1639,12 @@
 11	the	the	DT	DT	_	13	<no-type>	_	_
 12	current	current	JJ	JJ	_	13	<no-type>	_	_
 13	environment	environment	NN	NN	_	10	<no-type>	_	_
-14	and	and	CC	CC	_	4	<no-type>	_	_
+14	and	and	CC	CC	_	10	<no-type>	_	_
 15	that	that	IN	IN	_	14	<no-type>	_	_
 16	of	of	IN	IN	_	15	<no-type>	_	_
 17	october	october	NNP	NNP	_	16	<no-type>	_	_
 18	1987	1987	CD	CD	_	17	<no-type>	_	_
-19	''	''	''	''	_	16	<no-type>	_	_
+19	''	''	''	''	_	15	<no-type>	_	_
 20	and	and	CC	CC	_	15	<no-type>	_	_
 21	that	that	IN	IN	_	20	<no-type>	_	_
 22	there	there	EX	EX	_	23	<no-type>	_	_
@@ -1691,7 +1691,7 @@
 28	customers	customers	NNS	NNS	_	27	<no-type>	_	_
 29	,	,	,	,	_	28	<no-type>	_	_
 30	``	``	``	``	_	27	<no-type>	_	_
-31	because	because	IN	IN	_	23	<no-type>	_	_
+31	because	because	IN	IN	_	28	<no-type>	_	_
 32	it	it	PRP	PRP	_	33	<no-type>	_	_
 33	reinforces	reinforces	VBZ	VBZ	_	31	<no-type>	_	_
 34	the	the	DT	DT	_	35	<no-type>	_	_
@@ -1722,7 +1722,7 @@
 6	the	the	DT	DT	_	7	<no-type>	_	_
 7	debate	debate	NN	NN	_	5	<no-type>	_	_
 8	right	right	RB	RB	_	5	<no-type>	_	_
-9	back	back	RB	RB	_	8	<no-type>	_	_
+9	back	back	RB	RB	_	5	<no-type>	_	_
 10	to	to	TO	TO	_	5	<no-type>	_	_
 11	the	the	DT	DT	_	12	<no-type>	_	_
 12	forefront	forefront	NN	NN	_	10	<no-type>	_	_
@@ -1739,12 +1739,12 @@
 8	final	final	JJ	JJ	_	10	<no-type>	_	_
 9	190.58	190.58	CD	CD	_	10	<no-type>	_	_
 10	loss	loss	NN	NN	_	6	<no-type>	_	_
-11	friday	friday	NNP	NNP	_	6	<no-type>	_	_
-12	,	,	,	,	_	16	<no-type>	_	_
+11	friday	friday	NNP	NNP	_	15	<no-type>	_	_
+12	,	,	,	,	_	15	<no-type>	_	_
 13	the	the	DT	DT	_	15	<no-type>	_	_
 14	s&p	s&p	NNP	NNP	_	15	<no-type>	_	_
 15	pit	pit	NN	NN	_	16	<no-type>	_	_
-16	stayed	stayed	VBD	VBD	_	11	<no-type>	_	_
+16	stayed	stayed	VBD	VBD	_	1	<no-type>	_	_
 17	locked	locked	VBN	VBN	_	16	<no-type>	_	_
 18	at	at	IN	IN	_	17	<no-type>	_	_
 19	its	its	PRP$	PRP$	_	22	<no-type>	_	_
@@ -1771,14 +1771,14 @@
 16	on	on	IN	IN	_	15	<no-type>	_	_
 17	the	the	DT	DT	_	18	<no-type>	_	_
 18	close	close	NN	NN	_	16	<no-type>	_	_
-19	,	,	,	,	_	21	<no-type>	_	_
+19	,	,	,	,	_	13	<no-type>	_	_
 20	the	the	DT	DT	_	21	<no-type>	_	_
 21	equivalent	equivalent	NN	NN	_	16	<no-type>	_	_
 22	of	of	IN	IN	_	21	<no-type>	_	_
 23	$	$	$	$	_	22	<no-type>	_	_
 24	330	330	CD	CD	_	23	<no-type>	_	_
 25	million	million	CD	CD	_	23	<no-type>	_	_
-26	in	in	IN	IN	_	25	<no-type>	_	_
+26	in	in	IN	IN	_	23	<no-type>	_	_
 27	stock	stock	NN	NN	_	26	<no-type>	_	_
 28	.	.	.	.	_	9	<no-type>	_	_
 
@@ -1847,7 +1847,7 @@
 12	by	by	IN	IN	_	11	<no-type>	_	_
 13	index	index	NN	NN	_	14	<no-type>	_	_
 14	arbitragers	arbitragers	NNS	NNS	_	12	<no-type>	_	_
-15	,	,	,	,	_	14	<no-type>	_	_
+15	,	,	,	,	_	11	<no-type>	_	_
 16	who	who	WP	WP	_	14	<no-type>	_	_
 17	lock	lock	VBP	VBP	_	16	<no-type>	_	_
 18	in	in	RP	RP	_	19	<no-type>	_	_
@@ -1862,7 +1862,7 @@
 27	,	,	,	,	_	26	<no-type>	_	_
 28	and	and	CC	CC	_	26	<no-type>	_	_
 29	simultaneously	simultaneously	RB	RB	_	26	<no-type>	_	_
-30	sell	sell	VB	VB	_	26	<no-type>	_	_
+30	sell	sell	VB	VB	_	28	<no-type>	_	_
 31	off	off	RP	RP	_	30	<no-type>	_	_
 32	stocks	stocks	NNS	NNS	_	30	<no-type>	_	_
 33	.	.	.	.	_	6	<no-type>	_	_
@@ -1883,15 +1883,15 @@
 14	.	.	.	.	_	11	<no-type>	_	_
 
 1	the	the	DT	DT	_	2	<no-type>	_	_
-2	de-linkage	de-linkage	NN	NN	_	19	<no-type>	_	_
+2	de-linkage	de-linkage	NN	NN	_	10	<no-type>	_	_
 3	between	between	IN	IN	_	2	<no-type>	_	_
 4	the	the	DT	DT	_	5	<no-type>	_	_
-5	stock	stock	NN	NN	_	8	<no-type>	_	_
-6	and	and	CC	CC	_	8	<no-type>	_	_
+5	stock	stock	NN	NN	_	7	<no-type>	_	_
+6	and	and	CC	CC	_	7	<no-type>	_	_
 7	futures	futures	NNS	NNS	_	8	<no-type>	_	_
 8	markets	markets	NNS	NNS	_	3	<no-type>	_	_
 9	friday	friday	NNP	NNP	_	10	<no-type>	_	_
-10	will	will	MD	MD	_	8	<no-type>	_	_
+10	will	will	MD	MD	_	0	<no-type>	_	_
 11	undoubtedly	undoubtedly	RB	RB	_	10	<no-type>	_	_
 12	cause	cause	VB	VB	_	10	<no-type>	_	_
 13	renewed	renewed	VBN	VBN	_	12	<no-type>	_	_
@@ -1899,8 +1899,8 @@
 15	about	about	IN	IN	_	13	<no-type>	_	_
 16	whether	whether	IN	IN	_	15	<no-type>	_	_
 17	wall	wall	NNP	NNP	_	18	<no-type>	_	_
-18	street	street	NNP	NNP	_	16	<no-type>	_	_
-19	is	is	VBZ	VBZ	_	0	<no-type>	_	_
+18	street	street	NNP	NNP	_	19	<no-type>	_	_
+19	is	is	VBZ	VBZ	_	16	<no-type>	_	_
 20	properly	properly	RB	RB	_	19	<no-type>	_	_
 21	prepared	prepared	VBN	VBN	_	19	<no-type>	_	_
 22	for	for	IN	IN	_	21	<no-type>	_	_
@@ -1917,14 +1917,14 @@
 6	grasso	grasso	NNP	NNP	_	7	<no-type>	_	_
 7	said	said	VBD	VBD	_	0	<no-type>	_	_
 8	,	,	,	,	_	7	<no-type>	_	_
-9	``	``	``	``	_	7	<no-type>	_	_
+9	``	``	``	``	_	12	<no-type>	_	_
 10	our	our	PRP$	PRP$	_	12	<no-type>	_	_
 11	systemic	systemic	JJ	JJ	_	12	<no-type>	_	_
 12	performance	performance	NN	NN	_	13	<no-type>	_	_
 13	was	was	VBD	VBD	_	7	<no-type>	_	_
 14	good	good	JJ	JJ	_	13	<no-type>	_	_
-15	.	.	.	.	_	7	<no-type>	_	_
-16	''	''	''	''	_	7	<no-type>	_	_
+15	.	.	.	.	_	13	<no-type>	_	_
+16	''	''	''	''	_	13	<no-type>	_	_
 
 1	but	but	CC	CC	_	4	<no-type>	_	_
 2	the	the	DT	DT	_	3	<no-type>	_	_
@@ -1961,7 +1961,7 @@
 16	dealer-community	dealer-community	NN	NN	_	17	<no-type>	_	_
 17	obligations	obligations	NNS	NNS	_	18	<no-type>	_	_
 18	were	were	VBD	VBD	_	14	<no-type>	_	_
-19	n't	n't	RB	RB	_	20	<no-type>	_	_
+19	n't	n't	RB	RB	_	18	<no-type>	_	_
 20	met	met	VBN	VBN	_	18	<no-type>	_	_
 21	,	,	,	,	_	24	<no-type>	_	_
 22	''	''	''	''	_	24	<no-type>	_	_
@@ -1982,9 +1982,9 @@
 11	big	big	JJ	JJ	_	12	<no-type>	_	_
 12	funds	funds	NNS	NNS	_	10	<no-type>	_	_
 13	''	''	''	''	_	12	<no-type>	_	_
-14	--	--	:	:	_	15	<no-type>	_	_
+14	--	--	:	:	_	16	<no-type>	_	_
 15	wsj	wsj	NNP	NNP	_	16	<no-type>	_	_
-16	oct.	oct.	NNP	NNP	_	13	<no-type>	_	_
+16	oct.	oct.	NNP	NNP	_	9	<no-type>	_	_
 17	16	16	CD	CD	_	16	<no-type>	_	_
 18	,	,	,	,	_	17	<no-type>	_	_
 19	1989	1989	CD	CD	_	18	<no-type>	_	_
@@ -2001,21 +2001,21 @@
 9	the	the	DT	DT	_	11	<no-type>	_	_
 10	1987	1987	CD	CD	_	11	<no-type>	_	_
 11	crash	crash	NN	NN	_	8	<no-type>	_	_
-12	,	,	,	,	_	17	<no-type>	_	_
+12	,	,	,	,	_	11	<no-type>	_	_
 13	the	the	DT	DT	_	15	<no-type>	_	_
 14	``	``	``	``	_	15	<no-type>	_	_
 15	upstairs	upstairs	NN	NN	_	17	<no-type>	_	_
 16	''	''	''	''	_	17	<no-type>	_	_
-17	firms	firms	NNS	NNS	_	11	<no-type>	_	_
+17	firms	firms	NNS	NNS	_	23	<no-type>	_	_
 18	--	--	:	:	_	19	<no-type>	_	_
 19	big	big	JJ	JJ	_	21	<no-type>	_	_
 20	investment	investment	NN	NN	_	21	<no-type>	_	_
-21	banks	banks	NNS	NNS	_	17	<no-type>	_	_
+21	banks	banks	NNS	NNS	_	11	<no-type>	_	_
 22	that	that	WDT	WDT	_	21	<no-type>	_	_
 23	support	support	VBP	VBP	_	22	<no-type>	_	_
 24	the	the	DT	DT	_	25	<no-type>	_	_
 25	market	market	NN	NN	_	23	<no-type>	_	_
-26	by	by	IN	IN	_	25	<no-type>	_	_
+26	by	by	IN	IN	_	23	<no-type>	_	_
 27	trading	trading	VBG	VBG	_	26	<no-type>	_	_
 28	big	big	JJ	JJ	_	29	<no-type>	_	_
 29	blocks	blocks	NNS	NNS	_	27	<no-type>	_	_
@@ -2042,7 +2042,7 @@
 8	take	take	VB	VB	_	7	<no-type>	_	_
 9	another	another	DT	DT	_	10	<no-type>	_	_
 10	day	day	NN	NN	_	8	<no-type>	_	_
-11	or	or	CC	CC	_	7	<no-type>	_	_
+11	or	or	CC	CC	_	12	<no-type>	_	_
 12	two	two	CD	CD	_	7	<no-type>	_	_
 13	''	''	''	''	_	12	<no-type>	_	_
 14	to	to	TO	TO	_	15	<no-type>	_	_
@@ -2055,7 +2055,7 @@
 21	friday	friday	NNP	NNP	_	20	<no-type>	_	_
 22	.	.	.	.	_	3	<no-type>	_	_
 
-1	concerning	concerning	VBG	VBG	_	15	<no-type>	_	_
+1	concerning	concerning	VBG	VBG	_	22	<no-type>	_	_
 2	your	your	PRP$	PRP$	_	6	<no-type>	_	_
 3	sept.	sept.	NNP	NNP	_	6	<no-type>	_	_
 4	21	21	CD	CD	_	6	<no-type>	_	_
@@ -2064,9 +2064,9 @@
 7	on	on	IN	IN	_	6	<no-type>	_	_
 8	prince	prince	NNP	NNP	_	9	<no-type>	_	_
 9	charles	charles	NNP	NNP	_	7	<no-type>	_	_
-10	and	and	CC	CC	_	12	<no-type>	_	_
+10	and	and	CC	CC	_	22	<no-type>	_	_
 11	the	the	DT	DT	_	12	<no-type>	_	_
-12	leeches	leeches	NNS	NNS	_	7	<no-type>	_	_
+12	leeches	leeches	NNS	NNS	_	15	<no-type>	_	_
 13	:	:	:	:	_	15	<no-type>	_	_
 14	it	it	PRP	PRP	_	15	<no-type>	_	_
 15	's	's	VBZ	VBZ	_	0	<no-type>	_	_
@@ -2080,14 +2080,14 @@
 23	been	been	VBN	VBN	_	22	<no-type>	_	_
 24	a	a	DT	DT	_	25	<no-type>	_	_
 25	kingdom	kingdom	NN	NN	_	23	<no-type>	_	_
-26	.	.	.	.	_	15	<no-type>	_	_
+26	.	.	.	.	_	22	<no-type>	_	_
 
 1	it	it	PRP	PRP	_	2	<no-type>	_	_
 2	's	's	VBZ	VBZ	_	0	<no-type>	_	_
 3	now	now	RB	RB	_	2	<no-type>	_	_
-4	the	the	DT	DT	_	6	<no-type>	_	_
-5	united	united	NNP	NNP	_	6	<no-type>	_	_
-6	kingdom	kingdom	NNP	NNP	_	2	<no-type>	_	_
+4	the	the	DT	DT	_	12	<no-type>	_	_
+5	united	united	NNP	NNP	_	12	<no-type>	_	_
+6	kingdom	kingdom	NNP	NNP	_	12	<no-type>	_	_
 7	of	of	IN	IN	_	6	<no-type>	_	_
 8	great	great	NNP	NNP	_	12	<no-type>	_	_
 9	britain	britain	NNP	NNP	_	12	<no-type>	_	_
@@ -2099,12 +2099,12 @@
 15	wales	wales	NNP	NNP	_	18	<no-type>	_	_
 16	,	,	,	,	_	18	<no-type>	_	_
 17	northern	northern	JJ	JJ	_	18	<no-type>	_	_
-18	ireland	ireland	NNP	NNP	_	7	<no-type>	_	_
+18	ireland	ireland	NNP	NNP	_	2	<no-type>	_	_
 19	,	,	,	,	_	18	<no-type>	_	_
 20	scotland	scotland	NNP	NNP	_	18	<no-type>	_	_
-21	,	,	,	,	_	25	<no-type>	_	_
-22	and	and	CC	CC	_	25	<no-type>	_	_
-23	...	...	:	:	_	25	<no-type>	_	_
+21	,	,	,	,	_	18	<no-type>	_	_
+22	and	and	CC	CC	_	18	<no-type>	_	_
+23	...	...	:	:	_	18	<no-type>	_	_
 24	oh	oh	UH	UH	_	25	<no-type>	_	_
 25	yes	yes	NNP	NNP	_	27	<no-type>	_	_
 26	,	,	,	,	_	27	<no-type>	_	_
@@ -2130,10 +2130,10 @@
 3	call	call	NNP	NNP	_	4	<no-type>	_	_
 4	inc.	inc.	NNP	NNP	_	5	<no-type>	_	_
 5	reached	reached	VBD	VBD	_	0	<no-type>	_	_
-6	agreements	agreements	NNS	NNS	_	5	<no-type>	_	_
+6	agreements	agreements	NNS	NNS	_	2	<no-type>	_	_
 7	to	to	TO	TO	_	8	<no-type>	_	_
-8	sell	sell	VB	VB	_	5	<no-type>	_	_
-9	its	its	PRP$	PRP$	_	5	<no-type>	_	_
+8	sell	sell	VB	VB	_	6	<no-type>	_	_
+9	its	its	PRP$	PRP$	_	12	<no-type>	_	_
 10	remaining	remaining	VBG	VBG	_	5	<no-type>	_	_
 11	seven	seven	CD	CD	_	12	<no-type>	_	_
 12	aircraft	aircraft	NN	NN	_	10	<no-type>	_	_
@@ -2141,7 +2141,7 @@
 14	buyers	buyers	NNS	NNS	_	13	<no-type>	_	_
 15	that	that	WDT	WDT	_	14	<no-type>	_	_
 16	were	were	VBD	VBD	_	15	<no-type>	_	_
-17	n't	n't	RB	RB	_	18	<no-type>	_	_
+17	n't	n't	RB	RB	_	16	<no-type>	_	_
 18	disclosed	disclosed	VBN	VBN	_	16	<no-type>	_	_
 19	.	.	.	.	_	5	<no-type>	_	_
 
@@ -2164,7 +2164,7 @@
 17	sold	sold	VBN	VBN	_	16	<no-type>	_	_
 18	this	this	DT	DT	_	19	<no-type>	_	_
 19	year	year	NN	NN	_	17	<no-type>	_	_
-20	as	as	IN	IN	_	17	<no-type>	_	_
+20	as	as	IN	IN	_	19	<no-type>	_	_
 21	part	part	NN	NN	_	20	<no-type>	_	_
 22	of	of	IN	IN	_	21	<no-type>	_	_
 23	a	a	DT	DT	_	24	<no-type>	_	_
@@ -2198,9 +2198,9 @@
 25	obligations	obligations	NNS	NNS	_	19	<no-type>	_	_
 26	resulting	resulting	VBG	VBG	_	25	<no-type>	_	_
 27	from	from	IN	IN	_	26	<no-type>	_	_
-28	the	the	DT	DT	_	32	<no-type>	_	_
+28	the	the	DT	DT	_	31	<no-type>	_	_
 29	currently	currently	RB	RB	_	30	<no-type>	_	_
-30	suspended	suspended	VBN	VBN	_	32	<no-type>	_	_
+30	suspended	suspended	VBN	VBN	_	31	<no-type>	_	_
 31	air-charter	air-charter	NN	NN	_	32	<no-type>	_	_
 32	operations	operations	NNS	NNS	_	27	<no-type>	_	_
 33	.	.	.	.	_	3	<no-type>	_	_
@@ -2227,7 +2227,7 @@
 20	.	.	.	.	_	4	<no-type>	_	_
 
 1	a	a	DT	DT	_	2	<no-type>	_	_
-2	consortium	consortium	NN	NN	_	10	<no-type>	_	_
+2	consortium	consortium	NN	NN	_	13	<no-type>	_	_
 3	of	of	IN	IN	_	2	<no-type>	_	_
 4	private	private	JJ	JJ	_	5	<no-type>	_	_
 5	investors	investors	NNS	NNS	_	3	<no-type>	_	_
@@ -2240,12 +2240,12 @@
 12	it	it	PRP	PRP	_	13	<no-type>	_	_
 13	has	has	VBZ	VBZ	_	11	<no-type>	_	_
 14	made	made	VBN	VBN	_	13	<no-type>	_	_
-15	a	a	DT	DT	_	19	<no-type>	_	_
-16	$	$	$	$	_	19	<no-type>	_	_
+15	a	a	DT	DT	_	20	<no-type>	_	_
+16	$	$	$	$	_	13	<no-type>	_	_
 17	409	409	CD	CD	_	16	<no-type>	_	_
 18	million	million	CD	CD	_	16	<no-type>	_	_
 19	cash	cash	NN	NN	_	20	<no-type>	_	_
-20	bid	bid	NN	NN	_	14	<no-type>	_	_
+20	bid	bid	NN	NN	_	7	<no-type>	_	_
 21	for	for	IN	IN	_	20	<no-type>	_	_
 22	most	most	JJS	JJS	_	21	<no-type>	_	_
 23	of	of	IN	IN	_	22	<no-type>	_	_
@@ -2269,7 +2269,7 @@
 8	assumption	assumption	NN	NN	_	6	<no-type>	_	_
 9	of	of	IN	IN	_	8	<no-type>	_	_
 10	an	an	DT	DT	_	11	<no-type>	_	_
-11	estimated	estimated	VBN	VBN	_	9	<no-type>	_	_
+11	estimated	estimated	VBN	VBN	_	6	<no-type>	_	_
 12	$	$	$	$	_	11	<no-type>	_	_
 13	300	300	CD	CD	_	12	<no-type>	_	_
 14	million	million	CD	CD	_	12	<no-type>	_	_
@@ -2279,8 +2279,8 @@
 18	on	on	IN	IN	_	17	<no-type>	_	_
 19	those	those	DT	DT	_	20	<no-type>	_	_
 20	properties	properties	NNS	NNS	_	18	<no-type>	_	_
-21	,	,	,	,	_	11	<no-type>	_	_
-22	according	according	VBG	VBG	_	21	<no-type>	_	_
+21	,	,	,	,	_	20	<no-type>	_	_
+22	according	according	VBG	VBG	_	20	<no-type>	_	_
 23	to	to	TO	TO	_	22	<no-type>	_	_
 24	those	those	DT	DT	_	27	<no-type>	_	_
 25	making	making	VBG	VBG	_	27	<no-type>	_	_
@@ -2304,8 +2304,8 @@
 14	investment	investment	NNP	NNP	_	15	<no-type>	_	_
 15	corp.	corp.	NNP	NNP	_	12	<no-type>	_	_
 16	in	in	IN	IN	_	11	<no-type>	_	_
-17	honolulu	honolulu	NNP	NNP	_	22	<no-type>	_	_
-18	,	,	,	,	_	22	<no-type>	_	_
+17	honolulu	honolulu	NNP	NNP	_	16	<no-type>	_	_
+18	,	,	,	,	_	11	<no-type>	_	_
 19	and	and	CC	CC	_	22	<no-type>	_	_
 20	a.	a.	NNP	NNP	_	22	<no-type>	_	_
 21	boyd	boyd	NNP	NNP	_	22	<no-type>	_	_
@@ -2337,7 +2337,7 @@
 14	$	$	$	$	_	13	<no-type>	_	_
 15	1	1	CD	CD	_	14	<no-type>	_	_
 16	billion	billion	CD	CD	_	14	<no-type>	_	_
-17	in	in	IN	IN	_	13	<no-type>	_	_
+17	in	in	IN	IN	_	14	<no-type>	_	_
 18	assets	assets	NNS	NNS	_	17	<no-type>	_	_
 19	;	;	:	:	_	21	<no-type>	_	_
 20	mr.	mr.	NNP	NNP	_	21	<no-type>	_	_
@@ -2363,13 +2363,13 @@
 6	,	,	,	,	_	9	<no-type>	_	_
 7	but	but	CC	CC	_	9	<no-type>	_	_
 8	they	they	PRP	PRP	_	9	<no-type>	_	_
-9	require	require	VBP	VBP	_	5	<no-type>	_	_
+9	require	require	VBP	VBP	_	26	<no-type>	_	_
 10	more	more	JJR	JJR	_	11	<no-type>	_	_
 11	money	money	NN	NN	_	13	<no-type>	_	_
 12	and	and	CC	CC	_	13	<no-type>	_	_
 13	management	management	NN	NN	_	9	<no-type>	_	_
 14	''	''	''	''	_	26	<no-type>	_	_
-15	than	than	IN	IN	_	14	<no-type>	_	_
+15	than	than	IN	IN	_	26	<no-type>	_	_
 16	can	can	MD	MD	_	15	<no-type>	_	_
 17	be	be	VB	VB	_	16	<no-type>	_	_
 18	provided	provided	VBN	VBN	_	17	<no-type>	_	_
@@ -2379,7 +2379,7 @@
 22	's	's	POS	POS	_	24	<no-type>	_	_
 23	current	current	JJ	JJ	_	24	<no-type>	_	_
 24	situation	situation	NN	NN	_	19	<no-type>	_	_
-25	,	,	,	,	_	18	<no-type>	_	_
+25	,	,	,	,	_	26	<no-type>	_	_
 26	said	said	VBD	VBD	_	0	<no-type>	_	_
 27	mr.	mr.	NNP	NNP	_	28	<no-type>	_	_
 28	simpson	simpson	NNP	NNP	_	26	<no-type>	_	_
@@ -2387,7 +2387,7 @@
 30	an	an	DT	DT	_	31	<no-type>	_	_
 31	interview	interview	NN	NN	_	29	<no-type>	_	_
 32	.	.	.	.	_	26	<no-type>	_	_
-33	``	``	``	``	_	26	<no-type>	_	_
+33	``	``	``	``	_	32	<no-type>	_	_
 
 1	hooker	hooker	NNP	NNP	_	2	<no-type>	_	_
 2	's	's	POS	POS	_	3	<no-type>	_	_
@@ -2414,7 +2414,7 @@
 4	based	based	VBN	VBN	_	2	<no-type>	_	_
 5	in	in	IN	IN	_	4	<no-type>	_	_
 6	atlanta	atlanta	NNP	NNP	_	5	<no-type>	_	_
-7	,	,	,	,	_	2	<no-type>	_	_
+7	,	,	,	,	_	4	<no-type>	_	_
 8	is	is	VBZ	VBZ	_	0	<no-type>	_	_
 9	operating	operating	VBG	VBG	_	8	<no-type>	_	_
 10	with	with	IN	IN	_	9	<no-type>	_	_
@@ -2442,7 +2442,7 @@
 8	sydney	sydney	NNP	NNP	_	10	<no-type>	_	_
 9	,	,	,	,	_	10	<no-type>	_	_
 10	australia	australia	NNP	NNP	_	7	<no-type>	_	_
-11	,	,	,	,	_	3	<no-type>	_	_
+11	,	,	,	,	_	10	<no-type>	_	_
 12	is	is	VBZ	VBZ	_	0	<no-type>	_	_
 13	currently	currently	RB	RB	_	12	<no-type>	_	_
 14	being	being	VBG	VBG	_	12	<no-type>	_	_
@@ -2465,7 +2465,7 @@
 9	,	,	,	,	_	5	<no-type>	_	_
 10	said	said	VBD	VBD	_	0	<no-type>	_	_
 11	yesterday	yesterday	NN	NN	_	10	<no-type>	_	_
-12	in	in	IN	IN	_	10	<no-type>	_	_
+12	in	in	IN	IN	_	11	<no-type>	_	_
 13	a	a	DT	DT	_	14	<no-type>	_	_
 14	statement	statement	NN	NN	_	12	<no-type>	_	_
 15	that	that	IN	IN	_	14	<no-type>	_	_
@@ -2476,7 +2476,7 @@
 20	seen	seen	VBN	VBN	_	17	<no-type>	_	_
 21	the	the	DT	DT	_	22	<no-type>	_	_
 22	bid	bid	NN	NN	_	20	<no-type>	_	_
-23	but	but	CC	CC	_	20	<no-type>	_	_
+23	but	but	CC	CC	_	26	<no-type>	_	_
 24	that	that	IN	IN	_	20	<no-type>	_	_
 25	he	he	PRP	PRP	_	26	<no-type>	_	_
 26	would	would	MD	MD	_	24	<no-type>	_	_
@@ -2494,8 +2494,8 @@
 38	committee	committee	NN	NN	_	35	<no-type>	_	_
 39	.	.	.	.	_	10	<no-type>	_	_
 
-1	the	the	DT	DT	_	5	<no-type>	_	_
-2	$	$	$	$	_	5	<no-type>	_	_
+1	the	the	DT	DT	_	2	<no-type>	_	_
+2	$	$	$	$	_	6	<no-type>	_	_
 3	409	409	CD	CD	_	2	<no-type>	_	_
 4	million	million	CD	CD	_	2	<no-type>	_	_
 5	bid	bid	NN	NN	_	6	<no-type>	_	_
@@ -2506,8 +2506,8 @@
 10	simpson	simpson	NNP	NNP	_	8	<no-type>	_	_
 11	as	as	IN	IN	_	7	<no-type>	_	_
 12	representing	representing	VBG	VBG	_	11	<no-type>	_	_
-13	75	75	CD	CD	_	12	<no-type>	_	_
-14	%	%	NN	NN	_	11	<no-type>	_	_
+13	75	75	CD	CD	_	14	<no-type>	_	_
+14	%	%	NN	NN	_	12	<no-type>	_	_
 15	of	of	IN	IN	_	14	<no-type>	_	_
 16	the	the	DT	DT	_	17	<no-type>	_	_
 17	value	value	NN	NN	_	15	<no-type>	_	_
@@ -2537,7 +2537,7 @@
 14	,	,	,	,	_	15	<no-type>	_	_
 15	l.j.	l.j.	NNP	NNP	_	17	<no-type>	_	_
 16	hooker	hooker	NNP	NNP	_	17	<no-type>	_	_
-17	's	's	POS	POS	_	19	<no-type>	_	_
+17	's	's	POS	POS	_	18	<no-type>	_	_
 18	department-store	department-store	NN	NN	_	19	<no-type>	_	_
 19	chains	chains	NNS	NNS	_	6	<no-type>	_	_
 20	.	.	.	.	_	6	<no-type>	_	_
@@ -2560,12 +2560,12 @@
 16	square-foot	square-foot	NN	NN	_	19	<no-type>	_	_
 17	richland	richland	JJ	JJ	_	19	<no-type>	_	_
 18	fashion	fashion	NN	NN	_	19	<no-type>	_	_
-19	mall	mall	NN	NN	_	11	<no-type>	_	_
+19	mall	mall	NN	NN	_	28	<no-type>	_	_
 20	in	in	IN	IN	_	19	<no-type>	_	_
 21	columbia	columbia	NNP	NNP	_	23	<no-type>	_	_
 22	,	,	,	,	_	23	<no-type>	_	_
 23	s.c.	s.c.	NNP	NNP	_	20	<no-type>	_	_
-24	,	,	,	,	_	28	<no-type>	_	_
+24	,	,	,	,	_	19	<no-type>	_	_
 25	and	and	CC	CC	_	28	<no-type>	_	_
 26	the	the	DT	DT	_	28	<no-type>	_	_
 27	700,000	700,000	CD	CD	_	28	<no-type>	_	_
@@ -2573,7 +2573,7 @@
 29	thornton	thornton	NNP	NNP	_	31	<no-type>	_	_
 30	town	town	NNP	NNP	_	31	<no-type>	_	_
 31	center	center	NNP	NNP	_	32	<no-type>	_	_
-32	mall	mall	NN	NN	_	23	<no-type>	_	_
+32	mall	mall	NN	NN	_	12	<no-type>	_	_
 33	in	in	IN	IN	_	32	<no-type>	_	_
 34	thornton	thornton	NNP	NNP	_	36	<no-type>	_	_
 35	,	,	,	,	_	36	<no-type>	_	_
@@ -2592,8 +2592,8 @@
 10	's	's	POS	POS	_	11	<no-type>	_	_
 11	hypermarket	hypermarket	NN	NN	_	7	<no-type>	_	_
 12	as	as	IN	IN	_	11	<no-type>	_	_
-13	its	its	PRP$	PRP$	_	19	<no-type>	_	_
-14	anchor	anchor	NNP	NNP	_	19	<no-type>	_	_
+13	its	its	PRP$	PRP$	_	15	<no-type>	_	_
+14	anchor	anchor	NNP	NNP	_	15	<no-type>	_	_
 15	;	;	:	:	_	19	<no-type>	_	_
 16	the	the	DT	DT	_	18	<no-type>	_	_
 17	columbia	columbia	NNP	NNP	_	18	<no-type>	_	_
@@ -2642,7 +2642,7 @@
 34	commercial	commercial	JJ	JJ	_	37	<no-type>	_	_
 35	real-estate	real-estate	NN	NN	_	37	<no-type>	_	_
 36	brokerage	brokerage	NN	NN	_	37	<no-type>	_	_
-37	company	company	NN	NN	_	27	<no-type>	_	_
+37	company	company	NN	NN	_	12	<no-type>	_	_
 38	that	that	WDT	WDT	_	37	<no-type>	_	_
 39	once	once	RB	RB	_	40	<no-type>	_	_
 40	did	did	VBD	VBD	_	38	<no-type>	_	_
@@ -2667,13 +2667,13 @@
 5	together	together	RB	RB	_	4	<no-type>	_	_
 6	by	by	IN	IN	_	4	<no-type>	_	_
 7	hoare	hoare	NNP	NNP	_	8	<no-type>	_	_
-8	govett	govett	NNP	NNP	_	14	<no-type>	_	_
+8	govett	govett	NNP	NNP	_	6	<no-type>	_	_
 9	,	,	,	,	_	14	<no-type>	_	_
 10	the	the	DT	DT	_	14	<no-type>	_	_
 11	london-based	london-based	JJ	JJ	_	14	<no-type>	_	_
 12	investment	investment	NN	NN	_	14	<no-type>	_	_
 13	banking	banking	NN	NN	_	14	<no-type>	_	_
-14	company	company	NN	NN	_	6	<no-type>	_	_
+14	company	company	NN	NN	_	4	<no-type>	_	_
 15	that	that	WDT	WDT	_	14	<no-type>	_	_
 16	is	is	VBZ	VBZ	_	15	<no-type>	_	_
 17	a	a	DT	DT	_	18	<no-type>	_	_
@@ -2726,7 +2726,7 @@
 5	as	as	IN	IN	_	4	<no-type>	_	_
 6	the	the	DT	DT	_	8	<no-type>	_	_
 7	consortium	consortium	NN	NN	_	8	<no-type>	_	_
-8	's	's	POS	POS	_	10	<no-type>	_	_
+8	's	's	POS	POS	_	9	<no-type>	_	_
 9	investment	investment	NN	NN	_	10	<no-type>	_	_
 10	bankers	bankers	NNS	NNS	_	5	<no-type>	_	_
 11	.	.	.	.	_	3	<no-type>	_	_
@@ -2747,14 +2747,14 @@
 14	klute	klute	NN	NN	_	17	<no-type>	_	_
 15	,	,	,	,	_	17	<no-type>	_	_
 16	a	a	DT	DT	_	17	<no-type>	_	_
-17	reference	reference	NN	NN	_	11	<no-type>	_	_
+17	reference	reference	NN	NN	_	33	<no-type>	_	_
 18	to	to	TO	TO	_	17	<no-type>	_	_
 19	the	the	DT	DT	_	20	<no-type>	_	_
 20	film	film	NN	NN	_	18	<no-type>	_	_
-21	``	``	``	``	_	43	<no-type>	_	_
+21	``	``	``	``	_	33	<no-type>	_	_
 22	klute	klute	FW	FW	_	33	<no-type>	_	_
-23	''	''	''	''	_	33	<no-type>	_	_
-24	in	in	IN	IN	_	33	<no-type>	_	_
+23	''	''	''	''	_	18	<no-type>	_	_
+24	in	in	IN	IN	_	23	<no-type>	_	_
 25	which	which	WDT	WDT	_	27	<no-type>	_	_
 26	a	a	DT	DT	_	27	<no-type>	_	_
 27	prostitute	prostitute	NN	NN	_	24	<no-type>	_	_
@@ -2763,7 +2763,7 @@
 30	actress	actress	NN	NN	_	29	<no-type>	_	_
 31	jane	jane	NNP	NNP	_	32	<no-type>	_	_
 32	fonda	fonda	NNP	NNP	_	33	<no-type>	_	_
-33	is	is	VBZ	VBZ	_	43	<no-type>	_	_
+33	is	is	VBZ	VBZ	_	11	<no-type>	_	_
 34	saved	saved	VBN	VBN	_	33	<no-type>	_	_
 35	from	from	IN	IN	_	34	<no-type>	_	_
 36	a	a	DT	DT	_	38	<no-type>	_	_
@@ -2773,7 +2773,7 @@
 40	a	a	DT	DT	_	42	<no-type>	_	_
 41	police	police	NN	NN	_	42	<no-type>	_	_
 42	officer	officer	NN	NN	_	39	<no-type>	_	_
-43	named	named	VBD	VBD	_	46	<no-type>	_	_
+43	named	named	VBD	VBD	_	42	<no-type>	_	_
 44	john	john	NNP	NNP	_	45	<no-type>	_	_
 45	klute	klute	NNP	NNP	_	43	<no-type>	_	_
 46	.	.	.	.	_	11	<no-type>	_	_
@@ -2788,7 +2788,7 @@
 8	based	based	VBN	VBN	_	7	<no-type>	_	_
 9	in	in	IN	IN	_	8	<no-type>	_	_
 10	atlanta	atlanta	NNP	NNP	_	9	<no-type>	_	_
-11	in	in	IN	IN	_	3	<no-type>	_	_
+11	in	in	IN	IN	_	8	<no-type>	_	_
 12	1979	1979	CD	CD	_	11	<no-type>	_	_
 13	when	when	WRB	WRB	_	11	<no-type>	_	_
 14	mr.	mr.	NNP	NNP	_	15	<no-type>	_	_
@@ -2840,8 +2840,8 @@
 7	ambitious	ambitious	JJ	JJ	_	16	<no-type>	_	_
 8	,	,	,	,	_	16	<no-type>	_	_
 9	but	but	CC	CC	_	10	<no-type>	_	_
-10	ill-fated	ill-fated	JJ	JJ	_	16	<no-type>	_	_
-11	,	,	,	,	_	16	<no-type>	_	_
+10	ill-fated	ill-fated	JJ	JJ	_	15	<no-type>	_	_
+11	,	,	,	,	_	15	<no-type>	_	_
 12	$	$	$	$	_	15	<no-type>	_	_
 13	1	1	CD	CD	_	12	<no-type>	_	_
 14	billion	billion	CD	CD	_	12	<no-type>	_	_
@@ -2871,20 +2871,20 @@
 38	chain	chain	NN	NN	_	41	<no-type>	_	_
 39	;	;	:	:	_	41	<no-type>	_	_
 40	sakowitz	sakowitz	NNP	NNP	_	41	<no-type>	_	_
-41	inc.	inc.	NNP	NNP	_	49	<no-type>	_	_
-42	,	,	,	,	_	49	<no-type>	_	_
+41	inc.	inc.	NNP	NNP	_	45	<no-type>	_	_
+42	,	,	,	,	_	45	<no-type>	_	_
 43	the	the	DT	DT	_	45	<no-type>	_	_
 44	houston-based	houston-based	JJ	JJ	_	45	<no-type>	_	_
 45	retailer	retailer	NN	NN	_	49	<no-type>	_	_
 46	,	,	,	,	_	49	<no-type>	_	_
 47	and	and	CC	CC	_	49	<no-type>	_	_
 48	parisian	parisian	NNP	NNP	_	49	<no-type>	_	_
-49	inc.	inc.	NNP	NNP	_	32	<no-type>	_	_
+49	inc.	inc.	NNP	NNP	_	54	<no-type>	_	_
 50	,	,	,	,	_	54	<no-type>	_	_
 51	the	the	DT	DT	_	53	<no-type>	_	_
 52	southeast	southeast	NNP	NNP	_	53	<no-type>	_	_
 53	department-store	department-store	NN	NN	_	54	<no-type>	_	_
-54	chain	chain	NN	NN	_	49	<no-type>	_	_
+54	chain	chain	NN	NN	_	2	<no-type>	_	_
 55	.	.	.	.	_	3	<no-type>	_	_
 
 1	eventually	eventually	RB	RB	_	2	<no-type>	_	_
@@ -2894,7 +2894,7 @@
 5	mr.	mr.	NNP	NNP	_	6	<no-type>	_	_
 6	herscu	herscu	NNP	NNP	_	7	<no-type>	_	_
 7	had	had	VBD	VBD	_	21	<no-type>	_	_
-8	a	a	DT	DT	_	7	<no-type>	_	_
+8	a	a	DT	DT	_	13	<no-type>	_	_
 9	falling	falling	VBG	VBG	_	7	<no-type>	_	_
 10	out	out	RP	RP	_	9	<no-type>	_	_
 11	over	over	IN	IN	_	9	<no-type>	_	_
@@ -2912,7 +2912,7 @@
 23	resigned	resigned	VBD	VBD	_	21	<no-type>	_	_
 24	in	in	IN	IN	_	23	<no-type>	_	_
 25	1988	1988	CD	CD	_	24	<no-type>	_	_
-26	.	.	.	.	_	21	<no-type>	_	_
+26	.	.	.	.	_	7	<no-type>	_	_
 
 1	since	since	IN	IN	_	6	<no-type>	_	_
 2	then	then	RB	RB	_	1	<no-type>	_	_
@@ -2933,18 +2933,18 @@
 17	's	's	POS	POS	_	18	<no-type>	_	_
 18	management	management	NN	NN	_	20	<no-type>	_	_
 19	and	and	CC	CC	_	20	<no-type>	_	_
-20	is	is	VBZ	VBZ	_	10	<no-type>	_	_
+20	is	is	VBZ	VBZ	_	6	<no-type>	_	_
 21	currently	currently	RB	RB	_	20	<no-type>	_	_
 22	attempting	attempting	VBG	VBG	_	20	<no-type>	_	_
 23	to	to	TO	TO	_	24	<no-type>	_	_
 24	sell	sell	VB	VB	_	22	<no-type>	_	_
-25	the	the	DT	DT	_	30	<no-type>	_	_
+25	the	the	DT	DT	_	26	<no-type>	_	_
 26	b.	b.	NNP	NNP	_	29	<no-type>	_	_
 27	altman	altman	NNP	NNP	_	29	<no-type>	_	_
 28	&	&	CC	CC	_	29	<no-type>	_	_
 29	co.	co.	NNP	NNP	_	30	<no-type>	_	_
 30	chain	chain	NN	NN	_	24	<no-type>	_	_
-31	.	.	.	.	_	6	<no-type>	_	_
+31	.	.	.	.	_	20	<no-type>	_	_
 
 1	in	in	IN	IN	_	14	<no-type>	_	_
 2	addition	addition	NN	NN	_	1	<no-type>	_	_
@@ -2988,7 +2988,7 @@
 13	corp	corp	NNP	NNP	_	10	<no-type>	_	_
 14	.	.	.	.	_	4	<no-type>	_	_
 
-1	reached	reached	VBN	VBN	_	7	<no-type>	_	_
+1	reached	reached	VBN	VBN	_	15	<no-type>	_	_
 2	in	in	IN	IN	_	1	<no-type>	_	_
 3	honolulu	honolulu	NNP	NNP	_	2	<no-type>	_	_
 4	,	,	,	,	_	7	<no-type>	_	_
@@ -3019,7 +3019,7 @@
 7	,	,	,	,	_	10	<no-type>	_	_
 8	but	but	CC	CC	_	10	<no-type>	_	_
 9	they	they	PRP	PRP	_	10	<no-type>	_	_
-10	have	have	VBP	VBP	_	1	<no-type>	_	_
+10	have	have	VBP	VBP	_	0	<no-type>	_	_
 11	the	the	DT	DT	_	10	<no-type>	_	_
 12	potential	potential	JJ	JJ	_	10	<no-type>	_	_
 13	to	to	TO	TO	_	14	<no-type>	_	_
@@ -3030,18 +3030,18 @@
 18	said	said	VBD	VBD	_	0	<no-type>	_	_
 19	mr.	mr.	NNP	NNP	_	20	<no-type>	_	_
 20	shidler	shidler	NNP	NNP	_	18	<no-type>	_	_
-21	.	.	.	.	_	18	<no-type>	_	_
+21	.	.	.	.	_	10	<no-type>	_	_
 
 1	``	``	``	``	_	2	<no-type>	_	_
 2	managed	managed	VBD	VBD	_	0	<no-type>	_	_
 3	properly	properly	RB	RB	_	2	<no-type>	_	_
 4	,	,	,	,	_	2	<no-type>	_	_
-5	and	and	CC	CC	_	12	<no-type>	_	_
-6	with	with	IN	IN	_	12	<no-type>	_	_
+5	and	and	CC	CC	_	2	<no-type>	_	_
+6	with	with	IN	IN	_	2	<no-type>	_	_
 7	a	a	DT	DT	_	9	<no-type>	_	_
 8	long-term	long-term	JJ	JJ	_	9	<no-type>	_	_
 9	outlook	outlook	NN	NN	_	6	<no-type>	_	_
-10	,	,	,	,	_	12	<no-type>	_	_
+10	,	,	,	,	_	2	<no-type>	_	_
 11	these	these	DT	DT	_	12	<no-type>	_	_
 12	can	can	MD	MD	_	2	<no-type>	_	_
 13	become	become	VB	VB	_	12	<no-type>	_	_
@@ -3061,12 +3061,12 @@
 9	the	the	DT	DT	_	10	<no-type>	_	_
 10	week	week	NN	NN	_	8	<no-type>	_	_
 11	ended	ended	VBN	VBN	_	10	<no-type>	_	_
-12	oct.	oct.	NNP	NNP	_	17	<no-type>	_	_
+12	oct.	oct.	NNP	NNP	_	11	<no-type>	_	_
 13	7	7	CD	CD	_	12	<no-type>	_	_
 14	,	,	,	,	_	17	<no-type>	_	_
 15	up	up	RB	RB	_	17	<no-type>	_	_
 16	14.8	14.8	CD	CD	_	17	<no-type>	_	_
-17	%	%	NN	NN	_	11	<no-type>	_	_
+17	%	%	NN	NN	_	35	<no-type>	_	_
 18	from	from	IN	IN	_	17	<no-type>	_	_
 19	the	the	DT	DT	_	21	<no-type>	_	_
 20	preceding	preceding	VBG	VBG	_	21	<no-type>	_	_
@@ -3076,7 +3076,7 @@
 24	of	of	IN	IN	_	23	<no-type>	_	_
 25	254,280	254,280	CD	CD	_	26	<no-type>	_	_
 26	tons	tons	NNS	NNS	_	24	<no-type>	_	_
-27	,	,	,	,	_	35	<no-type>	_	_
+27	,	,	,	,	_	23	<no-type>	_	_
 28	statistics	statistics	NNPS	NNPS	_	29	<no-type>	_	_
 29	canada	canada	NNP	NNP	_	33	<no-type>	_	_
 30	,	,	,	,	_	33	<no-type>	_	_
@@ -3112,7 +3112,7 @@
 7	,	,	,	,	_	10	<no-type>	_	_
 8	up	up	RB	RB	_	10	<no-type>	_	_
 9	7.8	7.8	CD	CD	_	10	<no-type>	_	_
-10	%	%	NN	NN	_	6	<no-type>	_	_
+10	%	%	NN	NN	_	4	<no-type>	_	_
 11	from	from	IN	IN	_	10	<no-type>	_	_
 12	11,141,711	11,141,711	CD	CD	_	13	<no-type>	_	_
 13	tons	tons	NNS	NNS	_	11	<no-type>	_	_
@@ -3144,23 +3144,23 @@
 21	bills	bills	NNS	NNS	_	19	<no-type>	_	_
 22	and	and	CC	CC	_	24	<no-type>	_	_
 23	redeeming	redeeming	VBG	VBG	_	24	<no-type>	_	_
-24	$	$	$	$	_	14	<no-type>	_	_
+24	$	$	$	$	_	21	<no-type>	_	_
 25	9.58	9.58	CD	CD	_	24	<no-type>	_	_
 26	billion	billion	CD	CD	_	24	<no-type>	_	_
 27	of	of	IN	IN	_	26	<no-type>	_	_
 28	maturing	maturing	VBG	VBG	_	27	<no-type>	_	_
 29	bills	bills	NNS	NNS	_	28	<no-type>	_	_
-30	.	.	.	.	_	27	<no-type>	_	_
+30	.	.	.	.	_	14	<no-type>	_	_
 
 1	the	the	DT	DT	_	2	<no-type>	_	_
 2	bills	bills	NNS	NNS	_	3	<no-type>	_	_
-3	will	will	MD	MD	_	0	<no-type>	_	_
+3	will	will	MD	MD	_	9	<no-type>	_	_
 4	be	be	VB	VB	_	3	<no-type>	_	_
 5	dated	dated	VBN	VBN	_	4	<no-type>	_	_
-6	oct.	oct.	NNP	NNP	_	9	<no-type>	_	_
+6	oct.	oct.	NNP	NNP	_	5	<no-type>	_	_
 7	26	26	CD	CD	_	6	<no-type>	_	_
 8	and	and	CC	CC	_	9	<no-type>	_	_
-9	will	will	MD	MD	_	5	<no-type>	_	_
+9	will	will	MD	MD	_	0	<no-type>	_	_
 10	mature	mature	VB	VB	_	9	<no-type>	_	_
 11	oct.	oct.	NNP	NNP	_	10	<no-type>	_	_
 12	25	25	CD	CD	_	11	<no-type>	_	_
@@ -3188,7 +3188,7 @@
 6	1	1	CD	CD	_	5	<no-type>	_	_
 7	p.m.	p.m.	RB	RB	_	8	<no-type>	_	_
 8	edt	edt	NNP	NNP	_	9	<no-type>	_	_
-9	thursday	thursday	NNP	NNP	_	5	<no-type>	_	_
+9	thursday	thursday	NNP	NNP	_	10	<no-type>	_	_
 10	at	at	IN	IN	_	4	<no-type>	_	_
 11	the	the	DT	DT	_	12	<no-type>	_	_
 12	treasury	treasury	NNP	NNP	_	10	<no-type>	_	_
@@ -3243,7 +3243,7 @@
 8	the	the	DT	DT	_	9	<no-type>	_	_
 9	funds	funds	NNS	NNS	_	10	<no-type>	_	_
 10	were	were	VBD	VBD	_	0	<no-type>	_	_
-11	n't	n't	RB	RB	_	12	<no-type>	_	_
+11	n't	n't	RB	RB	_	10	<no-type>	_	_
 12	swamped	swamped	VBN	VBN	_	10	<no-type>	_	_
 13	with	with	IN	IN	_	12	<no-type>	_	_
 14	heavy	heavy	JJ	JJ	_	16	<no-type>	_	_
@@ -3260,7 +3260,7 @@
 7	up	up	IN	IN	_	6	<no-type>	_	_
 8	cash	cash	NN	NN	_	9	<no-type>	_	_
 9	levels	levels	NNS	NNS	_	7	<no-type>	_	_
-10	and	and	CC	CC	_	11	<no-type>	_	_
+10	and	and	CC	CC	_	13	<no-type>	_	_
 11	say	say	VBP	VBP	_	9	<no-type>	_	_
 12	they	they	PRP	PRP	_	13	<no-type>	_	_
 13	will	will	MD	MD	_	11	<no-type>	_	_
@@ -3271,9 +3271,9 @@
 18	week	week	NN	NN	_	15	<no-type>	_	_
 19	.	.	.	.	_	5	<no-type>	_	_
 
-1	at	at	IN	IN	_	3	<no-type>	_	_
+1	at	at	IN	IN	_	10	<no-type>	_	_
 2	fidelity	fidelity	NNP	NNP	_	3	<no-type>	_	_
-3	investments	investments	NNP	NNP	_	10	<no-type>	_	_
+3	investments	investments	NNP	NNP	_	1	<no-type>	_	_
 4	,	,	,	,	_	10	<no-type>	_	_
 5	the	the	DT	DT	_	7	<no-type>	_	_
 6	nation	nation	NN	NN	_	7	<no-type>	_	_
@@ -3301,7 +3301,7 @@
 28	the	the	DT	DT	_	29	<no-type>	_	_
 29	weekend	weekend	NN	NN	_	27	<no-type>	_	_
 30	preceding	preceding	VBG	VBG	_	29	<no-type>	_	_
-31	black	black	JJ	JJ	_	32	<no-type>	_	_
+31	black	black	JJ	JJ	_	30	<no-type>	_	_
 32	monday	monday	NNP	NNP	_	30	<no-type>	_	_
 33	in	in	IN	IN	_	30	<no-type>	_	_
 34	1987	1987	CD	CD	_	33	<no-type>	_	_
@@ -3318,12 +3318,12 @@
 9	at	at	IN	IN	_	8	<no-type>	_	_
 10	less	less	JJR	JJR	_	9	<no-type>	_	_
 11	than	than	IN	IN	_	10	<no-type>	_	_
-12	one-third	one-third	RB	RB	_	14	<no-type>	_	_
+12	one-third	one-third	RB	RB	_	9	<no-type>	_	_
 13	the	the	DT	DT	_	14	<no-type>	_	_
 14	level	level	NN	NN	_	11	<no-type>	_	_
 15	two	two	CD	CD	_	16	<no-type>	_	_
-16	years	years	NNS	NNS	_	14	<no-type>	_	_
-17	ago	ago	RB	RB	_	16	<no-type>	_	_
+16	years	years	NNS	NNS	_	17	<no-type>	_	_
+17	ago	ago	RB	RB	_	18	<no-type>	_	_
 18	.	.	.	.	_	4	<no-type>	_	_
 
 1	as	as	IN	IN	_	8	<no-type>	_	_
@@ -3336,7 +3336,7 @@
 8	represented	represented	VBD	VBD	_	0	<no-type>	_	_
 9	less	less	RBR	RBR	_	8	<no-type>	_	_
 10	than	than	IN	IN	_	8	<no-type>	_	_
-11	15	15	CD	CD	_	12	<no-type>	_	_
+11	15	15	CD	CD	_	10	<no-type>	_	_
 12	%	%	NN	NN	_	10	<no-type>	_	_
 13	of	of	IN	IN	_	12	<no-type>	_	_
 14	the	the	DT	DT	_	17	<no-type>	_	_
@@ -3389,7 +3389,7 @@
 32	5	5	CD	CD	_	31	<no-type>	_	_
 33	billion	billion	CD	CD	_	31	<no-type>	_	_
 34	equity-income	equity-income	NN	NN	_	35	<no-type>	_	_
-35	fund	fund	NN	NN	_	33	<no-type>	_	_
+35	fund	fund	NN	NN	_	30	<no-type>	_	_
 36	.	.	.	.	_	21	<no-type>	_	_
 
 1	``	``	``	``	_	3	<no-type>	_	_
@@ -3417,7 +3417,7 @@
 6	.	.	.	.	_	3	<no-type>	_	_
 
 1	friday	friday	NNP	NNP	_	2	<no-type>	_	_
-2	's	's	POS	POS	_	5	<no-type>	_	_
+2	's	's	POS	POS	_	3	<no-type>	_	_
 3	stock	stock	NN	NN	_	5	<no-type>	_	_
 4	market	market	NN	NN	_	5	<no-type>	_	_
 5	sell-off	sell-off	NN	NN	_	6	<no-type>	_	_
@@ -3446,13 +3446,13 @@
 13	after	after	IN	IN	_	12	<no-type>	_	_
 14	friday	friday	NNP	NNP	_	15	<no-type>	_	_
 15	's	's	POS	POS	_	16	<no-type>	_	_
-16	close	close	NN	NN	_	13	<no-type>	_	_
-17	would	would	MD	MD	_	8	<no-type>	_	_
+16	close	close	NN	NN	_	17	<no-type>	_	_
+17	would	would	MD	MD	_	13	<no-type>	_	_
 18	take	take	VB	VB	_	17	<no-type>	_	_
 19	place	place	NN	NN	_	18	<no-type>	_	_
 20	at	at	IN	IN	_	18	<no-type>	_	_
 21	today	today	NN	NN	_	22	<no-type>	_	_
-22	's	's	POS	POS	_	24	<no-type>	_	_
+22	's	's	POS	POS	_	23	<no-type>	_	_
 23	closing	closing	NN	NN	_	24	<no-type>	_	_
 24	prices	prices	NNS	NNS	_	20	<no-type>	_	_
 25	.	.	.	.	_	3	<no-type>	_	_
@@ -3463,7 +3463,7 @@
 4	during	during	IN	IN	_	3	<no-type>	_	_
 5	the	the	DT	DT	_	7	<no-type>	_	_
 6	1987	1987	CD	CD	_	7	<no-type>	_	_
-7	debacle	debacle	NN	NN	_	4	<no-type>	_	_
+7	debacle	debacle	NN	NN	_	8	<no-type>	_	_
 8	did	did	VBD	VBD	_	0	<no-type>	_	_
 9	n't	n't	RB	RB	_	8	<no-type>	_	_
 10	begin	begin	VB	VB	_	8	<no-type>	_	_
@@ -3507,17 +3507,17 @@
 
 1	mario	mario	NNP	NNP	_	2	<no-type>	_	_
 2	gabelli	gabelli	NNP	NNP	_	7	<no-type>	_	_
-3	,	,	,	,	_	2	<no-type>	_	_
-4	for	for	IN	IN	_	2	<no-type>	_	_
+3	,	,	,	,	_	7	<no-type>	_	_
+4	for	for	IN	IN	_	7	<no-type>	_	_
 5	instance	instance	NN	NN	_	4	<no-type>	_	_
-6	,	,	,	,	_	2	<no-type>	_	_
+6	,	,	,	,	_	7	<no-type>	_	_
 7	holds	holds	VBZ	VBZ	_	0	<no-type>	_	_
 8	cash	cash	NN	NN	_	9	<no-type>	_	_
 9	positions	positions	NNS	NNS	_	7	<no-type>	_	_
 10	well	well	RB	RB	_	7	<no-type>	_	_
-11	above	above	IN	IN	_	13	<no-type>	_	_
+11	above	above	IN	IN	_	10	<no-type>	_	_
 12	20	20	CD	CD	_	11	<no-type>	_	_
-13	%	%	NN	NN	_	7	<no-type>	_	_
+13	%	%	NN	NN	_	11	<no-type>	_	_
 14	in	in	IN	IN	_	13	<no-type>	_	_
 15	several	several	JJ	JJ	_	14	<no-type>	_	_
 16	of	of	IN	IN	_	15	<no-type>	_	_
@@ -3531,9 +3531,9 @@
 4	john	john	NNP	NNP	_	5	<no-type>	_	_
 5	neff	neff	NNP	NNP	_	8	<no-type>	_	_
 6	and	and	CC	CC	_	8	<no-type>	_	_
-7	mutual	mutual	NNP	NNP	_	8	<no-type>	_	_
+7	mutual	mutual	NNP	NNP	_	9	<no-type>	_	_
 8	series	series	NNP	NNP	_	9	<no-type>	_	_
-9	'	'	POS	POS	_	11	<no-type>	_	_
+9	'	'	POS	POS	_	10	<no-type>	_	_
 10	michael	michael	NNP	NNP	_	11	<no-type>	_	_
 11	price	price	NNP	NNP	_	12	<no-type>	_	_
 12	said	said	VBD	VBD	_	0	<no-type>	_	_
@@ -3544,7 +3544,7 @@
 17	cash	cash	NN	NN	_	18	<no-type>	_	_
 18	levels	levels	NNS	NNS	_	15	<no-type>	_	_
 19	to	to	TO	TO	_	18	<no-type>	_	_
-20	more	more	JJR	JJR	_	23	<no-type>	_	_
+20	more	more	JJR	JJR	_	19	<no-type>	_	_
 21	than	than	IN	IN	_	20	<no-type>	_	_
 22	20	20	CD	CD	_	21	<no-type>	_	_
 23	%	%	NN	NN	_	26	<no-type>	_	_
@@ -3555,18 +3555,18 @@
 28	respectively	respectively	RB	RB	_	31	<no-type>	_	_
 29	,	,	,	,	_	31	<no-type>	_	_
 30	this	this	DT	DT	_	31	<no-type>	_	_
-31	year	year	NN	NN	_	19	<no-type>	_	_
+31	year	year	NN	NN	_	21	<no-type>	_	_
 32	.	.	.	.	_	12	<no-type>	_	_
 
 1	even	even	RB	RB	_	3	<no-type>	_	_
 2	peter	peter	NNP	NNP	_	3	<no-type>	_	_
 3	lynch	lynch	NNP	NNP	_	5	<no-type>	_	_
 4	,	,	,	,	_	5	<no-type>	_	_
-5	manager	manager	NN	NN	_	0	<no-type>	_	_
+5	manager	manager	NN	NN	_	29	<no-type>	_	_
 6	of	of	IN	IN	_	5	<no-type>	_	_
 7	fidelity	fidelity	NNP	NNP	_	8	<no-type>	_	_
 8	's	's	POS	POS	_	13	<no-type>	_	_
-9	$	$	$	$	_	13	<no-type>	_	_
+9	$	$	$	$	_	8	<no-type>	_	_
 10	12.7	12.7	CD	CD	_	9	<no-type>	_	_
 11	billion	billion	CD	CD	_	9	<no-type>	_	_
 12	magellan	magellan	JJ	JJ	_	13	<no-type>	_	_
@@ -3582,14 +3582,14 @@
 22	built	built	VBN	VBN	_	20	<no-type>	_	_
 23	up	up	IN	IN	_	22	<no-type>	_	_
 24	cash	cash	NN	NN	_	23	<no-type>	_	_
-25	to	to	TO	TO	_	22	<no-type>	_	_
+25	to	to	TO	TO	_	27	<no-type>	_	_
 26	7	7	CD	CD	_	27	<no-type>	_	_
-27	%	%	NN	NN	_	25	<no-type>	_	_
+27	%	%	NN	NN	_	29	<no-type>	_	_
 28	or	or	CC	CC	_	29	<no-type>	_	_
-29	$	$	$	$	_	27	<no-type>	_	_
+29	$	$	$	$	_	0	<no-type>	_	_
 30	850	850	CD	CD	_	29	<no-type>	_	_
 31	million	million	CD	CD	_	29	<no-type>	_	_
-32	.	.	.	.	_	5	<no-type>	_	_
+32	.	.	.	.	_	29	<no-type>	_	_
 
 1	one	one	CD	CD	_	2	<no-type>	_	_
 2	reason	reason	NN	NN	_	3	<no-type>	_	_
@@ -3642,7 +3642,7 @@
 22	finding	finding	VBG	VBG	_	21	<no-type>	_	_
 23	stocks	stocks	NNS	NNS	_	22	<no-type>	_	_
 24	he	he	PRP	PRP	_	25	<no-type>	_	_
-25	likes	likes	VBZ	VBZ	_	17	<no-type>	_	_
+25	likes	likes	VBZ	VBZ	_	23	<no-type>	_	_
 26	.	.	.	.	_	13	<no-type>	_	_
 
 1	not	not	RB	RB	_	4	<no-type>	_	_
@@ -3682,7 +3682,7 @@
 23	the	the	DT	DT	_	25	<no-type>	_	_
 24	investment	investment	NN	NN	_	25	<no-type>	_	_
 25	company	company	NN	NN	_	22	<no-type>	_	_
-26	institute	institute	NNP	NNP	_	25	<no-type>	_	_
+26	institute	institute	NNP	NNP	_	22	<no-type>	_	_
 27	.	.	.	.	_	7	<no-type>	_	_
 
 1	that	that	DT	DT	_	2	<no-type>	_	_
@@ -3711,7 +3711,7 @@
 4	redemptions	redemptions	NNS	NNS	_	5	<no-type>	_	_
 5	would	would	MD	MD	_	0	<no-type>	_	_
 6	force	force	VB	VB	_	5	<no-type>	_	_
-7	some	some	DT	DT	_	9	<no-type>	_	_
+7	some	some	DT	DT	_	8	<no-type>	_	_
 8	fund	fund	NN	NN	_	9	<no-type>	_	_
 9	managers	managers	NNS	NNS	_	6	<no-type>	_	_
 10	to	to	TO	TO	_	11	<no-type>	_	_
@@ -3722,21 +3722,21 @@
 15	cash	cash	NN	NN	_	14	<no-type>	_	_
 16	.	.	.	.	_	5	<no-type>	_	_
 
-1	but	but	CC	CC	_	18	<no-type>	_	_
+1	but	but	CC	CC	_	4	<no-type>	_	_
 2	a	a	DT	DT	_	4	<no-type>	_	_
 3	strong	strong	JJ	JJ	_	4	<no-type>	_	_
 4	level	level	NN	NN	_	8	<no-type>	_	_
 5	of	of	IN	IN	_	4	<no-type>	_	_
 6	investor	investor	NN	NN	_	7	<no-type>	_	_
 7	withdrawals	withdrawals	NNS	NNS	_	5	<no-type>	_	_
-8	is	is	VBZ	VBZ	_	1	<no-type>	_	_
+8	is	is	VBZ	VBZ	_	18	<no-type>	_	_
 9	much	much	RB	RB	_	8	<no-type>	_	_
 10	more	more	RBR	RBR	_	11	<no-type>	_	_
 11	unlikely	unlikely	JJ	JJ	_	13	<no-type>	_	_
 12	this	this	DT	DT	_	13	<no-type>	_	_
 13	time	time	NN	NN	_	16	<no-type>	_	_
 14	around	around	RB	RB	_	16	<no-type>	_	_
-15	,	,	,	,	_	16	<no-type>	_	_
+15	,	,	,	,	_	18	<no-type>	_	_
 16	fund	fund	NN	NN	_	17	<no-type>	_	_
 17	managers	managers	NNS	NNS	_	18	<no-type>	_	_
 18	said	said	VBD	VBD	_	0	<no-type>	_	_
@@ -3754,14 +3754,14 @@
 10	scaled	scaled	VBN	VBN	_	8	<no-type>	_	_
 11	back	back	RP	RP	_	10	<no-type>	_	_
 12	their	their	PRP$	PRP$	_	13	<no-type>	_	_
-13	purchases	purchases	NNS	NNS	_	10	<no-type>	_	_
+13	purchases	purchases	NNS	NNS	_	8	<no-type>	_	_
 14	of	of	IN	IN	_	13	<no-type>	_	_
 15	stock	stock	NN	NN	_	16	<no-type>	_	_
 16	funds	funds	NNS	NNS	_	14	<no-type>	_	_
 17	since	since	IN	IN	_	16	<no-type>	_	_
 18	black	black	JJ	JJ	_	19	<no-type>	_	_
 19	monday	monday	NNP	NNP	_	17	<no-type>	_	_
-20	.	.	.	.	_	8	<no-type>	_	_
+20	.	.	.	.	_	4	<no-type>	_	_
 
 1	stock-fund	stock-fund	NN	NN	_	2	<no-type>	_	_
 2	sales	sales	NNS	NNS	_	3	<no-type>	_	_
@@ -3786,7 +3786,7 @@
 21	levels	levels	NNS	NNS	_	18	<no-type>	_	_
 22	.	.	.	.	_	3	<no-type>	_	_
 
-1	``	``	``	``	_	11	<no-type>	_	_
+1	``	``	``	``	_	3	<no-type>	_	_
 2	there	there	EX	EX	_	3	<no-type>	_	_
 3	's	's	VBZ	VBZ	_	11	<no-type>	_	_
 4	not	not	RB	RB	_	3	<no-type>	_	_
@@ -3804,17 +3804,17 @@
 16	of	of	IN	IN	_	15	<no-type>	_	_
 17	vanguard	vanguard	NNP	NNP	_	19	<no-type>	_	_
 18	group	group	NNP	NNP	_	19	<no-type>	_	_
-19	inc.	inc.	NNP	NNP	_	29	<no-type>	_	_
+19	inc.	inc.	NNP	NNP	_	16	<no-type>	_	_
 20	,	,	,	,	_	29	<no-type>	_	_
 21	a	a	DT	DT	_	29	<no-type>	_	_
 22	big	big	JJ	JJ	_	29	<no-type>	_	_
 23	valley	valley	NNP	NNP	_	24	<no-type>	_	_
 24	forge	forge	NNP	NNP	_	26	<no-type>	_	_
-25	,	,	,	,	_	26	<no-type>	_	_
+25	,	,	,	,	_	29	<no-type>	_	_
 26	pa.	pa.	NNP	NNP	_	29	<no-type>	_	_
 27	,	,	,	,	_	29	<no-type>	_	_
 28	fund	fund	NN	NN	_	29	<no-type>	_	_
-29	company	company	NN	NN	_	16	<no-type>	_	_
+29	company	company	NN	NN	_	19	<no-type>	_	_
 30	.	.	.	.	_	11	<no-type>	_	_
 
 1	many	many	JJ	JJ	_	3	<no-type>	_	_
@@ -3855,10 +3855,10 @@
 23	dun	dun	NNP	NNP	_	26	<no-type>	_	_
 24	&	&	CC	CC	_	26	<no-type>	_	_
 25	bradstreet	bradstreet	NNP	NNP	_	26	<no-type>	_	_
-26	friday	friday	NNP	NNP	_	19	<no-type>	_	_
+26	friday	friday	NNP	NNP	_	18	<no-type>	_	_
 27	.	.	.	.	_	13	<no-type>	_	_
 
-1	and	and	CC	CC	_	4	<no-type>	_	_
+1	and	and	CC	CC	_	2	<no-type>	_	_
 2	today	today	NN	NN	_	4	<no-type>	_	_
 3	he	he	PRP	PRP	_	4	<no-type>	_	_
 4	'll	'll	MD	MD	_	23	<no-type>	_	_
@@ -3876,8 +3876,8 @@
 16	and	and	CC	CC	_	18	<no-type>	_	_
 17	american	american	NNP	NNP	_	18	<no-type>	_	_
 18	home	home	NNP	NNP	_	19	<no-type>	_	_
-19	products	products	NNS	NNS	_	22	<no-type>	_	_
-20	whose	whose	WP$	WP$	_	22	<no-type>	_	_
+19	products	products	NNS	NNS	_	21	<no-type>	_	_
+20	whose	whose	WP$	WP$	_	21	<no-type>	_	_
 21	dividend	dividend	NN	NN	_	22	<no-type>	_	_
 22	yields	yields	NNS	NNS	_	23	<no-type>	_	_
 23	have	have	VBP	VBP	_	0	<no-type>	_	_
@@ -3891,7 +3891,7 @@
 1	fidelity	fidelity	NNP	NNP	_	2	<no-type>	_	_
 2	's	's	POS	POS	_	4	<no-type>	_	_
 3	mr.	mr.	NNP	NNP	_	4	<no-type>	_	_
-4	lynch	lynch	NNP	NNP	_	10	<no-type>	_	_
+4	lynch	lynch	NNP	NNP	_	13	<no-type>	_	_
 5	,	,	,	,	_	10	<no-type>	_	_
 6	for	for	IN	IN	_	10	<no-type>	_	_
 7	his	his	PRP$	PRP$	_	8	<no-type>	_	_
@@ -3902,10 +3902,10 @@
 12	southern	southern	NNP	NNP	_	13	<no-type>	_	_
 13	co.	co.	NNP	NNP	_	14	<no-type>	_	_
 14	shares	shares	NNS	NNS	_	10	<no-type>	_	_
-15	friday	friday	NNP	NNP	_	16	<no-type>	_	_
+15	friday	friday	NNP	NNP	_	13	<no-type>	_	_
 16	after	after	IN	IN	_	10	<no-type>	_	_
 17	the	the	DT	DT	_	18	<no-type>	_	_
-18	stock	stock	NN	NN	_	16	<no-type>	_	_
+18	stock	stock	NN	NN	_	19	<no-type>	_	_
 19	got	got	VBD	VBD	_	16	<no-type>	_	_
 20	hammered	hammered	VBN	VBN	_	19	<no-type>	_	_
 21	.	.	.	.	_	10	<no-type>	_	_
@@ -3935,8 +3935,8 @@
 1	``	``	``	``	_	11	<no-type>	_	_
 2	if	if	IN	IN	_	11	<no-type>	_	_
 3	they	they	PRP	PRP	_	4	<no-type>	_	_
-4	croak	croak	VBP	VBP	_	5	<no-type>	_	_
-5	stocks	stocks	NNS	NNS	_	2	<no-type>	_	_
+4	croak	croak	VBP	VBP	_	2	<no-type>	_	_
+5	stocks	stocks	NNS	NNS	_	4	<no-type>	_	_
 6	like	like	IN	IN	_	5	<no-type>	_	_
 7	that	that	DT	DT	_	6	<no-type>	_	_
 8	,	,	,	,	_	11	<no-type>	_	_
@@ -3975,7 +3975,7 @@
 12	normal	normal	JJ	JJ	_	14	<no-type>	_	_
 13	weekend	weekend	NN	NN	_	14	<no-type>	_	_
 14	pace	pace	NN	NN	_	15	<no-type>	_	_
-15	yesterday	yesterday	NN	NN	_	8	<no-type>	_	_
+15	yesterday	yesterday	NN	NN	_	16	<no-type>	_	_
 16	.	.	.	.	_	4	<no-type>	_	_
 
 1	but	but	CC	CC	_	3	<no-type>	_	_
@@ -3984,10 +3984,10 @@
 4	were	were	VBD	VBD	_	0	<no-type>	_	_
 5	seeking	seeking	VBG	VBG	_	4	<no-type>	_	_
 6	share	share	NN	NN	_	7	<no-type>	_	_
-7	prices	prices	NNS	NNS	_	5	<no-type>	_	_
+7	prices	prices	NNS	NNS	_	10	<no-type>	_	_
 8	and	and	CC	CC	_	10	<no-type>	_	_
 9	other	other	JJ	JJ	_	10	<no-type>	_	_
-10	information	information	NN	NN	_	7	<no-type>	_	_
+10	information	information	NN	NN	_	5	<no-type>	_	_
 11	.	.	.	.	_	4	<no-type>	_	_
 
 1	trading	trading	NN	NN	_	2	<no-type>	_	_
@@ -4069,8 +4069,8 @@
 11	edt	edt	NNP	NNP	_	13	<no-type>	_	_
 12	this	this	DT	DT	_	13	<no-type>	_	_
 13	morning	morning	NN	NN	_	9	<no-type>	_	_
-14	,	,	,	,	_	8	<no-type>	_	_
-15	instead	instead	RB	RB	_	8	<no-type>	_	_
+14	,	,	,	,	_	13	<no-type>	_	_
+15	instead	instead	RB	RB	_	13	<no-type>	_	_
 16	of	of	IN	IN	_	15	<no-type>	_	_
 17	the	the	DT	DT	_	19	<no-type>	_	_
 18	normal	normal	JJ	JJ	_	19	<no-type>	_	_
@@ -4114,7 +4114,7 @@
 1	but	but	CC	CC	_	20	<no-type>	_	_
 2	most	most	JJS	JJS	_	3	<no-type>	_	_
 3	investors	investors	NNS	NNS	_	4	<no-type>	_	_
-4	seemed	seemed	VBD	VBD	_	20	<no-type>	_	_
+4	seemed	seemed	VBD	VBD	_	1	<no-type>	_	_
 5	to	to	TO	TO	_	6	<no-type>	_	_
 6	be	be	VB	VB	_	4	<no-type>	_	_
 7	``	``	``	``	_	20	<no-type>	_	_
@@ -4137,11 +4137,11 @@
 24	a	a	DT	DT	_	26	<no-type>	_	_
 25	vice	vice	NN	NN	_	26	<no-type>	_	_
 26	president	president	NN	NN	_	20	<no-type>	_	_
-27	.	.	.	.	_	20	<no-type>	_	_
+27	.	.	.	.	_	4	<no-type>	_	_
 
-1	and	and	CC	CC	_	4	<no-type>	_	_
+1	and	and	CC	CC	_	2	<no-type>	_	_
 2	vanguard	vanguard	NNP	NNP	_	4	<no-type>	_	_
-3	,	,	,	,	_	2	<no-type>	_	_
+3	,	,	,	,	_	10	<no-type>	_	_
 4	among	among	IN	IN	_	8	<no-type>	_	_
 5	other	other	JJ	JJ	_	6	<no-type>	_	_
 6	groups	groups	NNS	NNS	_	4	<no-type>	_	_
@@ -4156,7 +4156,7 @@
 15	today	today	NN	NN	_	11	<no-type>	_	_
 16	to	to	TO	TO	_	17	<no-type>	_	_
 17	help	help	VB	VB	_	15	<no-type>	_	_
-18	investors	investors	NNS	NNS	_	19	<no-type>	_	_
+18	investors	investors	NNS	NNS	_	17	<no-type>	_	_
 19	get	get	VB	VB	_	17	<no-type>	_	_
 20	through	through	RB	RB	_	19	<no-type>	_	_
 21	.	.	.	.	_	8	<no-type>	_	_
@@ -4195,14 +4195,14 @@
 12	us	us	PRP	PRP	_	11	<no-type>	_	_
 13	a	a	DT	DT	_	15	<no-type>	_	_
 14	buying	buying	NN	NN	_	15	<no-type>	_	_
-15	opportunity	opportunity	NN	NN	_	10	<no-type>	_	_
+15	opportunity	opportunity	NN	NN	_	11	<no-type>	_	_
 16	as	as	IN	IN	_	15	<no-type>	_	_
 17	long-term	long-term	JJ	JJ	_	18	<no-type>	_	_
 18	investors	investors	NNS	NNS	_	16	<no-type>	_	_
-19	,	,	,	,	_	22	<no-type>	_	_
+19	,	,	,	,	_	18	<no-type>	_	_
 20	''	''	''	''	_	22	<no-type>	_	_
 21	a	a	DT	DT	_	22	<no-type>	_	_
-22	recording	recording	NN	NN	_	16	<no-type>	_	_
+22	recording	recording	NN	NN	_	18	<no-type>	_	_
 23	at	at	IN	IN	_	22	<no-type>	_	_
 24	gabelli	gabelli	NNP	NNP	_	26	<no-type>	_	_
 25	&	&	CC	CC	_	26	<no-type>	_	_
@@ -4212,7 +4212,7 @@
 29	over	over	IN	IN	_	28	<no-type>	_	_
 30	the	the	DT	DT	_	31	<no-type>	_	_
 31	weekend	weekend	NN	NN	_	29	<no-type>	_	_
-32	.	.	.	.	_	28	<no-type>	_	_
+32	.	.	.	.	_	3	<no-type>	_	_
 
 1	the	the	DT	DT	_	3	<no-type>	_	_
 2	janus	janus	NNP	NNP	_	3	<no-type>	_	_
@@ -4237,7 +4237,7 @@
 10	before	before	IN	IN	_	9	<no-type>	_	_
 11	prices	prices	NNS	NNS	_	10	<no-type>	_	_
 12	stabilize	stabilize	VBP	VBP	_	10	<no-type>	_	_
-13	.	.	.	.	_	4	<no-type>	_	_
+13	.	.	.	.	_	12	<no-type>	_	_
 
 1	some	some	DT	DT	_	3	<no-type>	_	_
 2	early	early	JJ	JJ	_	3	<no-type>	_	_
@@ -4271,7 +4271,7 @@
 6	staggering	staggering	JJ	JJ	_	7	<no-type>	_	_
 7	gain	gain	NN	NN	_	4	<no-type>	_	_
 8	of	of	IN	IN	_	7	<no-type>	_	_
-9	25	25	CD	CD	_	10	<no-type>	_	_
+9	25	25	CD	CD	_	8	<no-type>	_	_
 10	%	%	NN	NN	_	8	<no-type>	_	_
 11	through	through	IN	IN	_	10	<no-type>	_	_
 12	september	september	NNP	NNP	_	11	<no-type>	_	_
@@ -4281,7 +4281,7 @@
 16	lipper	lipper	NNP	NNP	_	19	<no-type>	_	_
 17	analytical	analytical	NNP	NNP	_	19	<no-type>	_	_
 18	services	services	NNPS	NNPS	_	19	<no-type>	_	_
-19	inc	inc	NNP	NNP	_	15	<no-type>	_	_
+19	inc	inc	NNP	NNP	_	14	<no-type>	_	_
 20	.	.	.	.	_	3	<no-type>	_	_
 
 1	elaine	elaine	NNP	NNP	_	2	<no-type>	_	_
@@ -4301,7 +4301,7 @@
 15	analysis	analysis	NN	NN	_	16	<no-type>	_	_
 16	portfolio	portfolio	NN	NN	_	21	<no-type>	_	_
 17	,	,	,	,	_	21	<no-type>	_	_
-18	predicts	predicts	VBZ	VBZ	_	20	<no-type>	_	_
+18	predicts	predicts	VBZ	VBZ	_	21	<no-type>	_	_
 19	the	the	DT	DT	_	20	<no-type>	_	_
 20	market	market	NN	NN	_	21	<no-type>	_	_
 21	will	will	MD	MD	_	0	<no-type>	_	_
@@ -4325,9 +4325,9 @@
 1	but	but	CC	CC	_	3	<no-type>	_	_
 2	she	she	PRP	PRP	_	3	<no-type>	_	_
 3	expects	expects	VBZ	VBZ	_	9	<no-type>	_	_
-4	prices	prices	NNS	NNS	_	6	<no-type>	_	_
+4	prices	prices	NNS	NNS	_	3	<no-type>	_	_
 5	to	to	TO	TO	_	6	<no-type>	_	_
-6	rebound	rebound	VB	VB	_	3	<no-type>	_	_
+6	rebound	rebound	VB	VB	_	4	<no-type>	_	_
 7	soon	soon	RB	RB	_	6	<no-type>	_	_
 8	and	and	CC	CC	_	9	<no-type>	_	_
 9	is	is	VBZ	VBZ	_	0	<no-type>	_	_
@@ -4341,13 +4341,13 @@
 17	wo	wo	MD	MD	_	13	<no-type>	_	_
 18	n't	n't	RB	RB	_	17	<no-type>	_	_
 19	decline	decline	VB	VB	_	17	<no-type>	_	_
-20	more	more	JJR	JJR	_	23	<no-type>	_	_
+20	more	more	JJR	JJR	_	19	<no-type>	_	_
 21	than	than	IN	IN	_	20	<no-type>	_	_
 22	10	10	CD	CD	_	21	<no-type>	_	_
-23	%	%	NN	NN	_	19	<no-type>	_	_
-24	to	to	TO	TO	_	19	<no-type>	_	_
+23	%	%	NN	NN	_	26	<no-type>	_	_
+24	to	to	TO	TO	_	26	<no-type>	_	_
 25	15	15	CD	CD	_	26	<no-type>	_	_
-26	%	%	NN	NN	_	24	<no-type>	_	_
+26	%	%	NN	NN	_	21	<no-type>	_	_
 27	from	from	IN	IN	_	26	<no-type>	_	_
 28	recent	recent	JJ	JJ	_	29	<no-type>	_	_
 29	highs	highs	NNS	NNS	_	27	<no-type>	_	_
@@ -4393,7 +4393,7 @@
 6	really	really	RB	RB	_	5	<no-type>	_	_
 7	scared	scared	JJ	JJ	_	5	<no-type>	_	_
 8	and	and	CC	CC	_	5	<no-type>	_	_
-9	want	want	VB	VB	_	5	<no-type>	_	_
+9	want	want	VB	VB	_	7	<no-type>	_	_
 10	to	to	TO	TO	_	11	<no-type>	_	_
 11	sell	sell	VB	VB	_	9	<no-type>	_	_
 12	,	,	,	,	_	15	<no-type>	_	_
@@ -4424,9 +4424,9 @@
 7	all	all	DT	DT	_	8	<no-type>	_	_
 8	were	were	VBD	VBD	_	5	<no-type>	_	_
 9	bullish	bullish	JJ	JJ	_	8	<no-type>	_	_
-10	,	,	,	,	_	5	<no-type>	_	_
+10	,	,	,	,	_	8	<no-type>	_	_
 11	i	i	PRP	PRP	_	12	<no-type>	_	_
-12	'd	'd	MD	MD	_	5	<no-type>	_	_
+12	'd	'd	MD	MD	_	8	<no-type>	_	_
 13	really	really	RB	RB	_	12	<no-type>	_	_
 14	be	be	VB	VB	_	12	<no-type>	_	_
 15	upset	upset	JJ	JJ	_	14	<no-type>	_	_
@@ -4456,8 +4456,8 @@
 21	.	.	.	.	_	7	<no-type>	_	_
 
 1	two	two	CD	CD	_	2	<no-type>	_	_
-2	years	years	NNS	NNS	_	10	<no-type>	_	_
-3	ago	ago	RB	RB	_	10	<no-type>	_	_
+2	years	years	NNS	NNS	_	3	<no-type>	_	_
+3	ago	ago	RB	RB	_	25	<no-type>	_	_
 4	,	,	,	,	_	10	<no-type>	_	_
 5	unlike	unlike	IN	IN	_	10	<no-type>	_	_
 6	today	today	NN	NN	_	5	<no-type>	_	_
@@ -4471,10 +4471,10 @@
 14	rates	rates	NNS	NNS	_	15	<no-type>	_	_
 15	were	were	VBD	VBD	_	10	<no-type>	_	_
 16	rising	rising	VBG	VBG	_	15	<no-type>	_	_
-17	and	and	CC	CC	_	20	<no-type>	_	_
+17	and	and	CC	CC	_	16	<no-type>	_	_
 18	the	the	DT	DT	_	19	<no-type>	_	_
 19	market	market	NN	NN	_	20	<no-type>	_	_
-20	was	was	VBD	VBD	_	16	<no-type>	_	_
+20	was	was	VBD	VBD	_	17	<no-type>	_	_
 21	very	very	RB	RB	_	22	<no-type>	_	_
 22	overvalued	overvalued	VBN	VBN	_	20	<no-type>	_	_
 23	,	,	,	,	_	25	<no-type>	_	_
@@ -4483,12 +4483,12 @@
 26	.	.	.	.	_	10	<no-type>	_	_
 
 1	``	``	``	``	_	26	<no-type>	_	_
-2	from	from	IN	IN	_	11	<no-type>	_	_
+2	from	from	IN	IN	_	1	<no-type>	_	_
 3	the	the	DT	DT	_	4	<no-type>	_	_
 4	investors	investors	NNS	NNS	_	5	<no-type>	_	_
 5	'	'	POS	POS	_	6	<no-type>	_	_
 6	standpoint	standpoint	NN	NN	_	2	<no-type>	_	_
-7	,	,	,	,	_	11	<no-type>	_	_
+7	,	,	,	,	_	10	<no-type>	_	_
 8	institutions	institutions	NNS	NNS	_	10	<no-type>	_	_
 9	and	and	CC	CC	_	10	<no-type>	_	_
 10	individuals	individuals	NNS	NNS	_	11	<no-type>	_	_
@@ -4497,7 +4497,7 @@
 13	painful	painful	JJ	JJ	_	14	<no-type>	_	_
 14	lesson	lesson	NN	NN	_	11	<no-type>	_	_
 15	...	...	:	:	_	11	<no-type>	_	_
-16	by	by	IN	IN	_	15	<no-type>	_	_
+16	by	by	IN	IN	_	11	<no-type>	_	_
 17	selling	selling	VBG	VBG	_	16	<no-type>	_	_
 18	at	at	IN	IN	_	17	<no-type>	_	_
 19	the	the	DT	DT	_	20	<no-type>	_	_
@@ -4506,7 +4506,7 @@
 22	on	on	IN	IN	_	17	<no-type>	_	_
 23	black	black	JJ	JJ	_	24	<no-type>	_	_
 24	monday	monday	NNP	NNP	_	22	<no-type>	_	_
-25	,	,	,	,	_	17	<no-type>	_	_
+25	,	,	,	,	_	26	<no-type>	_	_
 26	said	said	VBD	VBD	_	0	<no-type>	_	_
 27	stephen	stephen	NNP	NNP	_	28	<no-type>	_	_
 28	boesel	boesel	NNP	NNP	_	30	<no-type>	_	_
@@ -4514,7 +4514,7 @@
 30	manager	manager	NN	NN	_	26	<no-type>	_	_
 31	of	of	IN	IN	_	30	<no-type>	_	_
 32	the	the	DT	DT	_	42	<no-type>	_	_
-33	$	$	$	$	_	42	<no-type>	_	_
+33	$	$	$	$	_	30	<no-type>	_	_
 34	580	580	CD	CD	_	33	<no-type>	_	_
 35	million	million	CD	CD	_	33	<no-type>	_	_
 36	t.	t.	NNP	NNP	_	38	<no-type>	_	_
@@ -4560,9 +4560,9 @@
 16	cents	cents	NNS	NNS	_	18	<no-type>	_	_
 17	a	a	DT	DT	_	18	<no-type>	_	_
 18	share	share	NN	NN	_	11	<no-type>	_	_
-19	,	,	,	,	_	9	<no-type>	_	_
-20	somewhat	somewhat	RB	RB	_	7	<no-type>	_	_
-21	below	below	IN	IN	_	20	<no-type>	_	_
+19	,	,	,	,	_	23	<no-type>	_	_
+20	somewhat	somewhat	RB	RB	_	21	<no-type>	_	_
+21	below	below	IN	IN	_	7	<no-type>	_	_
 22	analysts	analysts	NNS	NNS	_	23	<no-type>	_	_
 23	'	'	POS	POS	_	24	<no-type>	_	_
 24	estimates	estimates	NNS	NNS	_	21	<no-type>	_	_
@@ -4575,7 +4575,7 @@
 31	.	.	.	.	_	3	<no-type>	_	_
 
 1	the	the	DT	DT	_	2	<no-type>	_	_
-2	maker	maker	NN	NN	_	8	<no-type>	_	_
+2	maker	maker	NN	NN	_	11	<no-type>	_	_
 3	of	of	IN	IN	_	2	<no-type>	_	_
 4	scientific	scientific	JJ	JJ	_	5	<no-type>	_	_
 5	instruments	instruments	NNS	NNS	_	3	<no-type>	_	_
@@ -4601,7 +4601,7 @@
 7	the	the	DT	DT	_	9	<no-type>	_	_
 8	current	current	JJ	JJ	_	9	<no-type>	_	_
 9	quarter	quarter	NN	NN	_	6	<no-type>	_	_
-10	will	will	MD	MD	_	21	<no-type>	_	_
+10	will	will	MD	MD	_	4	<no-type>	_	_
 11	about	about	RB	RB	_	10	<no-type>	_	_
 12	equal	equal	VB	VB	_	10	<no-type>	_	_
 13	the	the	DT	DT	_	15	<no-type>	_	_
@@ -4612,14 +4612,14 @@
 18	,	,	,	,	_	21	<no-type>	_	_
 19	when	when	WRB	WRB	_	21	<no-type>	_	_
 20	newport	newport	NNP	NNP	_	21	<no-type>	_	_
-21	reported	reported	VBD	VBD	_	41	<no-type>	_	_
+21	reported	reported	VBD	VBD	_	16	<no-type>	_	_
 22	net	net	JJ	JJ	_	23	<no-type>	_	_
 23	income	income	NN	NN	_	21	<no-type>	_	_
 24	of	of	IN	IN	_	23	<no-type>	_	_
-25	$	$	$	$	_	28	<no-type>	_	_
+25	$	$	$	$	_	21	<no-type>	_	_
 26	1.7	1.7	CD	CD	_	25	<no-type>	_	_
 27	million	million	CD	CD	_	25	<no-type>	_	_
-28	,	,	,	,	_	33	<no-type>	_	_
+28	,	,	,	,	_	31	<no-type>	_	_
 29	or	or	CC	CC	_	31	<no-type>	_	_
 30	21	21	CD	CD	_	31	<no-type>	_	_
 31	cents	cents	NNS	NNS	_	33	<no-type>	_	_
@@ -4630,7 +4630,7 @@
 36	$	$	$	$	_	35	<no-type>	_	_
 37	14.1	14.1	CD	CD	_	36	<no-type>	_	_
 38	million	million	CD	CD	_	36	<no-type>	_	_
-39	in	in	IN	IN	_	38	<no-type>	_	_
+39	in	in	IN	IN	_	36	<no-type>	_	_
 40	sales	sales	NNS	NNS	_	39	<no-type>	_	_
 41	.	.	.	.	_	3	<no-type>	_	_
 
@@ -4653,7 +4653,7 @@
 17	as	as	IN	IN	_	13	<no-type>	_	_
 18	america	america	NNP	NNP	_	20	<no-type>	_	_
 19	west	west	NNP	NNP	_	20	<no-type>	_	_
-20	airlines	airlines	NNP	NNP	_	17	<no-type>	_	_
+20	airlines	airlines	NNP	NNP	_	21	<no-type>	_	_
 21	announced	announced	VBD	VBD	_	0	<no-type>	_	_
 22	it	it	PRP	PRP	_	23	<no-type>	_	_
 23	will	will	MD	MD	_	21	<no-type>	_	_
@@ -4664,7 +4664,7 @@
 28	out	out	IN	IN	_	27	<no-type>	_	_
 29	of	of	IN	IN	_	28	<no-type>	_	_
 30	houston	houston	NNP	NNP	_	29	<no-type>	_	_
-31	because	because	IN	IN	_	21	<no-type>	_	_
+31	because	because	IN	IN	_	13	<no-type>	_	_
 32	of	of	IN	IN	_	31	<no-type>	_	_
 33	delays	delays	NNS	NNS	_	32	<no-type>	_	_
 34	in	in	IN	IN	_	33	<no-type>	_	_
@@ -4675,7 +4675,7 @@
 39	seattle	seattle	NNP	NNP	_	41	<no-type>	_	_
 40	jet	jet	NN	NN	_	41	<no-type>	_	_
 41	maker	maker	NN	NN	_	37	<no-type>	_	_
-42	.	.	.	.	_	21	<no-type>	_	_
+42	.	.	.	.	_	13	<no-type>	_	_
 
 1	peter	peter	NNP	NNP	_	2	<no-type>	_	_
 2	otradovec	otradovec	NNP	NNP	_	5	<no-type>	_	_
@@ -4685,7 +4685,7 @@
 6	for	for	IN	IN	_	5	<no-type>	_	_
 7	planning	planning	NN	NN	_	6	<no-type>	_	_
 8	at	at	IN	IN	_	7	<no-type>	_	_
-9	the	the	DT	DT	_	10	<no-type>	_	_
+9	the	the	DT	DT	_	12	<no-type>	_	_
 10	phoenix	phoenix	NNP	NNP	_	12	<no-type>	_	_
 11	,	,	,	,	_	12	<no-type>	_	_
 12	ariz.	ariz.	NNP	NNP	_	14	<no-type>	_	_
@@ -4704,11 +4704,11 @@
 25	boeing	boeing	NNP	NNP	_	24	<no-type>	_	_
 26	,	,	,	,	_	23	<no-type>	_	_
 27	now	now	RB	RB	_	28	<no-type>	_	_
-28	entering	entering	VBG	VBG	_	20	<no-type>	_	_
+28	entering	entering	VBG	VBG	_	24	<no-type>	_	_
 29	its	its	PRP$	PRP$	_	31	<no-type>	_	_
 30	13th	13th	JJ	JJ	_	31	<no-type>	_	_
 31	day	day	NN	NN	_	28	<no-type>	_	_
-32	,	,	,	,	_	20	<no-type>	_	_
+32	,	,	,	,	_	31	<no-type>	_	_
 33	``	``	``	``	_	34	<no-type>	_	_
 34	has	has	VBZ	VBZ	_	32	<no-type>	_	_
 35	caused	caused	VBN	VBN	_	34	<no-type>	_	_
@@ -4717,9 +4717,9 @@
 38	in	in	IN	IN	_	37	<no-type>	_	_
 39	our	our	PRP$	PRP$	_	40	<no-type>	_	_
 40	scheduling	scheduling	NN	NN	_	38	<no-type>	_	_
-41	''	''	''	''	_	38	<no-type>	_	_
+41	''	''	''	''	_	40	<no-type>	_	_
 42	and	and	CC	CC	_	34	<no-type>	_	_
-43	that	that	IN	IN	_	20	<no-type>	_	_
+43	that	that	IN	IN	_	42	<no-type>	_	_
 44	more	more	JJR	JJR	_	43	<no-type>	_	_
 45	than	than	IN	IN	_	44	<no-type>	_	_
 46	500	500	CD	CD	_	47	<no-type>	_	_
@@ -4734,8 +4734,8 @@
 55	houston	houston	NNP	NNP	_	54	<no-type>	_	_
 56	on	on	IN	IN	_	52	<no-type>	_	_
 57	america	america	NNP	NNP	_	58	<no-type>	_	_
-58	west	west	NNP	NNP	_	56	<no-type>	_	_
-59	would	would	MD	MD	_	20	<no-type>	_	_
+58	west	west	NNP	NNP	_	59	<no-type>	_	_
+59	would	would	MD	MD	_	56	<no-type>	_	_
 60	now	now	RB	RB	_	59	<no-type>	_	_
 61	be	be	VB	VB	_	59	<no-type>	_	_
 62	put	put	VBN	VBN	_	61	<no-type>	_	_
@@ -4755,7 +4755,7 @@
 9	the	the	DT	DT	_	12	<no-type>	_	_
 10	757	757	CD	CD	_	12	<no-type>	_	_
 11	it	it	PRP	PRP	_	12	<no-type>	_	_
-12	was	was	VBD	VBD	_	8	<no-type>	_	_
+12	was	was	VBD	VBD	_	5	<no-type>	_	_
 13	supposed	supposed	VBN	VBN	_	12	<no-type>	_	_
 14	to	to	TO	TO	_	15	<no-type>	_	_
 15	get	get	VB	VB	_	13	<no-type>	_	_
@@ -4766,9 +4766,9 @@
 20	be	be	VB	VB	_	18	<no-type>	_	_
 21	delivered	delivered	VBN	VBN	_	20	<no-type>	_	_
 22	until	until	IN	IN	_	21	<no-type>	_	_
-23	nov.	nov.	NNP	NNP	_	22	<no-type>	_	_
+23	nov.	nov.	NNP	NNP	_	21	<no-type>	_	_
 24	7	7	CD	CD	_	23	<no-type>	_	_
-25	--	--	:	:	_	22	<no-type>	_	_
+25	--	--	:	:	_	27	<no-type>	_	_
 26	the	the	DT	DT	_	27	<no-type>	_	_
 27	day	day	NN	NN	_	22	<no-type>	_	_
 28	after	after	IN	IN	_	27	<no-type>	_	_
@@ -4792,9 +4792,9 @@
 46	nonstops	nonstops	NNS	NNS	_	44	<no-type>	_	_
 47	to	to	TO	TO	_	46	<no-type>	_	_
 48	phoenix	phoenix	NNP	NNP	_	47	<no-type>	_	_
-49	and	and	CC	CC	_	44	<no-type>	_	_
-50	one	one	CD	CD	_	5	<no-type>	_	_
-51	nonstop	nonstop	JJ	JJ	_	50	<no-type>	_	_
+49	and	and	CC	CC	_	51	<no-type>	_	_
+50	one	one	CD	CD	_	51	<no-type>	_	_
+51	nonstop	nonstop	JJ	JJ	_	46	<no-type>	_	_
 52	to	to	TO	TO	_	51	<no-type>	_	_
 53	las	las	NNP	NNP	_	54	<no-type>	_	_
 54	vegas	vegas	NNP	NNP	_	52	<no-type>	_	_
@@ -4830,10 +4830,10 @@
 15	well	well	RB	RB	_	16	<no-type>	_	_
 16	as	as	IN	IN	_	6	<no-type>	_	_
 17	a	a	DT	DT	_	20	<no-type>	_	_
-18	737	737	CD	CD	_	20	<no-type>	_	_
-19	by	by	IN	IN	_	20	<no-type>	_	_
+18	737	737	CD	CD	_	16	<no-type>	_	_
+19	by	by	IN	IN	_	16	<no-type>	_	_
 20	year	year	NN	NN	_	21	<no-type>	_	_
 21	's	's	POS	POS	_	22	<no-type>	_	_
-22	end	end	NN	NN	_	16	<no-type>	_	_
+22	end	end	NN	NN	_	19	<no-type>	_	_
 23	.	.	.	.	_	2	<no-type>	_	_
 
