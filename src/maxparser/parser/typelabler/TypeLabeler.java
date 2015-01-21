@@ -8,8 +8,11 @@ import maxparser.DependencyInstance;
 import maxparser.FeatureVector;
 import maxparser.model.ParserModel;
 import maxparser.parser.indextuple.IndexTuple;
+import maxparser.parser.typelabler.featgen.LabeledFeatureGenerator;
 
 public abstract class TypeLabeler {
+	
+	protected LabeledFeatureGenerator featGen = null;
 	
 	public abstract void init(int maxLength);
 	
