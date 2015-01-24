@@ -177,12 +177,12 @@ public abstract class Manager {
 		return getUnlabeledScore(itemId) + typelabeler.getLabeledScore(itemId);
 	}
 	
-	public void getType(DependencyInstance inst, IndexTuple itemId){
-		typelabeler.getType(inst, itemId);
+	public void getType(DependencyInstance inst, IndexTuple itemId, ParserModel model){
+		typelabeler.getType(inst, itemId, model);
 	}
 	
-	public void getTypes(int length){
-		typelabeler.getTypes(length);
+	public void getTypes(int length, ParserModel model){
+		typelabeler.getTypes(length, model);
 	}
 	
 	protected abstract void writeUnlabeledInstance(DependencyInstance inst, ObjectOutputStream out, ParserModel model) throws IOException;

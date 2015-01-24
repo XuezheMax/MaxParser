@@ -14,7 +14,7 @@ public abstract class TypeLabeler {
 	
 	protected LabeledFeatureGenerator featGen = null;
 	
-	public abstract void init(int maxLength);
+	public abstract void init(int maxLength, int type_size);
 	
 	public abstract void genLabeledFeatures(DependencyInstance inst, ParserModel model, FeatureVector fv);
 	
@@ -26,7 +26,7 @@ public abstract class TypeLabeler {
 	
 	public abstract double getLabeledScore(IndexTuple itemId);
 	
-	public abstract void getType(DependencyInstance inst, IndexTuple itemId);
+	public abstract void getType(DependencyInstance inst, IndexTuple itemId, ParserModel model);
 	
-	public abstract void getTypes(int length);
+	public abstract void getTypes(int length, ParserModel model);
 }

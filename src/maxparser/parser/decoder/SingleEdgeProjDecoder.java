@@ -19,7 +19,7 @@ public class SingleEdgeProjDecoder extends Decoder{
 		short one = (short) 1;
 		short minusOne = (short) -1;
 		
-		manager.getTypes(length);
+		manager.getTypes(length, model);
 		
 		SingleEdgeForest forest = new SingleEdgeForest(length - 1, K);
 		BasicForestIndexTuple forestIndex = new BasicForestIndexTuple();
@@ -41,11 +41,11 @@ public class SingleEdgeProjDecoder extends Decoder{
 				//positive index
 				index0.par = s;
 				index0.ch = t;
-				manager.getType(inst, index0);
+				manager.getType(inst, index0, model);
 				//negative index
 				index1.par = t;
 				index1.ch = s;
-				manager.getType(inst, index1);
+				manager.getType(inst, index1, model);
 				
 				for(short r = s; r < t; ++r){
 					ForestItem[] b1 = forest.getItems(forestIndex.setIndex(s, r, zero, one));

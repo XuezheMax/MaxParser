@@ -13,7 +13,7 @@ public class DefaultTypeLabeler extends TypeLabeler{
 	public DefaultTypeLabeler(){}
 	
 	@Override
-	public void init(int maxLength){}
+	public void init(int maxLength, int type_size){}
 	
 	@Override
 	public void genLabeledFeatures(DependencyInstance inst, ParserModel model, FeatureVector fv){}
@@ -33,12 +33,11 @@ public class DefaultTypeLabeler extends TypeLabeler{
 	}
 
 	@Override
-	public void getType(DependencyInstance inst, IndexTuple itemId) {
+	public void getType(DependencyInstance inst, IndexTuple itemId, ParserModel model) {
 		itemId.type = 0;
 	}
 
 	@Override
-	public void getTypes(int length) {}
-	
+	public void getTypes(int length, ParserModel model) {}
 	
 }

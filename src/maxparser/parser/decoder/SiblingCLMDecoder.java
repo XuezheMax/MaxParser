@@ -65,7 +65,7 @@ public class SiblingCLMDecoder extends SingleEdgeCLMDecoder{
 					index.ch1 = aSib;
 					index.ch = bSib;
 					index.type1 = types[aSib];
-					manager.getType(inst, index);
+					manager.getType(inst, index, model);
 					change0 += manager.getScore(index);
 					nbType = index.type;
 					
@@ -87,7 +87,7 @@ public class SiblingCLMDecoder extends SingleEdgeCLMDecoder{
 					index.ch1 = aSib;
 					index.ch = ch;
 					index.type1 = types[aSib];
-					manager.getType(inst, index);
+					manager.getType(inst, index, model);
 					int typeCh = index.type;
 					double change1 = manager.getScore(index);
 					nbType = types[bSib];
@@ -96,7 +96,7 @@ public class SiblingCLMDecoder extends SingleEdgeCLMDecoder{
 						index.ch1 = ch;
 						index.ch = bSib;
 						index.type1 = typeCh;
-						manager.getType(inst, index);
+						manager.getType(inst, index, model);
 						change1 += manager.getScore(index);
 						nbType = index.type;
 						
@@ -138,7 +138,7 @@ public class SiblingCLMDecoder extends SingleEdgeCLMDecoder{
 				SiblingIndexTuple old_index = new SiblingIndexTuple(pa, ch, bSib, types[ch], types[bSib]);
 				change -= manager.getScore(old_index);
 				SiblingIndexTuple new_index = new SiblingIndexTuple(pa, ch, bSib, nbType, -1);
-				manager.getType(inst, new_index);
+				manager.getType(inst, new_index, model);
 				change += manager.getScore(new_index);
 				nbType = new_index.type;
 				if(nbType == types[bSib]){
@@ -165,7 +165,7 @@ public class SiblingCLMDecoder extends SingleEdgeCLMDecoder{
 		int nbType = types[bSib];
 		SiblingIndexTuple index = new SiblingIndexTuple(pa, aSib, bSib, types[aSib], -1);
 		if(bSib != ch){
-			manager.getType(inst, index);
+			manager.getType(inst, index, model);
 			nbType = index.type;
 		}
 		while(nbType != types[bSib]){
@@ -176,7 +176,7 @@ public class SiblingCLMDecoder extends SingleEdgeCLMDecoder{
 			index.type1 = types[index.ch1];
 			nbType = types[bSib];
 			if(bSib != index.ch1){
-				manager.getType(inst, index);
+				manager.getType(inst, index, model);
 				nbType = index.type;
 			}
 		}
@@ -189,7 +189,7 @@ public class SiblingCLMDecoder extends SingleEdgeCLMDecoder{
 		nbType = types[bSib];
 		index = new SiblingIndexTuple(pa, ch, bSib, types[ch], -1);
 		if(bSib != ch){
-			manager.getType(inst, index);
+			manager.getType(inst, index, model);
 			nbType = index.type;
 		}
 		while(nbType != types[bSib]){
@@ -199,7 +199,7 @@ public class SiblingCLMDecoder extends SingleEdgeCLMDecoder{
 			index.ch = bSib;
 			nbType = types[bSib];
 			if(bSib != index.ch1){
-				manager.getType(inst, index);
+				manager.getType(inst, index, model);
 				nbType = index.type;
 			}
 		}

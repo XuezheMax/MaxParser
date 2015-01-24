@@ -19,7 +19,7 @@ public class SiblingProjDecoder extends SingleEdgeProjDecoder{
 		short two = (short) 2;
 		short minusOne = (short) -1;
 		
-		manager.getTypes(length);
+		manager.getTypes(length, model);
 		
 		SiblingForest forest = new SiblingForest(length - 1, K);
 		BasicForestIndexTuple forestIndex = new BasicForestIndexTuple();
@@ -45,7 +45,7 @@ public class SiblingProjDecoder extends SingleEdgeProjDecoder{
 				//when r == s
 				index0.ch1 = s;
 				index0.type1 = -1;
-				manager.getType(inst, index0);
+				manager.getType(inst, index0, model);
 				ForestItem[] b1 = forest.getItems(forestIndex.setIndex(s, s, zero, one));
 				ForestItem[] c1 = forest.getItems(forestIndex.setIndex((short) (s + 1), t, one, one));
 				int[][] pairs = forest.getKBestPairs(b1, c1);
@@ -73,7 +73,7 @@ public class SiblingProjDecoder extends SingleEdgeProjDecoder{
 				//when r == t
 				index1.ch1 = t;
 				index1.type1 = -1;
-				manager.getType(inst, index1);
+				manager.getType(inst, index1, model);
 				b1 = forest.getItems(forestIndex.setIndex(s, (short) (t - 1), zero, one));
 				c1 = forest.getItems(forestIndex.setIndex(t, t, one, one));
 				pairs = forest.getKBestPairs(b1, c1);
@@ -134,7 +134,7 @@ public class SiblingProjDecoder extends SingleEdgeProjDecoder{
 						
 						index0.ch1 = r;
 						index0.type1 = b1[comp1].type;
-						manager.getType(inst, index0);
+						manager.getType(inst, index0, model);
 						double score = b1[comp1].score + c1[comp2].score + manager.getScore(index0);
 						boolean added = forest.addItem(forestIndex.setIndex(s, t, zero, zero), 
 								r, (short) index0.type, score, b1[comp1], c1[comp2]);
@@ -157,7 +157,7 @@ public class SiblingProjDecoder extends SingleEdgeProjDecoder{
 						
 						index1.ch1 = r;
 						index1.type1 = c1[comp2].type;
-						manager.getType(inst, index1);
+						manager.getType(inst, index1, model);
 						double score = b1[comp1].score + c1[comp2].score + manager.getScore(index1);
 						boolean added = forest.addItem(forestIndex.setIndex(s, t, one, zero), 
 								r, (short) index1.type, score, b1[comp1], c1[comp2]);

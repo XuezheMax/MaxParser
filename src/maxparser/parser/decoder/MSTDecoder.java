@@ -25,7 +25,7 @@ public class MSTDecoder extends Decoder{
 		boolean[] curr_nodes = new boolean[length];
 		TIntHashSet[] reps = new TIntHashSet[length];
 	
-		manager.getTypes(length);
+		manager.getTypes(length, model);
 	
 		SingleEdgeIndexTuple index0 = new SingleEdgeIndexTuple();
 		SingleEdgeIndexTuple index1 = new SingleEdgeIndexTuple();
@@ -38,7 +38,7 @@ public class MSTDecoder extends Decoder{
 				//positive index
 				index0.par = s;
 				index0.ch = t;
-				manager.getType(inst, index0);
+				manager.getType(inst, index0, model);
 				scoreMatrix[s][t] = manager.getScore(index0);
 				orig_scoreMatrix[s][t] = scoreMatrix[s][t];
 				oldI[s][t] = s;
@@ -47,7 +47,7 @@ public class MSTDecoder extends Decoder{
 				//negative index
 				index1.par = t;
 				index1.ch = s;
-				manager.getType(inst, index1);
+				manager.getType(inst, index1, model);
 				scoreMatrix[t][s] = manager.getScore(index1);
 				orig_scoreMatrix[t][s] = scoreMatrix[t][s];
 				oldI[t][s] = t;
@@ -69,7 +69,7 @@ public class MSTDecoder extends Decoder{
 			par[ch] = pa;
 			index0.ch = ch;
 			index0.par = pa;
-			manager.getType(inst, index0);
+			manager.getType(inst, index0, model);
 			types[ch] = index0.type;
 		}
 	
@@ -101,7 +101,7 @@ public class MSTDecoder extends Decoder{
 				par[nc] = n_par[nc];
 				index0.ch = nc;
 				index0.par = par[nc];
-				manager.getType(inst, index0);
+				manager.getType(inst, index0, model);
 				types[nc] = index0.type;
 				d[k].first = getFeatureVector(inst, manager, model, par, types);
 				d[k].second = manager.genTreeString(par, types);
