@@ -20,7 +20,7 @@ public abstract class TypeLabeler {
 	
 	public abstract void writeLabeledInstance(DependencyInstance inst, ObjectOutputStream out, ParserModel model) throws IOException;
 	
-	public abstract void readLabeledInstance(ObjectInputStream in, ParserModel model) throws IOException;
+	public abstract int readLabeledInstance(ObjectInputStream in, ParserModel model) throws IOException, ClassNotFoundException;
 	
 	public abstract void fillLabeledFeatureVector(DependencyInstance inst, ParserModel model);
 	

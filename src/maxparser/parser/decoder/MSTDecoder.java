@@ -69,8 +69,13 @@ public class MSTDecoder extends Decoder{
 			par[ch] = pa;
 			index0.ch = ch;
 			index0.par = pa;
-			manager.getType(inst, index0, model);
-			types[ch] = index0.type;
+			if(ch == 0){
+				types[ch] = 0;
+			}
+			else{
+				manager.getType(inst, index0, model);
+				types[ch] = index0.type;
+			}
 		}
 	
 		int[] n_par = getKChanges(par, orig_scoreMatrix, (K - 1 < length) ? K - 1 : length, length);

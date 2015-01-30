@@ -1,5 +1,6 @@
 package maxparser.parser.typelabler;
 
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
@@ -22,7 +23,9 @@ public class DefaultTypeLabeler extends TypeLabeler{
 	public void writeLabeledInstance(DependencyInstance inst, ObjectOutputStream out, ParserModel model) {}
 
 	@Override
-	public void readLabeledInstance(ObjectInputStream in, ParserModel model) {}
+	public int readLabeledInstance(ObjectInputStream in, ParserModel model) throws IOException, ClassNotFoundException{
+		return 0;
+	}
 
 	@Override
 	public void fillLabeledFeatureVector(DependencyInstance inst, ParserModel model) {}
