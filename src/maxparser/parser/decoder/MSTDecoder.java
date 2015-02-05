@@ -1,11 +1,16 @@
 package maxparser.parser.decoder;
 
+import java.io.IOException;
+
 import maxparser.DependencyInstance;
 import maxparser.FeatureVector;
 import maxparser.Pair;
+import maxparser.exception.TrainingException;
+import maxparser.io.ObjectReader;
 import maxparser.model.ParserModel;
 import maxparser.parser.indextuple.SingleEdgeIndexTuple;
 import maxparser.parser.manager.Manager;
+import maxparser.parser.marginal.Marginal;
 import gnu.trove.set.hash.TIntHashSet;
 import gnu.trove.map.hash.TIntIntHashMap;
 import gnu.trove.iterator.TIntIntIterator;
@@ -353,5 +358,17 @@ public class MSTDecoder extends Decoder{
 			final_edges.put(ch, pr);
 			l = par[l];
 		}
+	}
+
+	@Override
+	public double calcGradient(double[] gradient, Manager manager, ParserModel model, ObjectReader in) throws TrainingException, IOException, ClassNotFoundException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Marginal calcMarginals(Manager manager, ParserModel model, ObjectReader in) throws TrainingException, IOException, ClassNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -1,11 +1,16 @@
 package maxparser.parser.decoder;
 
+import java.io.IOException;
+
 import maxparser.DependencyInstance;
 import maxparser.FeatureVector;
 import maxparser.Pair;
+import maxparser.exception.TrainingException;
+import maxparser.io.ObjectReader;
 import maxparser.model.ParserModel;
 import maxparser.parser.indextuple.SiblingIndexTuple;
 import maxparser.parser.manager.Manager;
+import maxparser.parser.marginal.Marginal;
 
 public class SiblingCLMDecoder extends SingleEdgeCLMDecoder{
 	
@@ -245,5 +250,15 @@ public class SiblingCLMDecoder extends SingleEdgeCLMDecoder{
 			}
 		}
 		return bSib;
+	}
+	
+	@Override
+	public double calcGradient(double[] gradient, Manager manager, ParserModel model, ObjectReader in) throws TrainingException{
+		throw new TrainingException("SiblingCLMDecoder does not support gradient calculation.");
+	}
+	
+	@Override
+	public Marginal calcMarginals(Manager manager, ParserModel model, ObjectReader in) throws TrainingException, IOException, ClassNotFoundException {
+		throw new TrainingException("SiblingCLMDecoder does not support marginals calculation.");
 	}
 }

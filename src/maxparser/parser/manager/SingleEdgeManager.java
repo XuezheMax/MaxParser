@@ -1,15 +1,15 @@
 package maxparser.parser.manager;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 
 import maxparser.DependencyInstance;
 import maxparser.FeatureVector;
 import maxparser.model.ParserModel;
-import maxparser.parser.featgen.SingleEdgeFeatureGenerator;
 import maxparser.parser.indextuple.SingleEdgeIndexTuple;
 import maxparser.parser.indextuple.IndexTuple;
+import maxparser.parser.manager.featgen.SingleEdgeFeatureGenerator;
+import maxparser.io.ObjectReader;
+import maxparser.io.ObjectWriter;
 
 public class SingleEdgeManager extends Manager{
 	
@@ -20,7 +20,7 @@ public class SingleEdgeManager extends Manager{
 	protected double[][] probs = null;
 
 	@Override
-	protected void writeUnlabeledInstance(DependencyInstance inst, ObjectOutputStream out, ParserModel model) throws IOException{
+	protected void writeUnlabeledInstance(DependencyInstance inst, ObjectWriter out, ParserModel model) throws IOException{
 		//write feature vector of current instance
 		out.writeObject(inst.getFeatureVector().keys());
 		out.writeInt(-4);
@@ -45,7 +45,7 @@ public class SingleEdgeManager extends Manager{
 	}
 
 	@Override
-	public DependencyInstance readUnlabeledInstance(ObjectInputStream in, ParserModel model) throws IOException, ClassNotFoundException{
+	public DependencyInstance readUnlabeledInstance(ObjectReader in, ParserModel model) throws IOException, ClassNotFoundException{
 		//read feature vector of current instance
 		FeatureVector nfv = new FeatureVector((int[]) in.readObject());
 		int last = in.readInt();
@@ -79,8 +79,8 @@ public class SingleEdgeManager extends Manager{
 	}
 
 	@Override
-	public void init(int maxLength) {
-		probs = new double[maxLength][maxLength];
+	public void init(int size) {
+		probs = new double[size][size];
 	}
 
 	@Override
@@ -124,5 +124,17 @@ public class SingleEdgeManager extends Manager{
 				probs[inst.heads[i]][i] -= 1.0;
 			}
 		}
+	}
+
+	@Override
+	public int size() {
+		return probs.length;
+	}
+
+	@Override
+	public Manager clone(int size) {
+		SingleEdgeManager manager = new SingleEdgeManager();
+		manager.init(size);
+		return manager;
 	}
 }

@@ -1,7 +1,6 @@
 package maxparser.parser;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
 
 import maxparser.DependencyInstance;
 import maxparser.FeatureVector;
@@ -9,12 +8,12 @@ import maxparser.Pair;
 import maxparser.exception.*;
 import maxparser.io.DependencyReader;
 import maxparser.io.DependencyWriter;
-import maxparser.io.ObjectIO;
 import maxparser.model.ParserModel;
 import maxparser.parser.manager.Manager;
 import maxparser.parser.decoder.Decoder;
 import maxparser.parser.typelabler.TypeLabeler;
 import maxparser.trainer.Trainer;
+import maxparser.io.ObjectReader;
 
 public abstract class Parser {
 	protected ParserModel model = null;
@@ -72,9 +71,9 @@ public abstract class Parser {
 	}
 	
 	public static ParserModel loadModel(String file) throws ClassNotFoundException, IOException{
-		ObjectInputStream in = ObjectIO.getObjectInputStream(file);
+		ObjectReader in = new ObjectReader(file);
 		ParserModel model = (ParserModel) in.readObject();
-		ObjectIO.close(in);
+		in.close();
 		return model;
 	}
 }

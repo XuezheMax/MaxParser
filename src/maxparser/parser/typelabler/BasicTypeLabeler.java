@@ -1,8 +1,6 @@
 package maxparser.parser.typelabler;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 
 import maxparser.DependencyInstance;
 import maxparser.FeatureVector;
@@ -10,6 +8,8 @@ import maxparser.model.ParserModel;
 import maxparser.parser.indextuple.IndexTuple;
 import maxparser.parser.indextuple.SingleEdgeIndexTuple;
 import maxparser.parser.typelabler.featgen.BasicLabeledFeatureGenerator;
+import maxparser.io.ObjectReader;
+import maxparser.io.ObjectWriter;
 
 public class BasicTypeLabeler extends TypeLabeler{
 
@@ -46,7 +46,7 @@ public class BasicTypeLabeler extends TypeLabeler{
 	}
 
 	@Override
-	public void writeLabeledInstance(DependencyInstance inst, ObjectOutputStream out, ParserModel model) throws IOException {
+	public void writeLabeledInstance(DependencyInstance inst, ObjectWriter out, ParserModel model) throws IOException {
 		int length = inst.length();
 		out.writeInt(length);
 		out.writeInt(-4);
@@ -91,7 +91,7 @@ public class BasicTypeLabeler extends TypeLabeler{
 	}
 
 	@Override
-	public int readLabeledInstance(ObjectInputStream in, ParserModel model) throws IOException, ClassNotFoundException {
+	public int readLabeledInstance(ObjectReader in, ParserModel model) throws IOException, ClassNotFoundException {
 		int length = in.readInt();
 		int last = in.readInt();
 		if(last != -4){

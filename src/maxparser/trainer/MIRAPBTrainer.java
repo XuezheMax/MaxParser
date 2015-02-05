@@ -1,15 +1,15 @@
 package maxparser.trainer;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import maxparser.io.ObjectIO;
+
 import maxparser.DependencyInstance;
 import maxparser.FeatureVector;
 import maxparser.Pair;
 import maxparser.io.DependencyWriter;
+import maxparser.io.ObjectReader;
 import maxparser.model.ParserModel;
 import maxparser.parser.decoder.Decoder;
 import maxparser.parser.manager.Manager;
@@ -60,7 +60,7 @@ public class MIRAPBTrainer extends Trainer{
 	}
 	
 	protected void trainWithDevIter(Manager manager, Decoder decoder, ParserModel model, int numTrainInst) throws ClassNotFoundException, IOException{
-		ObjectInputStream in = null;
+		ObjectReader in = null;
 		int threadNum = model.threadNum();
 		String[] tokens = model.trainforest().split("\\.");
 		int unit = (numTrainInst % threadNum == 0) ? numTrainInst / threadNum : numTrainInst / threadNum + 1;
@@ -71,9 +71,11 @@ public class MIRAPBTrainer extends Trainer{
 				System.out.flush();
 			}
 			if(j % unit == 0){
-				ObjectIO.close(in);
+				if(in != null){
+					in.close();
+				}
 				String forestfile = tokens[0] + (j / unit) + "." + tokens[1];
-				in = ObjectIO.getObjectInputStream(forestfile);
+				in = new ObjectReader(forestfile);
 			}
 			
 			DependencyInstance inst = manager.readInstance(in, model);
@@ -82,11 +84,13 @@ public class MIRAPBTrainer extends Trainer{
 		}
 		System.out.print("\b\b\b");
 		//close in
-		ObjectIO.close(in);
+		if(in != null){
+			in.close();
+		}
 	}
 	
 	protected double evalCurrentAcc(Manager manager, Decoder decoder, ParserModel tempModel, String devfile, PrintWriter logWriter, int numDevInst) throws InstantiationException, IllegalAccessException, ClassNotFoundException, IOException{
-		ObjectInputStream in = ObjectIO.getObjectInputStream(tempModel.devforest());
+		ObjectReader in = new ObjectReader(tempModel.devforest());
 		String tempfile = "tmp/result.tmp";
 		
 		DependencyWriter tempWriter = DependencyWriter.createDependencyWriter(tempModel.getWriter());
@@ -112,7 +116,7 @@ public class MIRAPBTrainer extends Trainer{
 		}
 		
 		//close in & tempWriter
-		ObjectIO.close(in);
+		in.close();
 		tempWriter.close();
 		
 		//evaluate current acc
@@ -136,7 +140,7 @@ public class MIRAPBTrainer extends Trainer{
 	}
 	
 	protected void trainWithoutDevIter(Manager manager, Decoder decoder, ParserModel model, int numTrainInst, int numIters, int iter) throws ClassNotFoundException, IOException{
-		ObjectInputStream in = null;
+		ObjectReader in = null;
 		int threadNum = model.threadNum();
 		String[] tokens = model.trainforest().split("\\.");
 		int unit = (numTrainInst % threadNum == 0) ? numTrainInst / threadNum : numTrainInst / threadNum + 1;
@@ -147,9 +151,11 @@ public class MIRAPBTrainer extends Trainer{
 				System.out.flush();
 			}
 			if(j % unit == 0){
-				ObjectIO.close(in);
+				if(in != null){
+					in.close();
+				}
 				String forestfile = tokens[0] + (j / unit) + "." + tokens[1];
-				in = ObjectIO.getObjectInputStream(forestfile);
+				in = new ObjectReader(forestfile);
 			}
 			
 			double upd = (numIters * numTrainInst - (numTrainInst * iter + (j + 1)) + 1);
@@ -160,7 +166,9 @@ public class MIRAPBTrainer extends Trainer{
 		System.out.print("\b\b\b");
 		
 		//close in
-		ObjectIO.close(in);
+		if(in != null){
+			in.close();
+		}
 	}
 	
 	public void updateParams(DependencyInstance inst, Pair<FeatureVector, String>[] d, double upd, ParserModel model){

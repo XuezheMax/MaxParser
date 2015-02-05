@@ -1,13 +1,13 @@
 package maxparser.parser.typelabler;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 
 import maxparser.DependencyInstance;
 import maxparser.FeatureVector;
 import maxparser.model.ParserModel;
 import maxparser.parser.indextuple.IndexTuple;
+import maxparser.io.ObjectReader;
+import maxparser.io.ObjectWriter;
 
 public class DefaultTypeLabeler extends TypeLabeler{
 	
@@ -20,10 +20,10 @@ public class DefaultTypeLabeler extends TypeLabeler{
 	public void genLabeledFeatures(DependencyInstance inst, ParserModel model, FeatureVector fv){}
 
 	@Override
-	public void writeLabeledInstance(DependencyInstance inst, ObjectOutputStream out, ParserModel model) {}
+	public void writeLabeledInstance(DependencyInstance inst, ObjectWriter out, ParserModel model) {}
 
 	@Override
-	public int readLabeledInstance(ObjectInputStream in, ParserModel model) throws IOException, ClassNotFoundException{
+	public int readLabeledInstance(ObjectReader in, ParserModel model) throws IOException, ClassNotFoundException{
 		return 0;
 	}
 

@@ -7,6 +7,8 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 import maxparser.FeatureVector;
+import maxparser.trainer.lbfgs.LBFGS.ExceptionWithIflag;
+import maxparser.trainer.lbfgs.SimpleLBFGS;
 
 public class Parameters implements Serializable{
 	
@@ -24,10 +26,6 @@ public class Parameters implements Serializable{
 	public Parameters(int size){
 		parameters = new double[size];
 		total = new double[size];
-		for(int i = 0; i < size; ++i){
-			parameters[i] = 0.0;
-			total[i] = 0.0;
-		}
 	}
 	
 	public Parameters(double[] parameters){
@@ -66,6 +64,14 @@ public class Parameters implements Serializable{
 	
 	public void update(FeatureVector fv, double alpha_k){
 		fv.update(parameters, alpha_k);
+	}
+	
+	public int update(SimpleLBFGS lbfgs, double f, double[] g) throws ExceptionWithIflag{
+		return lbfgs.optimize(parameters, f, g);
+	}
+	
+	public double paramAt(int index){
+		return parameters[index];
 	}
 	
 	private void writeObject(ObjectOutputStream out) throws IOException{

@@ -7,6 +7,8 @@ import java.io.Serializable;
 import java.util.HashSet;
 
 import maxparser.FeatureVector;
+import maxparser.trainer.lbfgs.LBFGS.ExceptionWithIflag;
+import maxparser.trainer.lbfgs.SimpleLBFGS;
 
 public class ParserModel implements Serializable{
 	/**
@@ -95,6 +97,10 @@ public class ParserModel implements Serializable{
 		params.updateTotal();
 	}
 	
+	public int update(SimpleLBFGS lbfgs, double f, double[] g) throws ExceptionWithIflag{
+		return params.update(lbfgs, f, g);
+	}
+	
 	public ParserModel getTemporalModel(double avVal){
 		Parameters tempParams = params.getTemporalParames(avVal);
 		return new ParserModel(tempParams, this.options, this.featAlphabet,
@@ -104,6 +110,10 @@ public class ParserModel implements Serializable{
 	
 	public void averageParams(double avVal){
 		params.averageParams(avVal);
+	}
+	
+	public double paramAt(int index){
+		return params.paramAt(index);
 	}
 	
 	//get feature index
@@ -227,6 +237,10 @@ public class ParserModel implements Serializable{
 	
 	public int threadNum(){
 		return options.getThreadNum();
+	}
+	
+	public double cost(){
+		return options.getCost();
 	}
 	
 	public int iterNum(){

@@ -1,14 +1,19 @@
 package maxparser.parser.decoder;
 
+import java.io.IOException;
+
 import maxparser.DependencyInstance;
 import maxparser.FeatureVector;
 import maxparser.Pair;
+import maxparser.exception.TrainingException;
+import maxparser.io.ObjectReader;
 import maxparser.model.ParserModel;
 import maxparser.parser.decoder.forest.ForestItem;
 import maxparser.parser.decoder.forest.SiblingForest;
 import maxparser.parser.decoder.forest.indextuple.BasicForestIndexTuple;
 import maxparser.parser.indextuple.SiblingIndexTuple;
 import maxparser.parser.manager.Manager;
+import maxparser.parser.marginal.Marginal;
 
 public class SiblingProjDecoder extends SingleEdgeProjDecoder{
 	@Override
@@ -210,5 +215,49 @@ public class SiblingProjDecoder extends SingleEdgeProjDecoder{
 		}
 		
 		return forest.getBestParses(inst, manager, model);
+	}
+	
+	@Override
+	public double calcGradient(double[] gradient, Manager manager, ParserModel model, ObjectReader in) throws TrainingException, IOException, ClassNotFoundException{
+		long offset = in.tell();
+		DependencyInstance inst = manager.readInstance(in, model);
+		in.seek(offset);
+		
+		double obj = 0.0;
+		double[] beta = new double[inst.length() * inst.length() * 2 * 3];
+		double[] alpha = new double[inst.length() * inst.length() * 2 * 3];
+		
+		double z = inside(inst.length(), beta, manager);
+		
+		outside(inst.length(), beta, alpha, manager);
+		
+		obj = z - model.getScore(inst.getFeatureVector());
+		
+		//calc gradient
+		getGradient(gradient, beta, alpha, z, inst.length(), manager, model, in);
+		
+		return obj;
+	}
+	
+	protected void getGradient(double[] gradient, double[] beta, double[] alpha, double z, int length, Manager manager, ParserModel model, ObjectReader in) throws ClassNotFoundException, IOException{
+		
+	}
+
+	@Override
+	protected double inside(int length, double[] beta, Manager manager) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	protected void outside(int length, double[] beta, double[] alpha, Manager manager) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public Marginal calcMarginals(Manager manager, ParserModel model, ObjectReader in) throws TrainingException, IOException, ClassNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

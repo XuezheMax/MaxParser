@@ -1,8 +1,6 @@
 package maxparser.parser.manager;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import maxparser.DependencyInstance;
@@ -10,10 +8,11 @@ import maxparser.FeatureVector;
 import maxparser.Pair;
 import maxparser.exception.TrainingException;
 import maxparser.io.DependencyReader;
-import maxparser.io.ObjectIO;
+import maxparser.io.ObjectReader;
+import maxparser.io.ObjectWriter;
 import maxparser.model.ParserModel;
-import maxparser.parser.featgen.FeatureGenerator;
 import maxparser.parser.indextuple.IndexTuple;
+import maxparser.parser.manager.featgen.FeatureGenerator;
 import maxparser.parser.typelabler.TypeLabeler;
 
 public abstract class Manager {
@@ -117,7 +116,7 @@ public abstract class Manager {
 		results[2] = 0;
 		
 		if(devfile != null){
-			ObjectOutputStream out = createforest ? ObjectIO.getObjectOutputStream(devforest) : null;
+			ObjectWriter out = createforest ? new ObjectWriter(devforest) : null;
 			DependencyReader reader = DependencyReader.createDependencyReader(model.getReader());
 			reader.startReading(devfile);
 			System.out.println("Creating development Instances: ");
@@ -157,12 +156,12 @@ public abstract class Manager {
 		return fv;
 	}
 	
-	protected final void writeInstance(DependencyInstance inst, ObjectOutputStream out, ParserModel model) throws IOException{
+	protected final void writeInstance(DependencyInstance inst, ObjectWriter out, ParserModel model) throws IOException{
 		writeUnlabeledInstance(inst, out, model);
 		typelabeler.writeLabeledInstance(inst, out, model);
 	}
 	
-	public final DependencyInstance readInstance(ObjectInputStream in, ParserModel model) throws IOException, ClassNotFoundException{
+	public final DependencyInstance readInstance(ObjectReader in, ParserModel model) throws IOException, ClassNotFoundException{
 		DependencyInstance inst = readUnlabeledInstance(in, model);
 		typelabeler.readLabeledInstance(in, model);
 		return inst;
@@ -185,13 +184,17 @@ public abstract class Manager {
 		typelabeler.getTypes(length, model);
 	}
 	
-	protected abstract void writeUnlabeledInstance(DependencyInstance inst, ObjectOutputStream out, ParserModel model) throws IOException;
+	protected abstract void writeUnlabeledInstance(DependencyInstance inst, ObjectWriter out, ParserModel model) throws IOException;
 	
-	protected abstract DependencyInstance readUnlabeledInstance(ObjectInputStream in, ParserModel model) throws IOException, ClassNotFoundException;
+	protected abstract DependencyInstance readUnlabeledInstance(ObjectReader in, ParserModel model) throws IOException, ClassNotFoundException;
 	
 	protected abstract void fillUnlabeledFeatureVector(DependencyInstance inst, ParserModel model);
 	
-	public abstract void init(int maxLength);
+	public abstract void init(int size);
+	
+	public abstract int size();
+	
+	public abstract Manager clone(int size);
 	
 	protected abstract double getUnlabeledScore(IndexTuple itemId);
 }
@@ -214,8 +217,8 @@ class CreateForestThread extends Thread{
 	
 	public void run(){
 		try {
-			ObjectOutputStream out = ObjectIO.getObjectOutputStream(forestfile);
-			for(int i = start; i < end; i++){
+			ObjectWriter out = new ObjectWriter(forestfile);
+			for(int i = start; i < end; ++i){
 				System.out.print(i + " ");
 				System.out.flush();
 				manager.writeInstance(instList.get(i), out, model);

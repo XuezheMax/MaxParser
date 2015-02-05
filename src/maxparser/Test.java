@@ -22,7 +22,7 @@ public class Test {
 	 * @throws ClassNotFoundException 
 	 */
 	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
-		Manager manager = new SiblingManager();
+		System.out.println(1e-4 + 1.0);
 	}
 
 }

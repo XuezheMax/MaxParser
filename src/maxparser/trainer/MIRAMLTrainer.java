@@ -1,21 +1,20 @@
 package maxparser.trainer;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
 
 import maxparser.DependencyInstance;
 import maxparser.FeatureVector;
 import maxparser.Pair;
-import maxparser.io.ObjectIO;
 import maxparser.model.ParserModel;
 import maxparser.parser.decoder.Decoder;
 import maxparser.parser.manager.Manager;
+import maxparser.io.ObjectReader;
 
 public class MIRAMLTrainer extends MIRAPBTrainer{
 	
 	@Override
 	protected void trainWithDevIter(Manager manager, Decoder decoder, ParserModel model, int numTrainInst) throws ClassNotFoundException, IOException{
-		ObjectInputStream in = null;
+		ObjectReader in = null;
 		int threadNum = model.threadNum();
 		String[] tokens = model.trainforest().split("\\.");
 		int unit = (numTrainInst % threadNum == 0) ? numTrainInst / threadNum : numTrainInst / threadNum + 1;
@@ -26,9 +25,11 @@ public class MIRAMLTrainer extends MIRAPBTrainer{
 				System.out.flush();
 			}
 			if(j % unit == 0){
-				ObjectIO.close(in);
+				if(in != null){
+					in.close();
+				}
 				String forestfile = tokens[0] + (j / unit) + "." + tokens[1];
-				in = ObjectIO.getObjectInputStream(forestfile);
+				in = new ObjectReader(forestfile);
 			}
 			
 			DependencyInstance inst = manager.readInstance(in, model);
@@ -38,12 +39,14 @@ public class MIRAMLTrainer extends MIRAPBTrainer{
 		}
 		System.out.print("\b\b\b");
 		//close in
-		ObjectIO.close(in);
+		if(in != null){
+			in.close();
+		}
 	}
 	
 	@Override
 	protected void trainWithoutDevIter(Manager manager, Decoder decoder, ParserModel model, int numTrainInst, int numIters, int iter) throws ClassNotFoundException, IOException{
-		ObjectInputStream in = null;
+		ObjectReader in = null;
 		int threadNum = model.threadNum();
 		String[] tokens = model.trainforest().split("\\.");
 		int unit = (numTrainInst % threadNum == 0) ? numTrainInst / threadNum : numTrainInst / threadNum + 1;
@@ -54,9 +57,11 @@ public class MIRAMLTrainer extends MIRAPBTrainer{
 				System.out.flush();
 			}
 			if(j % unit == 0){
-				ObjectIO.close(in);
+				if(in != null){
+					in.close();
+				}
 				String forestfile = tokens[0] + (j / unit) + "." + tokens[1];
-				in = ObjectIO.getObjectInputStream(forestfile);
+				in = new ObjectReader(forestfile);
 			}
 			
 			double upd = (numIters * numTrainInst - (numTrainInst * iter + (j + 1)) + 1);
@@ -68,6 +73,8 @@ public class MIRAMLTrainer extends MIRAPBTrainer{
 		System.out.print("\b\b\b");
 		
 		//close in
-		ObjectIO.close(in);
+		if(in != null){
+			in.close();
+		}
 	}
 }

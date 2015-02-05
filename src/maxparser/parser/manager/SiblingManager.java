@@ -1,15 +1,15 @@
 package maxparser.parser.manager;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 
 import maxparser.DependencyInstance;
 import maxparser.FeatureVector;
 import maxparser.model.ParserModel;
-import maxparser.parser.featgen.SiblingFeatureGenerator;
 import maxparser.parser.indextuple.IndexTuple;
 import maxparser.parser.indextuple.SiblingIndexTuple;
+import maxparser.parser.manager.featgen.SiblingFeatureGenerator;
+import maxparser.io.ObjectReader;
+import maxparser.io.ObjectWriter;
 
 public class SiblingManager extends SingleEdgeManager{
 	
@@ -21,20 +21,20 @@ public class SiblingManager extends SingleEdgeManager{
 	protected double[][][] probs_trips = null;
 	
 	@Override
-	public void init(int maxLength) {
-		super.init(maxLength);
-		probs_sibs = new double[maxLength][maxLength][2];
-		probs_trips = new double[maxLength][maxLength][];
-		for(int i = 0; i < maxLength; ++i){
-			for(int j = 0; j < maxLength; ++j){
-				int n = j < i ? j : maxLength;
+	public void init(int size) {
+		super.init(size);
+		probs_sibs = new double[size][size][2];
+		probs_trips = new double[size][size][];
+		for(int i = 0; i < size; ++i){
+			for(int j = 0; j < size; ++j){
+				int n = j < i ? j : size;
 				probs_trips[i][j] = new double[n];
 			}
 		}
 	}
 	
 	@Override
-	protected void writeUnlabeledInstance(DependencyInstance inst, ObjectOutputStream out, ParserModel model) throws IOException{
+	protected void writeUnlabeledInstance(DependencyInstance inst, ObjectWriter out, ParserModel model) throws IOException{
 		super.writeUnlabeledInstance(inst, out, model);
 		int length = inst.length();
 		for(int par = 0; par < length; ++par){
@@ -70,7 +70,7 @@ public class SiblingManager extends SingleEdgeManager{
 	}
 	
 	@Override
-	public DependencyInstance readUnlabeledInstance(ObjectInputStream in, ParserModel model) throws IOException, ClassNotFoundException{
+	public DependencyInstance readUnlabeledInstance(ObjectReader in, ParserModel model) throws IOException, ClassNotFoundException{
 		DependencyInstance inst = super.readUnlabeledInstance(in, model);
 		
 		int length = inst.length();
@@ -150,5 +150,12 @@ public class SiblingManager extends SingleEdgeManager{
 		double score = super.getUnlabeledScore(itemId);
 		SiblingIndexTuple id = (SiblingIndexTuple) itemId;
 		return score + probs_trips[id.par][id.ch1][id.ch] + probs_sibs[id.ch1][id.ch][id.par == id.ch1 ? 0 : 1] ;
+	}
+	
+	@Override
+	public Manager clone(int size) {
+		SiblingManager manager = new SiblingManager();
+		manager.init(size);
+		return manager;
 	}
 }
