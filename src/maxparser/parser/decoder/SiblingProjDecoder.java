@@ -14,6 +14,8 @@ import maxparser.parser.decoder.forest.indextuple.BasicForestIndexTuple;
 import maxparser.parser.indextuple.SiblingIndexTuple;
 import maxparser.parser.manager.Manager;
 import maxparser.parser.marginal.Marginal;
+import maxparser.parser.marginal.ioforest.InOutForest;
+import maxparser.parser.marginal.ioforest.SiblingInOutForest;
 
 public class SiblingProjDecoder extends SingleEdgeProjDecoder{
 	@Override
@@ -224,33 +226,32 @@ public class SiblingProjDecoder extends SingleEdgeProjDecoder{
 		in.seek(offset);
 		
 		double obj = 0.0;
-		double[] beta = new double[inst.length() * inst.length() * 2 * 3];
-		double[] alpha = new double[inst.length() * inst.length() * 2 * 3];
+		SiblingInOutForest ioForest = new SiblingInOutForest(inst.length());
 		
-		double z = inside(inst.length(), beta, manager);
+		double z = inside(inst.length(), ioForest, manager);
 		
-		outside(inst.length(), beta, alpha, manager);
+		outside(inst.length(), ioForest, manager);
 		
 		obj = z - model.getScore(inst.getFeatureVector());
 		
 		//calc gradient
-		getGradient(gradient, beta, alpha, z, inst.length(), manager, model, in);
+		getGradient(gradient, ioForest, z, inst.length(), manager, model, in);
 		
 		return obj;
 	}
 	
-	protected void getGradient(double[] gradient, double[] beta, double[] alpha, double z, int length, Manager manager, ParserModel model, ObjectReader in) throws ClassNotFoundException, IOException{
+	protected void getGradient(double[] gradient, InOutForest ioForest, double z, int length, Manager manager, ParserModel model, ObjectReader in) throws ClassNotFoundException, IOException{
 		
 	}
 
 	@Override
-	protected double inside(int length, double[] beta, Manager manager) {
+	protected double inside(int length, InOutForest ioForest, Manager manager) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	protected void outside(int length, double[] beta, double[] alpha, Manager manager) {
+	protected void outside(int length, InOutForest ioForest, Manager manager) {
 		// TODO Auto-generated method stub
 		
 	}

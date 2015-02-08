@@ -5,6 +5,7 @@ import java.io.IOException;
 import maxparser.DependencyInstance;
 import maxparser.FeatureVector;
 import maxparser.Pair;
+import maxparser.Util;
 import maxparser.exception.TrainingException;
 import maxparser.io.ObjectReader;
 import maxparser.model.ParserModel;
@@ -14,6 +15,8 @@ import maxparser.parser.manager.Manager;
 import maxparser.parser.marginal.Marginal;
 import maxparser.parser.decoder.forest.indextuple.BasicForestIndexTuple;
 import maxparser.parser.indextuple.SingleEdgeIndexTuple;
+import maxparser.parser.marginal.ioforest.InOutForest;
+import maxparser.parser.marginal.ioforest.SingleEdgeInOutForest;
 
 public class SingleEdgeProjDecoder extends Decoder{
 
@@ -127,22 +130,21 @@ public class SingleEdgeProjDecoder extends Decoder{
 		in.seek(offset);
 		
 		double obj = 0.0;
-		double[] beta = new double[inst.length() * inst.length() * 2 * 2];
-		double[] alpha = new double[inst.length() * inst.length() * 2 * 2];
+		SingleEdgeInOutForest ioForest = new SingleEdgeInOutForest(inst.length());
 		
-		double z = inside(inst.length(), beta, manager);
+		double z = inside(inst.length(), ioForest, manager);
 		
-		outside(inst.length(), beta, alpha, manager);
+		outside(inst.length(), ioForest, manager);
 		
 		obj = z - model.getScore(inst.getFeatureVector());
 		
 		//calc gradient
-		getGradient(gradient, beta, alpha, z, inst.length(), manager, model, in);
+		getGradient(gradient, ioForest, z, inst.length(), manager, model, in);
 		
 		return obj;
 	}
 	
-	protected void getGradient(double[] gradient, double[] beta, double[] alpha, double z, int length, Manager manager, ParserModel model, ObjectReader in) throws ClassNotFoundException, IOException{
+	protected void getGradient(double[] gradient, InOutForest ioForest, double z, int length, Manager manager, ParserModel model, ObjectReader in) throws ClassNotFoundException, IOException{
 		//read feature vector of current instance
 		int[] keys = (int[]) in.readObject();
 		int last = in.readInt();
@@ -157,16 +159,17 @@ public class SingleEdgeProjDecoder extends Decoder{
 		if(last != -1){
 			throw new IOException("last number is not equal to -1");
 		}
-				
-		for(int par = 0; par < length; ++par){
-			for(int ch = 0; ch < length; ++ch){
+		
+		BasicForestIndexTuple index = new BasicForestIndexTuple();
+		for(short par = 0; par < length; ++par){
+			for(short ch = 0; ch < length; ++ch){
 				if(ch == par){
 					continue;
 				}
 						
 				keys = (int[]) in.readObject();
-				int key = par * length + ch;
-				double m = Math.exp(beta[key] + alpha[key] - z);
+				index.setIndex(par, ch, (short) (par < ch ? 0 : 1), (short) 0);
+				double m = Math.exp(ioForest.getBeta(index) + ioForest.getAlpha(index) - z);
 				updateGradient(gradient, keys, m);
 			}
 		}
@@ -176,12 +179,81 @@ public class SingleEdgeProjDecoder extends Decoder{
 		}
 	}
 
-	protected double inside(int length, double[] beta, Manager manager) {
-		// TODO Auto-generated method stub
-		return 0;
+	protected double inside(int length, InOutForest ioForest, Manager manager) {
+		short zero = (short) 0;
+		short one = (short) 1;
+		BasicForestIndexTuple fid00 = new BasicForestIndexTuple();
+		BasicForestIndexTuple fid01 = new BasicForestIndexTuple();
+		BasicForestIndexTuple fid10 = new BasicForestIndexTuple();
+		BasicForestIndexTuple fid11 = new BasicForestIndexTuple();
+		
+		BasicForestIndexTuple fid = new BasicForestIndexTuple();
+		
+//		for(short s = 0; s < length; ++s){
+//			index.setIndex(s, s, zero, one);
+//			ioForest.addBeta(index, 0.0);
+//			index.setIndex(s, s, one, one);
+//			ioForest.addBeta(index, 0.0);
+//		}
+		
+		SingleEdgeIndexTuple index0 = new SingleEdgeIndexTuple();
+		SingleEdgeIndexTuple index1 = new SingleEdgeIndexTuple();
+		
+		for(short j = 1; j < length; ++j){
+			for(short s = 0; s + j < length; ++s){
+				short t = (short) (s + j);
+				index0.par = s;
+				index0.ch = t;
+				
+				//negative index
+				index1.par = t;
+				index1.ch = s;
+				
+				//init beta
+				//incomplete spans
+				ioForest.addBeta(fid00.setIndex(s, t, zero, zero), Double.NEGATIVE_INFINITY);
+				ioForest.addBeta(fid10.setIndex(s, t, one, zero), Double.NEGATIVE_INFINITY);
+				
+				//complete spans
+				ioForest.addBeta(fid01.setIndex(s, t, zero, one), Double.NEGATIVE_INFINITY);
+				ioForest.addBeta(fid11.setIndex(s, t, one, one), Double.NEGATIVE_INFINITY);
+				
+				for(short r = s; r < t; ++r){
+					double val = Util.logsumexp(ioForest.getBeta(fid00), 
+							ioForest.getBeta(fid.setIndex(s, r, zero, one)) 
+							+ ioForest.getBeta(fid.setIndex((short) (r + 1), t, one, one))
+							+ manager.getScore(index0));
+					ioForest.addBeta(fid00, val);
+					
+					val = Util.logsumexp(ioForest.getBeta(fid10), 
+							ioForest.getBeta(fid.setIndex(s, r, zero, one)) 
+							+ ioForest.getBeta(fid.setIndex((short) (r + 1), t, one, one))
+							+ manager.getScore(index1));
+					ioForest.addBeta(fid10, val);
+				}
+				
+				for(short r = s; r <= t; ++r){
+					if(r != s){
+						double val = Util.logsumexp(ioForest.getBeta(fid01), 
+								ioForest.getBeta(fid.setIndex(s, r, zero, zero)) 
+								+ ioForest.getBeta(fid.setIndex(r, t, zero, one)));
+						ioForest.addBeta(fid01, val);
+					}
+					
+					if(r != t){
+						double val = Util.logsumexp(ioForest.getBeta(fid11), 
+								ioForest.getBeta(fid.setIndex(s, r, one, one)) 
+								+ ioForest.getBeta(fid.setIndex(r, t, one, zero)));
+						ioForest.addBeta(fid11, val);
+					}
+				}
+			}
+		}
+		return Util.logsumexp(ioForest.getBeta(fid.setIndex(zero, (short) (length - 1), zero, one)), 
+				ioForest.getBeta(fid.setIndex(zero, (short) (length - 1), one, one)));
 	}
 
-	protected void outside(int length, double[] beta, double[] alpha, Manager manager) {
+	protected void outside(int length, InOutForest ioForest, Manager manager) {
 		// TODO Auto-generated method stub
 		
 	}
