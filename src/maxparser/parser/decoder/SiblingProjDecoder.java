@@ -220,10 +220,8 @@ public class SiblingProjDecoder extends SingleEdgeProjDecoder{
 	}
 	
 	@Override
-	public double calcGradient(double[] gradient, Manager manager, ParserModel model, ObjectReader in) throws TrainingException, IOException, ClassNotFoundException{
-		long offset = in.tell();
-		DependencyInstance inst = manager.readInstance(in, model);
-		in.seek(offset);
+	public double calcGradient(double[] gradient, Manager manager, ParserModel model, ObjectReader in1, ObjectReader in2) throws TrainingException, IOException, ClassNotFoundException{
+		DependencyInstance inst = manager.readInstance(in1, model);
 		
 		double obj = 0.0;
 		SiblingInOutForest ioForest = new SiblingInOutForest(inst.length());
@@ -235,7 +233,7 @@ public class SiblingProjDecoder extends SingleEdgeProjDecoder{
 		obj = z - model.getScore(inst.getFeatureVector());
 		
 		//calc gradient
-		getGradient(gradient, ioForest, z, inst.length(), manager, model, in);
+		getGradient(gradient, ioForest, z, inst.length(), manager, model, in2);
 		
 		return obj;
 	}

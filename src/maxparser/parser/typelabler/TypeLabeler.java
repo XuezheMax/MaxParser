@@ -29,4 +29,6 @@ public abstract class TypeLabeler {
 	public abstract void getType(DependencyInstance inst, IndexTuple itemId, ParserModel model);
 	
 	public abstract void getTypes(int length, ParserModel model);
+	
+	public abstract TypeLabeler clone(int size, int type_size);
 }

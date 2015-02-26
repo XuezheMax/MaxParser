@@ -17,7 +17,7 @@ import maxparser.parser.typelabler.TypeLabeler;
 
 public abstract class Manager {
 	protected FeatureGenerator featGen = null;
-	private TypeLabeler typelabeler = null;
+	protected TypeLabeler typelabeler = null;
 	
 	public String genTreeString(int[] heads, int[] types){
 		StringBuffer spans = new StringBuffer(heads.length * 5);
@@ -194,7 +194,7 @@ public abstract class Manager {
 	
 	public abstract int size();
 	
-	public abstract Manager clone(int size);
+	public abstract Manager clone(int size, int type_size);
 	
 	protected abstract double getUnlabeledScore(IndexTuple itemId);
 }

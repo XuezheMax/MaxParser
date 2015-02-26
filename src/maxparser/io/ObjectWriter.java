@@ -5,13 +5,11 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 public class ObjectWriter {
-	private FileOutputStream fileOutStream = null;
 	private ObjectOutputStream out = null;
 	
 	public ObjectWriter(String file){
 		try {
-			fileOutStream = new FileOutputStream(file);
-			out = new ObjectOutputStream(fileOutStream);
+			out = new ObjectOutputStream(new FileOutputStream(file));
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.exit(0);

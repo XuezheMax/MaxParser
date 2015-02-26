@@ -124,10 +124,8 @@ public class SingleEdgeProjDecoder extends Decoder{
 	}
 
 	@Override
-	public double calcGradient(double[] gradient, Manager manager, ParserModel model, ObjectReader in) throws TrainingException, IOException, ClassNotFoundException{
-		long offset = in.tell();
-		DependencyInstance inst = manager.readInstance(in, model);
-		in.seek(offset);
+	public double calcGradient(double[] gradient, Manager manager, ParserModel model, ObjectReader in1, ObjectReader in2) throws TrainingException, IOException, ClassNotFoundException{
+		DependencyInstance inst = manager.readInstance(in1, model);
 		
 		double obj = 0.0;
 		SingleEdgeInOutForest ioForest = new SingleEdgeInOutForest(inst.length());
@@ -139,7 +137,7 @@ public class SingleEdgeProjDecoder extends Decoder{
 		obj = z - model.getScore(inst.getFeatureVector());
 		
 		//calc gradient
-		getGradient(gradient, ioForest, z, inst.length(), manager, model, in);
+		getGradient(gradient, ioForest, z, inst.length(), manager, model, in2);
 		
 		return obj;
 	}
@@ -152,7 +150,6 @@ public class SingleEdgeProjDecoder extends Decoder{
 			throw new IOException("last number is not equal to -4");
 		}
 		updateGradient(gradient, keys, -1.0);
-						
 		//read current instance itself
 		in.readObject();
 		last = in.readInt();
@@ -168,7 +165,10 @@ public class SingleEdgeProjDecoder extends Decoder{
 				}
 						
 				keys = (int[]) in.readObject();
-				index.setIndex(par, ch, (short) (par < ch ? 0 : 1), (short) 0);
+				short min = par < ch ? par : ch;
+				short max = par < ch ? ch : par;
+				short ph = (short) (par < ch ? 0 : 1);
+				index.setIndex(min, max, ph, (short) 0);
 				double m = Math.exp(ioForest.getBeta(index) + ioForest.getAlpha(index) - z);
 				updateGradient(gradient, keys, m);
 			}
@@ -189,19 +189,13 @@ public class SingleEdgeProjDecoder extends Decoder{
 		
 		BasicForestIndexTuple fid = new BasicForestIndexTuple();
 		
-//		for(short s = 0; s < length; ++s){
-//			index.setIndex(s, s, zero, one);
-//			ioForest.addBeta(index, 0.0);
-//			index.setIndex(s, s, one, one);
-//			ioForest.addBeta(index, 0.0);
-//		}
-		
 		SingleEdgeIndexTuple index0 = new SingleEdgeIndexTuple();
 		SingleEdgeIndexTuple index1 = new SingleEdgeIndexTuple();
 		
 		for(short j = 1; j < length; ++j){
 			for(short s = 0; s + j < length; ++s){
 				short t = (short) (s + j);
+				//positive index
 				index0.par = s;
 				index0.ch = t;
 				
@@ -254,8 +248,110 @@ public class SingleEdgeProjDecoder extends Decoder{
 	}
 
 	protected void outside(int length, InOutForest ioForest, Manager manager) {
-		// TODO Auto-generated method stub
+		short zero = (short) 0;
+		short one = (short) 1;
+		BasicForestIndexTuple fid00 = new BasicForestIndexTuple();
+		BasicForestIndexTuple fid01 = new BasicForestIndexTuple();
+		BasicForestIndexTuple fid10 = new BasicForestIndexTuple();
+		BasicForestIndexTuple fid11 = new BasicForestIndexTuple();
 		
+		BasicForestIndexTuple fidA = new BasicForestIndexTuple();
+		BasicForestIndexTuple fidB = new BasicForestIndexTuple();
+		
+		SingleEdgeIndexTuple index0 = new SingleEdgeIndexTuple();
+		SingleEdgeIndexTuple index1 = new SingleEdgeIndexTuple();
+		
+		short end = (short)(length - 2);
+		for(short j = end; j >= 1; --j){
+			for(short s = 0; s + j < length; ++s){
+				short t = (short)(s + j);
+				//init alpha
+				//incomplete spans
+				ioForest.addAlpha(fid00.setIndex(s, t, zero, zero), Double.NEGATIVE_INFINITY);
+				ioForest.addAlpha(fid10.setIndex(s, t, one, zero), Double.NEGATIVE_INFINITY);
+				
+				//complete spans
+				ioForest.addAlpha(fid01.setIndex(s, t, zero, one), Double.NEGATIVE_INFINITY);
+				ioForest.addAlpha(fid11.setIndex(s, t, one, one), Double.NEGATIVE_INFINITY);
+				
+				for(short r = 0; r < s; ++r){
+					//positive index
+					index0.par = r;
+					index0.ch = t;
+					
+					//negative index
+					index1.par = t;
+					index1.ch = r;
+					
+					//alpha[s][t][0][1]
+					double val = Util.logsumexp(ioForest.getAlpha(fid01), 
+							ioForest.getBeta(fidB.setIndex(r, s, zero, zero)) 
+							+ ioForest.getAlpha(fidA.setIndex(r, t, zero, one)));
+					ioForest.addAlpha(fid01, val);
+					
+					//alpha[s][t][1][1]
+					fidA.comp = zero;
+					val = Util.logsumexp(ioForest.getAlpha(fid11), 
+							ioForest.getBeta(fidB.setIndex(r, (short)(s - 1), zero, one))
+							+ ioForest.getAlpha(fidA)
+							+ manager.getScore(index0));
+					ioForest.addAlpha(fid11, val);
+					
+					fidA.dir = one;
+					fidA.comp = zero;
+					val = Util.logsumexp(ioForest.getAlpha(fid11),
+							ioForest.getBeta(fidB)
+							+ ioForest.getAlpha(fidA)
+							+ manager.getScore(index1));
+					ioForest.addAlpha(fid11, val);
+				}
+				
+				for(short r = (short)(t + 1); r < length; ++r){
+					index0.par = s;
+					index0.ch = r;
+					
+					//negative index
+					index1.par = r;
+					index1.ch = s;
+					
+					//alpha[s][t][0][1]
+					double val = Util.logsumexp(ioForest.getAlpha(fid01), 
+							ioForest.getBeta(fidB.setIndex((short)(t + 1), r, one, one))
+							+ ioForest.getAlpha(fidA.setIndex(s, r, zero, zero))
+							+ manager.getScore(index0));
+					ioForest.addAlpha(fid01, val);
+					
+					fidA.dir = one;
+					val = Util.logsumexp(ioForest.getAlpha(fid01), 
+							ioForest.getBeta(fidB)
+							+ ioForest.getAlpha(fidA)
+							+ manager.getScore(index1));
+					ioForest.addAlpha(fid01, val);
+					
+					fidA.comp = one;
+					//alpha[s][t][1][1]
+					val = Util.logsumexp(ioForest.getAlpha(fid11), 
+							ioForest.getBeta(fidB.setIndex(t, r, one, zero))
+							+ ioForest.getAlpha(fidA));
+					ioForest.addAlpha(fid11, val);
+				}
+				
+				//alpha[s][t][0][0]
+				for(short r = t; r < length; ++r){
+					double val = Util.logsumexp(ioForest.getAlpha(fid00), 
+							ioForest.getBeta(fidB.setIndex(t, r, zero, one))
+							+ ioForest.getAlpha(fidA.setIndex(s, r, zero, one)));
+					ioForest.addAlpha(fid00, val);
+				}
+				//alpha[s][t][1][0]
+				for(short r = 0; r <= s; ++r){
+					double val = Util.logsumexp(ioForest.getAlpha(fid10), 
+							ioForest.getBeta(fidB.setIndex(r, s, one, one))
+							+ ioForest.getAlpha(fidA.setIndex(r, t, one, one)));
+					ioForest.addAlpha(fid10, val);
+				}
+			}
+		}
 	}
 
 	@Override

@@ -42,5 +42,10 @@ public class DefaultTypeLabeler extends TypeLabeler{
 
 	@Override
 	public void getTypes(int length, ParserModel model) {}
+
+	@Override
+	public TypeLabeler clone(int size, int type_size) {
+		return new DefaultTypeLabeler();
+	}
 	
 }

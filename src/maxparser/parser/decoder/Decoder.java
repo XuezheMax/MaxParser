@@ -16,7 +16,7 @@ public abstract class Decoder {
 	
 	public abstract Pair<FeatureVector, String>[] decode(Manager manager, DependencyInstance inst, int K, ParserModel model);
 	
-	public abstract double calcGradient(double[] gradient, Manager manager, ParserModel model, ObjectReader in) throws TrainingException, IOException, ClassNotFoundException;
+	public abstract double calcGradient(double[] gradient, Manager manager, ParserModel model, ObjectReader in1, ObjectReader in2) throws TrainingException, IOException, ClassNotFoundException;
 	
 	public abstract Marginal calcMarginals(Manager manager, ParserModel model, ObjectReader in) throws TrainingException, IOException, ClassNotFoundException;
 	

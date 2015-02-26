@@ -216,4 +216,11 @@ public class BasicTypeLabeler extends TypeLabeler{
 			}
 		}
 	}
+
+	@Override
+	public TypeLabeler clone(int size, int type_size) {
+		BasicTypeLabeler typeLabeler = new BasicTypeLabeler();
+		typeLabeler.init(size, type_size);
+		return null;
+	}
 }

@@ -24,6 +24,7 @@ public class SingleEdgeManager extends Manager{
 		//write feature vector of current instance
 		out.writeObject(inst.getFeatureVector().keys());
 		out.writeInt(-4);
+		
 		//write current instance itself
 		out.writeObject(inst);
 		out.writeInt(-1);
@@ -132,9 +133,10 @@ public class SingleEdgeManager extends Manager{
 	}
 
 	@Override
-	public Manager clone(int size) {
+	public Manager clone(int size, int type_size) {
 		SingleEdgeManager manager = new SingleEdgeManager();
 		manager.init(size);
+		manager.setTypeLabeler(typelabeler.clone(size, type_size));
 		return manager;
 	}
 }

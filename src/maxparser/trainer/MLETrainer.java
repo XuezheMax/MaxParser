@@ -24,7 +24,7 @@ public class MLETrainer extends Trainer{
 		System.out.println("Num Threads:   " + model.threadNum());
 		System.out.println("Cost:          " + model.cost());
 		
-		final double eta = 1e-4;
+		final double eta = 1e-6;
 		final int maxIter = 10000;
 		
 		int threadNum = model.threadNum();
@@ -39,22 +39,23 @@ public class MLETrainer extends Trainer{
 		
 		//init threads
 		String trainforest = model.trainforest();
-		GradientCollectThread[] threads = new GradientCollectThread[threadNum];
-		int unit = (numTrainInst % threadNum == 0) ? numTrainInst / threadNum : numTrainInst / threadNum + 1;
-		for(int i = 0; i < threadNum; ++i){
-			int start = unit * i;
-			int end = start + unit;
-			if(end > numTrainInst){
-				end = numTrainInst;
-			}
-			String[] tokens = trainforest.split("\\.");
-			String forestfile = tokens[0] + i + "." + tokens[1];
-			threads[i] = new GradientCollectThread(start, end, managers[i], decoder, forestfile, model);
-		}
 		
 		for(int itr = 0; itr < maxIter; ++itr){
 			System.out.flush();
 			long clock = System.currentTimeMillis() / 1000;
+			
+			GradientCollectThread[] threads = new GradientCollectThread[threadNum];
+			int unit = (numTrainInst % threadNum == 0) ? numTrainInst / threadNum : numTrainInst / threadNum + 1;
+			for(int i = 0; i < threadNum; ++i){
+				int start = unit * i;
+				int end = start + unit;
+				if(end > numTrainInst){
+					end = numTrainInst;
+				}
+				String[] tokens = trainforest.split("\\.");
+				String forestfile = tokens[0] + i + "." + tokens[1];
+				threads[i] = new GradientCollectThread(start, end, managers[i], decoder, forestfile, model);
+			}
 			
 			for(int i = 0; i < threadNum; ++i){
 				threads[i].start();
@@ -84,7 +85,7 @@ public class MLETrainer extends Trainer{
 			}
 			
 			double diff = itr == 0 ? 1.0 : Math.abs(old_obj - threads[0].obj) / old_obj;
-			System.out.println("iter=" + itr + "obj=" + String.format("%.8f", threads[0].obj) + "diff=" + String.format("%.8f", diff) + "time=" + (System.currentTimeMillis() / 1000 - clock) + "s.");
+			System.out.println("iter=" + itr + " obj=" + String.format("%.8f", threads[0].obj) + " diff=" + String.format("%.8f", diff) + " time=" + (System.currentTimeMillis() /1000 - clock) + "s.");
 			old_obj = threads[0].obj;
 			
 			if(diff < eta){
@@ -176,10 +177,8 @@ public class MLETrainer extends Trainer{
 		}
 		reader.close();
 		Manager[] managers = new Manager[threadNum];
-		System.out.println(wh + " " + manager.size());
 		for(int j = 0; j < threadNum; ++j){
-			System.out.println(maxLength[j]);
-			managers[j] = j == wh ? manager : manager.clone(maxLength[j]);
+			managers[j] = j == wh ? manager : manager.clone(maxLength[j], model.typeSize());
 		}
 		return managers;
 	}
@@ -208,12 +207,13 @@ public class MLETrainer extends Trainer{
 		public void run() {
 			try {
 				obj = 0.0;
-				ObjectReader in = new ObjectReader(forestfile);
-				java.util.Arrays.fill(gradient, 0.0);
+				ObjectReader in1 = new ObjectReader(forestfile);
+				ObjectReader in2 = new ObjectReader(forestfile);
 				for(int i = start; i < end; ++i) {
-					obj += decoder.calcGradient(gradient, manager, model, in);
+					obj += decoder.calcGradient(gradient, manager, model, in1, in2);
 				}
-				in.close();
+				in1.close();
+				in2.close();
 			} catch (TrainingException | IOException | ClassNotFoundException e) {
 				e.printStackTrace();
 			}

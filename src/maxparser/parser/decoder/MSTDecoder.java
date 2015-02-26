@@ -361,7 +361,7 @@ public class MSTDecoder extends Decoder{
 	}
 
 	@Override
-	public double calcGradient(double[] gradient, Manager manager, ParserModel model, ObjectReader in) throws TrainingException, IOException, ClassNotFoundException {
+	public double calcGradient(double[] gradient, Manager manager, ParserModel model, ObjectReader in1, ObjectReader in2) throws TrainingException, IOException, ClassNotFoundException {
 		// TODO Auto-generated method stub
 		return 0;
 	}

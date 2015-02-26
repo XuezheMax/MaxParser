@@ -153,9 +153,10 @@ public class SiblingManager extends SingleEdgeManager{
 	}
 	
 	@Override
-	public Manager clone(int size) {
+	public Manager clone(int size, int type_size) {
 		SiblingManager manager = new SiblingManager();
 		manager.init(size);
+		manager.setTypeLabeler(typelabeler.clone(size, type_size));
 		return manager;
 	}
 }
