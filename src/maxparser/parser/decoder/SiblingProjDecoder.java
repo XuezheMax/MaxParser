@@ -239,7 +239,178 @@ public class SiblingProjDecoder extends SingleEdgeProjDecoder{
 	}
 	
 	protected void getGradient(double[] gradient, InOutForest ioForest, double z, int length, Manager manager, ParserModel model, ObjectReader in) throws ClassNotFoundException, IOException{
+		//read feature vector of current instance
+		int[] keys = (int[]) in.readObject();
+		int last = in.readInt();
+		if(last != -4){
+			throw new IOException("last number is not equal to -4");
+		}
+		updateGradient(gradient, keys, -1.0);
+		//read current instance itself
+		in.readObject();
+		last = in.readInt();
+		if(last != -1){
+			throw new IOException("last number is not equal to -1");
+		}
 		
+		BasicForestIndexTuple fidA = new BasicForestIndexTuple();
+		BasicForestIndexTuple fidB1 = new BasicForestIndexTuple();
+		BasicForestIndexTuple fidB2 = new BasicForestIndexTuple();
+		
+		SiblingIndexTuple index = new SiblingIndexTuple();
+		
+		//probs
+		for(short par = 0; par < length; ++par){
+			for(short ch = 0; ch < length; ++ch){
+				if(ch == par){
+					continue;
+				}
+				
+				index.par = par;
+				index.ch1 = par;
+				index.ch = ch;
+				
+				keys = (int[]) in.readObject();
+				short min = par < ch ? par : ch;
+				short max = par < ch ? ch : par;
+				short ph = (short) (par < ch ? 0 : 1);
+				
+				double m = 0.0;
+				fidA.setIndex(min, max, ph, (short) 0);
+				if(ph == 0){
+					fidB1.setIndex((short) (min + 1), max, (short) 1, (short) 1);
+				}
+				else{
+					fidB1.setIndex(min, (short) (max - 1), (short) 0, (short) 1);
+				}
+				m = Math.exp(ioForest.getBeta(fidB1) + ioForest.getAlpha(fidA) + manager.getScore(index) - z);
+				for(short r = (short) (min + 1); r < max; ++r){
+					index.ch1 = r;
+					if(ph == 0){
+						fidB1.setIndex(min, r, ph, (short) 0);
+						fidB2.setIndex(r, max, (short) 0, (short) 2);
+					}
+					else{
+						fidB1.setIndex(min, r, (short) 0, (short) 2);
+						fidB2.setIndex(r, max, ph, (short) 0);
+					}
+					m += Math.exp(ioForest.getBeta(fidB1) + ioForest.getBeta(fidB2) + ioForest.getAlpha(fidA) + manager.getScore(index) - z);
+				}
+				updateGradient(gradient, keys, m);
+			}
+		}
+		
+		last = in.readInt();
+		if(last != -3){
+			throw new IOException("last number is not equal to -3");
+		}
+		
+		//trips
+		for(short par = 0; par < length; ++par){
+			for(short ch1 = par; ch1 < length; ++ch1){
+				for(short ch2 = (short) (ch1 + 1); ch2 < length; ++ch2){
+					index.par = par;
+					index.ch1 = ch1;
+					index.ch = ch2;
+					
+					keys = (int[]) in.readObject();
+					double m = 0.0;
+					fidA.setIndex(par, ch2, (short) 0, (short) 0);
+					if(par == ch1){
+						fidB1.setIndex((short) (par + 1), ch2, (short) 1, (short) 1);
+						m = Math.exp(ioForest.getBeta(fidB1) + ioForest.getAlpha(fidA) + manager.getScore(index) - z);
+					}
+					else{
+						fidB1.setIndex(par, ch1, (short) 0, (short) 0);
+						fidB2.setIndex(ch1, ch2, (short) 0, (short) 2);
+						m = Math.exp(ioForest.getBeta(fidB1) + ioForest.getBeta(fidB2) + ioForest.getAlpha(fidA) + manager.getScore(index) - z);
+					}
+					updateGradient(gradient, keys, m);
+				}
+			}
+			
+			for(short ch1 = par; ch1 >= 0; --ch1){
+				for(short ch2 = (short) (ch1 - 1); ch2 >= 0; --ch2){
+					keys = (int[]) in.readObject();
+					double m = 0.0;
+					fidA.setIndex(ch2, par, (short) 1, (short) 0);
+					if(par == ch1){
+						fidB1.setIndex(ch2, (short) (par - 1), (short) 0, (short) 1);
+						m = Math.exp(ioForest.getBeta(fidB1) + ioForest.getAlpha(fidA) + manager.getScore(index) - z);
+					}
+					else{
+						fidB1.setIndex(ch2, ch1, (short) 0, (short) 2);
+						fidB2.setIndex(ch1, par, (short) 1, (short) 0);
+						m = Math.exp(ioForest.getBeta(fidB1) + ioForest.getBeta(fidB2) + ioForest.getAlpha(fidA) + manager.getScore(index) - z);
+					}
+					updateGradient(gradient, keys, m);
+				}
+			}
+		}
+		
+		last = in.readInt();
+		if(last != -3){
+			throw new IOException("last number is not equal to -3");
+		}
+		
+		//sibs
+		for(short ch1 = 0; ch1 < length; ++ch1){
+			for(short ch2 = 0; ch2 < length; ++ch2){
+				for(short wh = 0; wh < 2; ++wh){
+					if(ch1 != ch2){
+						keys = (int[]) in.readObject();
+						
+						short min = ch1 < ch2 ? ch1 : ch2;
+						short max = ch1 < ch2 ? ch2 : ch1;
+						short ph = (short) (ch1 < ch2 ? 0 : 1);
+						double m = 0.0;
+						if(wh == 0){
+							index.par = ch1;
+							index.ch1 = ch1;
+							index.ch = ch2;
+							
+							fidA.setIndex(min, max, ph, (short) 0);
+							if(ph == 0){
+								fidB1.setIndex((short) (min + 1), max, (short) 1, (short) 1);
+							}
+							else{
+								fidB1.setIndex(min, (short) (max - 1), (short) 0, (short) 1);
+							}
+							m = Math.exp(ioForest.getBeta(fidB1) + ioForest.getAlpha(fidA) + manager.getScore(index) - z);
+						}
+						else{
+							index.ch1 = ch1;
+							index.ch = ch2;
+							
+							if(ph == 0){
+								for(short par = 0; par < ch1; ++par){
+									index.par = par;
+									fidA.setIndex(par, ch2, ph, (short) 0);
+									fidB1.setIndex(par, ch1, ph, (short) 0);
+									fidB2.setIndex(min, max, (short) 0, (short) 2);
+									m += Math.exp(ioForest.getBeta(fidB1) + ioForest.getBeta(fidB2) + ioForest.getAlpha(fidA) + manager.getScore(index) - z);
+								}
+							}
+							else{
+								for(short par = (short) (ch1 + 1); par < length; ++par){
+									index.par = par;
+									fidA.setIndex(ch2, par, ph, (short) 0);
+									fidB1.setIndex(ch1, par, ph, (short) 0);
+									fidB2.setIndex(min, max, (short) 0, (short) 2);
+									m += Math.exp(ioForest.getBeta(fidB1) + ioForest.getBeta(fidB2) + ioForest.getAlpha(fidA) + manager.getScore(index) - z);
+								}
+							}
+						}
+						updateGradient(gradient, keys, m);
+					}
+				}
+			}
+		}
+		
+		last = in.readInt();
+		if(last != -3){
+			throw new IOException("last number is not equal to -3");
+		}
 	}
 
 	@Override
