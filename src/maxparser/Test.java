@@ -22,7 +22,6 @@ public class Test {
 	 * @throws ClassNotFoundException 
 	 */
 	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
-		System.out.println(Integer.MAX_VALUE);
+		String str = "bbb";
 	}
-
 }
