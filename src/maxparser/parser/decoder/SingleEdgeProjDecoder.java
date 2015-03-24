@@ -139,6 +139,7 @@ public class SingleEdgeProjDecoder extends Decoder{
 		//calc gradient
 		getGradient(gradient, ioForest, z, inst.length(), manager, model, in2);
 		
+		//System.err.println("lengtth: " + inst.length() + " prob: " + Math.exp(-obj));
 		return obj;
 	}
 	
