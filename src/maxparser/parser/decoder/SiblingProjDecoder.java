@@ -220,7 +220,7 @@ public class SiblingProjDecoder extends SingleEdgeProjDecoder{
 	}
 	
 	@Override
-	public double calcGradient(double[] gradient, Manager manager, ParserModel model, ObjectReader in1, ObjectReader in2) throws TrainingException, IOException, ClassNotFoundException{
+	public double calcGradient(double[] gradient, double bound, Manager manager, ParserModel model, ObjectReader in1, ObjectReader in2) throws TrainingException, IOException, ClassNotFoundException{
 		DependencyInstance inst = manager.readInstance(in1, model);
 		
 		double obj = 0.0;

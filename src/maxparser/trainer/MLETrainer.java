@@ -210,7 +210,7 @@ public class MLETrainer extends Trainer{
 				ObjectReader in1 = new ObjectReader(forestfile);
 				ObjectReader in2 = new ObjectReader(forestfile);
 				for(int i = start; i < end; ++i) {
-					obj += decoder.calcGradient(gradient, manager, model, in1, in2);
+					obj += decoder.calcGradient(gradient, 0.0, manager, model, in1, in2);
 				}
 				in1.close();
 				in2.close();

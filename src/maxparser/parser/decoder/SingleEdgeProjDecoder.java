@@ -124,7 +124,7 @@ public class SingleEdgeProjDecoder extends Decoder{
 	}
 
 	@Override
-	public double calcGradient(double[] gradient, Manager manager, ParserModel model, ObjectReader in1, ObjectReader in2) throws TrainingException, IOException, ClassNotFoundException{
+	public double calcGradient(double[] gradient, double bound, Manager manager, ParserModel model, ObjectReader in1, ObjectReader in2) throws TrainingException, IOException, ClassNotFoundException{
 		DependencyInstance inst = manager.readInstance(in1, model);
 		
 		double obj = 0.0;
@@ -132,15 +132,50 @@ public class SingleEdgeProjDecoder extends Decoder{
 		
 		double z = inside(inst.length(), ioForest, manager);
 		
-		outside(inst.length(), ioForest, manager);
-		
 		obj = z - model.getScore(inst.getFeatureVector());
 		
-		//calc gradient
-		getGradient(gradient, ioForest, z, inst.length(), manager, model, in2);
+		if(obj > bound){
+			//calc outside alpha
+			outside(inst.length(), ioForest, manager);
+			
+			//calc gradient
+			getGradient(gradient, ioForest, z, inst.length(), manager, model, in2);
+			obj -= bound;
+		}
+		else{
+			obj = 0;
+			skipGradient(inst.length(), in2);
+		}
 		
 		//System.err.println("lengtth: " + inst.length() + " prob: " + Math.exp(-obj));
 		return obj;
+	}
+	
+	protected void skipGradient(int length, ObjectReader in) throws ClassNotFoundException, IOException{
+		in.readObject();
+		int last = in.readInt();
+		if(last != -4){
+			throw new IOException("last number is not equal to -4");
+		}
+		
+		in.readObject();
+		last = in.readInt();
+		if(last != -1){
+			throw new IOException("last number is not equal to -1");
+		}
+		
+		for(int par = 0; par < length; ++par){
+			for(int ch = 0; ch < length; ++ch){
+				if(ch == par){
+					continue;
+				}
+				in.readObject();
+			}
+		}
+		last = in.readInt();
+		if(last != -3){
+			throw new IOException("last number is not equal to -3");
+		}
 	}
 	
 	protected void getGradient(double[] gradient, InOutForest ioForest, double z, int length, Manager manager, ParserModel model, ObjectReader in) throws ClassNotFoundException, IOException{
