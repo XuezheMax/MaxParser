@@ -8,3 +8,4 @@ parser=maxparser.parser.SingleEdgeProjParser
 trainer=maxparser.trainer.MLETrainer
 thread-num=3
 cost=0.03
+

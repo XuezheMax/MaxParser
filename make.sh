@@ -1,4 +1,4 @@
-javac -classpath ".:lib/trove.jar" -sourcepath src/ src/maxparser/MaxParser.java -d ./
+ant
 jar cfm MaxParser.jar lib/manifest.mf maxparser/ lib/trove.jar
-rm -f tmp/
+rm -rf tmp/
 mkdir tmp/

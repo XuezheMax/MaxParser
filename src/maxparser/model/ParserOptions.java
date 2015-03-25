@@ -160,7 +160,7 @@ public class ParserOptions implements Serializable{
 			while(line != null){
 				line = line.trim();
 				if(line.length() == 0){
-					line = reader.readLine().trim();
+					line = reader.readLine();
 					continue;
 				}
 				String[] tokens = line.split("=");

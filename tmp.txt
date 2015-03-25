@@ -1,0 +1,2 @@
+-train-file english_train.conll -mode train -dev-file english_test.conll -model-file model.pm -log-file log.txt -create-forest false -iters 3 -training-k 1 -parser maxparser.parser.SingleEdgeProjParser -trainer maxparser.trainer.MLETrainer
+-thread-num 3 -cost 0.5

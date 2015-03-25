@@ -1,0 +1,11 @@
+<project default="compile">
+    <target name="compile">
+         <javac srcdir="src" destdir="." debug="on">
+             <classpath>
+                 <fileset dir="lib">
+                     <include name="trove.jar"/>
+                 </fileset>
+             </classpath>
+         </javac>
+    </target>
+</project>
