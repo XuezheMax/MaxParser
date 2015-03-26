@@ -2,10 +2,10 @@ train-file=english_train.conll
 mode=train
 dev-file=english_test.conll
 model-file=parse_model.pm
-log-file=log.txt
-create-forest=true
+log-file=log-new.txt
+create-forest=false
 parser=maxparser.parser.SingleEdgeProjParser
 trainer=maxparser.trainer.MLETrainer
 thread-num=3
-cost=0.03
-
+cost=0.1
+punct=:|,|.|''|``
