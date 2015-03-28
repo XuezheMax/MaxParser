@@ -122,9 +122,9 @@ public class SingleEdgeProjDecoder extends Decoder{
 		}
 		return forest.getBestParses(inst, manager, model);
 	}
-
+	
 	@Override
-	public double calcGradient(double[] gradient, double bound, Manager manager, ParserModel model, ObjectReader in1, ObjectReader in2) throws TrainingException, IOException, ClassNotFoundException{
+	public double calcLogLinearGradient(double[] gradient, Manager manager, ParserModel model, ObjectReader in1, ObjectReader in2) throws TrainingException, IOException, ClassNotFoundException {
 		DependencyInstance inst = manager.readInstance(in1, model);
 		
 		double obj = 0.0;
@@ -133,22 +133,45 @@ public class SingleEdgeProjDecoder extends Decoder{
 		double z = inside(inst.length(), ioForest, manager);
 		
 		obj = z - model.getScore(inst.getFeatureVector());
+		//calc outside alpha
+		outside(inst.length(), ioForest, manager);
+			
+		//calc gradient
+		getGradient(gradient, ioForest, z, inst.length(), manager, model, in2);
 		
-		if(obj > bound){
+		return obj;
+	}
+
+	@Override
+	public Pair<Double, Integer> calcHingeGradient(double[] gradient, Manager manager, ParserModel model, ObjectReader in1, ObjectReader in2) throws TrainingException, IOException, ClassNotFoundException{
+		DependencyInstance inst = manager.readInstance(in1, model);
+		
+		double obj = 0.0;
+		double bound = Math.log(inst.length());
+		SingleEdgeInOutForest ioForest = new SingleEdgeInOutForest(inst.length());
+		
+		double z = inside(inst.length(), ioForest, manager);
+		
+		obj = z - model.getScore(inst.getFeatureVector());
+		//System.err.println("length: " + inst.length() + " prob: " + Math.exp(-obj) + " bound: " + Math.exp(-bound));
+		
+		int active = 0;
+		
+		if(Double.compare(obj, bound) > 0){
 			//calc outside alpha
 			outside(inst.length(), ioForest, manager);
 			
 			//calc gradient
 			getGradient(gradient, ioForest, z, inst.length(), manager, model, in2);
 			obj -= bound;
+			active = 1;
 		}
 		else{
-			obj = 0;
+			obj = 0.0;
 			skipGradient(inst.length(), in2);
 		}
 		
-		//System.err.println("lengtth: " + inst.length() + " prob: " + Math.exp(-obj));
-		return obj;
+		return new Pair<Double, Integer>(obj, active);
 	}
 	
 	protected void skipGradient(int length, ObjectReader in) throws ClassNotFoundException, IOException{

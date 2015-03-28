@@ -15,10 +15,10 @@ import maxparser.io.ObjectReader;
 import maxparser.model.ParserModel;
 import maxparser.parser.decoder.Decoder;
 import maxparser.parser.manager.Manager;
-import maxparser.trainer.lbfgs.LBFGS.ExceptionWithIflag;
 import maxparser.trainer.lbfgs.SimpleLBFGS;
+import maxparser.trainer.lbfgs.LBFGS.ExceptionWithIflag;
 
-public class MLETrainer extends Trainer{
+public class MPMATrainer extends Trainer{
 
 	@Override
 	public void train(Manager manager, Decoder decoder, ParserModel model, String trainfile, String devfile, String logfile, String modelfile, int numTrainInst, int numDevInst) throws TrainingException, ClassNotFoundException, InstantiationException, IllegalAccessException, IOException {
@@ -77,6 +77,7 @@ public class MLETrainer extends Trainer{
 				
 				for(int i = 1; i < threadNum; ++i){
 					threads[0].obj += threads[i].obj;
+					threads[0].act += threads[i].act;
 				}
 				
 				for(int i = 1; i < threadNum; ++i){
@@ -94,7 +95,7 @@ public class MLETrainer extends Trainer{
 				}
 				
 				double diff = itr == 0 ? 1.0 : Math.abs(old_obj - threads[0].obj) / old_obj;
-				System.out.println("iter=" + itr + " obj=" + String.format("%.8f", threads[0].obj) + " diff=" + String.format("%.8f", diff) + " time=" + (System.currentTimeMillis() /1000 - clock) + "s.");
+				System.out.println("iter=" + itr + " active instance=" + threads[0].act + " obj=" + String.format("%.8f", threads[0].obj) + " diff=" + String.format("%.8f", diff) + " time=" + (System.currentTimeMillis() /1000 - clock) + "s.");
 				old_obj = threads[0].obj;
 				
 				if(diff < eta){
@@ -211,6 +212,7 @@ public class MLETrainer extends Trainer{
 		private ParserModel model;
 		
 		public double obj;
+		public int act;
 		public double[] gradient = null;
 		
 		public GradientCollectThread(int start, int end, Manager manager, Decoder decoder, String forestfile, ParserModel model){
@@ -226,10 +228,13 @@ public class MLETrainer extends Trainer{
 		public void run() {
 			try {
 				obj = 0.0;
+				act = 0;
 				ObjectReader in1 = new ObjectReader(forestfile);
 				ObjectReader in2 = new ObjectReader(forestfile);
 				for(int i = start; i < end; ++i) {
-					obj += decoder.calcLogLinearGradient(gradient, manager, model, in1, in2);
+					Pair<Double, Integer> res = decoder.calcHingeGradient(gradient, manager, model, in1, in2);
+					obj += res.first;
+					act += res.second;
 				}
 				in1.close();
 				in2.close();
@@ -239,3 +244,4 @@ public class MLETrainer extends Trainer{
 		}
 	}
 }
+	

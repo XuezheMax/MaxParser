@@ -253,7 +253,12 @@ public class SiblingCLMDecoder extends SingleEdgeCLMDecoder{
 	}
 	
 	@Override
-	public double calcGradient(double[] gradient, double bound, Manager manager, ParserModel model, ObjectReader in1, ObjectReader in2) throws TrainingException{
+	public double calcLogLinearGradient(double[] gradient, Manager manager, ParserModel model, ObjectReader in1, ObjectReader in2) throws TrainingException{
+		throw new TrainingException("SiblingCLMDecoder does not support gradient calculation.");
+	}
+	
+	@Override
+	public Pair<Double, Integer> calcHingeGradient(double[] gradient, Manager manager, ParserModel model, ObjectReader in1, ObjectReader in2) throws TrainingException{
 		throw new TrainingException("SiblingCLMDecoder does not support gradient calculation.");
 	}
 	
