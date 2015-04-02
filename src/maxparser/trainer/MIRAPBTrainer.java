@@ -214,7 +214,6 @@ public class MIRAPBTrainer extends Trainer{
 		for (int k = 0; k < K; k++) {
 			lam_dist[k] = model.getScore(actFV) - model.getScore(d[k].first);
 			b[k] = (double) numErrors(inst, d[k].second, actParseTree, model);
-			//b[k] = b[k] * (Math.log(inst.length()) + 1);
 			b[k] -= lam_dist[k];
 			dist[k] = actFV.getDistVector(d[k].first);
 		}

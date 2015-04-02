@@ -116,7 +116,6 @@ public class SingleEdgeManager extends Manager{
 				}
 				if(!nopunc || !model.isPunct(inst.postags[ch])){
 					probs[par][ch] += 1.0;
-					//probs[par][ch] += (Math.log(inst.length()) + 1);
 				}
 			}
 		}
@@ -124,7 +123,6 @@ public class SingleEdgeManager extends Manager{
 		for(int i = 1; i < length; ++i){
 			if(!nopunc || !model.isPunct(inst.postags[i])){
 				probs[inst.heads[i]][i] -= 1.0;
-				//probs[inst.heads[i]][i] -= (Math.log(inst.length()) + 1);
 			}
 		}
 	}
