@@ -27,7 +27,7 @@ public class MLETrainer extends Trainer{
 		System.out.println("Cost:          " + model.cost());
 		
 		final double eta = 1e-6;
-		final int maxIter = 10000;
+		final int maxIter = model.maxIter();
 		
 		int threadNum = model.threadNum();
 		Manager[] managers = createManagers(manager, trainfile, threadNum, numTrainInst, model);

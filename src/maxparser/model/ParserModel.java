@@ -247,6 +247,10 @@ public class ParserModel implements Serializable{
 		return options.getIterNum();
 	}
 	
+	public int maxIter(){
+		return options.maxIter();
+	}
+	
 	public int trainingK(){
 		return options.getTrainingK();
 	}
