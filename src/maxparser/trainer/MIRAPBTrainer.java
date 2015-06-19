@@ -301,6 +301,10 @@ public class MIRAPBTrainer extends Trainer{
 
 			iter++;
 		}
+		
+		for(int j = 0; j < alpha.length; ++j) {
+			alpha[j] = Math.max(alpha[j], 0.0);
+		}
 		return alpha;
 	}
 	

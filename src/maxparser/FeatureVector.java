@@ -5,6 +5,8 @@ import gnu.trove.map.hash.TIntDoubleHashMap;
 
 @SuppressWarnings("rawtypes")
 public class FeatureVector extends TLinkedList {
+	private static final long serialVersionUID = 1L;
+	
 	private FeatureVector subfv1 = null;
 
 	private FeatureVector subfv2 = null;
