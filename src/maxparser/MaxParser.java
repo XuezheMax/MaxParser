@@ -1,3 +1,6 @@
+/**
+ * author = max
+ */
 package maxparser;
 
 import java.io.IOException;
