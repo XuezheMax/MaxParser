@@ -1,4 +1,4 @@
-package maxparser.parser.typelabler.featgen;
+package maxparser.parser.typelabeler.featgen;
 
 import maxparser.DependencyInstance;
 import maxparser.FeatureVector;

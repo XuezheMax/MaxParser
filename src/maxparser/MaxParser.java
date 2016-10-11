@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import maxparser.parser.Parser;
-import maxparser.parser.typelabler.TypeLabeler;
+import maxparser.parser.typelabeler.TypeLabeler;
 import maxparser.exception.TrainingException;
 import maxparser.model.ParserModel;
 import maxparser.model.ParserOptions;

@@ -19,7 +19,7 @@ public class ParserOptions implements Serializable{
 								TRAINER = "trainer",
 								DEFAULT_TRAINER_CLASS = maxparser.trainer.MIRAMLTrainer.class.getName(),
 								TYPE_LABELER = "typelabeler",
-								DEFAULT_TYPELABELER_CLASS = maxparser.parser.typelabler.DefaultTypeLabeler.class.getName(),
+								DEFAULT_TYPELABELER_CLASS = maxparser.parser.typelabeler.DefaultTypeLabeler.class.getName(),
 								SENT_READER = "reader",
 								DEFAULT_SENT_READER_CLASS = maxparser.io.CONLLReader.class.getName(),
 								SENT_WRITER = "writer",

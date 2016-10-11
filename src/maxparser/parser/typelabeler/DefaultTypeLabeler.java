@@ -1,4 +1,4 @@
-package maxparser.parser.typelabler;
+package maxparser.parser.typelabeler;
 
 import java.io.IOException;
 

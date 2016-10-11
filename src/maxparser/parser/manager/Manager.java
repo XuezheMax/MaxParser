@@ -13,7 +13,7 @@ import maxparser.io.ObjectWriter;
 import maxparser.model.ParserModel;
 import maxparser.parser.indextuple.IndexTuple;
 import maxparser.parser.manager.featgen.FeatureGenerator;
-import maxparser.parser.typelabler.TypeLabeler;
+import maxparser.parser.typelabeler.TypeLabeler;
 
 public abstract class Manager {
 	protected FeatureGenerator featGen = null;

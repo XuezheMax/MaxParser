@@ -10,8 +10,8 @@ import maxparser.io.DependencyReader;
 import maxparser.io.DependencyWriter;
 import maxparser.model.ParserModel;
 import maxparser.parser.manager.Manager;
+import maxparser.parser.typelabeler.TypeLabeler;
 import maxparser.parser.decoder.Decoder;
-import maxparser.parser.typelabler.TypeLabeler;
 import maxparser.trainer.Trainer;
 import maxparser.io.ObjectReader;
 

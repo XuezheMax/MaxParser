@@ -22,6 +22,6 @@ public class Test {
 	 * @throws ClassNotFoundException 
 	 */
 	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
-		System.out.println(maxparser.trainer.MLETrainer.class.getName());
+		System.out.println(maxparser.parser.typelabeler.BasicTypeLabeler.class.getName());
 	}
 }

@@ -1,4 +1,4 @@
-package maxparser.parser.typelabler.featgen;
+package maxparser.parser.typelabeler.featgen;
 
 import maxparser.FeatureVector;
 import maxparser.model.ParserModel;

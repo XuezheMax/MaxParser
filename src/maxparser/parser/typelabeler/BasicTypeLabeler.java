@@ -1,4 +1,4 @@
-package maxparser.parser.typelabler;
+package maxparser.parser.typelabeler;
 
 import java.io.IOException;
 
@@ -7,7 +7,7 @@ import maxparser.FeatureVector;
 import maxparser.model.ParserModel;
 import maxparser.parser.indextuple.IndexTuple;
 import maxparser.parser.indextuple.SingleEdgeIndexTuple;
-import maxparser.parser.typelabler.featgen.BasicLabeledFeatureGenerator;
+import maxparser.parser.typelabeler.featgen.BasicLabeledFeatureGenerator;
 import maxparser.io.ObjectReader;
 import maxparser.io.ObjectWriter;
 
