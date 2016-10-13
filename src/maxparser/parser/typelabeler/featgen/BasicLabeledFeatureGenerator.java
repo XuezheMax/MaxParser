@@ -153,7 +153,8 @@ public class BasicLabeledFeatureGenerator extends LabeledFeatureGenerator{
 	}
 
 	public void addSingleEdgeLabeledFeatures(DependencyInstance inst, int par, int ch, int type, ParserModel model, FeatureVector fv){
-		String att = par < ch ? "RA" : "LA";
+		/*
+	    String att = par < ch ? "RA" : "LA";
 		
 		//distance
 		int dist = Math.abs(par - ch);
@@ -197,6 +198,7 @@ public class BasicLabeledFeatureGenerator extends LabeledFeatureGenerator{
 		
 		//lemma+cpos
 		addTwoObsLabeledFeatures("LLC", type, inst.lemmaIds[par], inst.cposIds[par], inst.lemmaIds[ch], inst.cposIds[ch], attDist, model, fv);
+		*/
 	}
 	
 	public void addTwoObsLabeledFeatures(String prefix, int type, int obs1F1, int obs1F2, int obs2F1, int obs2F2, String attachDistance, ParserModel model, FeatureVector fv){
