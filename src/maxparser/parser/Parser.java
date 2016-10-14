@@ -49,6 +49,7 @@ public abstract class Parser {
 			if(length > maxLength){
 				maxLength = length;
 				manager.init(maxLength);
+				typeLabeler.init(maxLength, model.typeSize());
 			}
 			manager.fillFeatureVector(inst, model);
 			Pair<FeatureVector, String>[] d = decoder.decode(manager, inst, 1, model);
