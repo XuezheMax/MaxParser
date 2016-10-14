@@ -154,7 +154,7 @@ public class BasicLabeledFeatureGenerator extends LabeledFeatureGenerator{
 
 	public void addSingleEdgeLabeledFeatures(DependencyInstance inst, int par, int ch, int type, ParserModel model, FeatureVector fv){
 		/*
-	    String att = par < ch ? "RA" : "LA";
+        String att = par < ch ? "RA" : "LA";
 		
 		//distance
 		int dist = Math.abs(par - ch);

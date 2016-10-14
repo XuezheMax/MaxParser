@@ -112,7 +112,7 @@ public class SiblingManager extends SingleEdgeManager{
 	
 	@Override
 	protected void fillUnlabeledFeatureVector(DependencyInstance inst, ParserModel model) {
-		super.fillFeatureVector(inst, model);
+		super.fillUnlabeledFeatureVector(inst, model);
 		
 		int length = inst.length();
 		for(int par = 0; par < length; ++par){
