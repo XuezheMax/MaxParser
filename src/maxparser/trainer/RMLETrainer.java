@@ -1,5 +1,5 @@
 package maxparser.trainer;
 
-public class MMATrainer {
+public class RMLETrainer {
 
 }
