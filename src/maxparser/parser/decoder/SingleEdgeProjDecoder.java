@@ -141,39 +141,8 @@ public class SingleEdgeProjDecoder extends Decoder{
 		
 		return obj;
 	}
-
-	@Override
-	public Pair<Double, Integer> calcHingeGradient(double[] gradient, Manager manager, ParserModel model, ObjectReader in1, ObjectReader in2) throws TrainingException, IOException, ClassNotFoundException{
-		DependencyInstance inst = manager.readInstance(in1, model);
-		
-		double obj = 0.0;
-		double bound = Math.log(inst.length());
-		SingleEdgeInOutForest ioForest = new SingleEdgeInOutForest(inst.length());
-		
-		double z = inside(inst.length(), ioForest, manager);
-		
-		obj = z - model.getScore(inst.getFeatureVector());
-		//System.err.println("length: " + inst.length() + " prob: " + Math.exp(-obj) + " bound: " + Math.exp(-bound));
-		
-		int active = 0;
-		
-		if(Double.compare(obj, bound) > 0){
-			//calc outside alpha
-			outside(inst.length(), ioForest, manager);
-			
-			//calc gradient
-			getGradient(gradient, ioForest, z, inst.length(), manager, model, in2);
-			obj -= bound;
-			active = 1;
-		}
-		else{
-			obj = 0.0;
-			skipGradient(inst.length(), in2);
-		}
-		
-		return new Pair<Double, Integer>(obj, active);
-	}
 	
+	/*
 	protected void skipGradient(int length, ObjectReader in) throws ClassNotFoundException, IOException{
 		in.readObject();
 		int last = in.readInt();
@@ -200,6 +169,7 @@ public class SingleEdgeProjDecoder extends Decoder{
 			throw new IOException("last number is not equal to -3");
 		}
 	}
+	*/
 	
 	protected void getGradient(double[] gradient, InOutForest ioForest, double z, int length, Manager manager, ParserModel model, ObjectReader in) throws ClassNotFoundException, IOException{
 		//read feature vector of current instance

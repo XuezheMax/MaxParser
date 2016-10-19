@@ -94,11 +94,6 @@ public class SingleEdgeCLMDecoder extends SingleEdgeProjDecoder{
 	}
 	
 	@Override
-	public Pair<Double, Integer> calcHingeGradient(double[] gradient, Manager manager, ParserModel model, ObjectReader in1, ObjectReader in2) throws TrainingException{
-		throw new TrainingException("SingleEdgeCLMDecoder does not support gradient calculation.");
-	}
-	
-	@Override
 	public Marginal calcMarginals(Manager manager, ParserModel model, ObjectReader in) throws TrainingException, IOException, ClassNotFoundException {
 		throw new TrainingException("SingleEdgeCLMDecoder does not support marginals calculation.");
 	}
