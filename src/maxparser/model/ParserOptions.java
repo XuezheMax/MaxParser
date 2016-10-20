@@ -8,6 +8,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Set;
+
 import maxparser.exception.OptionException;
 
 public class ParserOptions implements Serializable{
@@ -33,6 +35,8 @@ public class ParserOptions implements Serializable{
 								PUNCTUATION = "punct",
 								DEFAULT_PUNCTUATION = "",
 								COST = "cost",
+								TAU = "tau",
+								DEFAULT_TAU = "1.0",
 								DEFAULT_COST = "1.0",
 								MAP_SIZE = "map-size",
 								DEFAULT_MAP_SIZE = "1000000",
@@ -95,6 +99,9 @@ public class ParserOptions implements Serializable{
 		//cost
 		valid_opt_set.add(COST);
 		argToValueMap.put(COST, DEFAULT_COST);
+		//cost
+        valid_opt_set.add(TAU);
+        argToValueMap.put(TAU, DEFAULT_TAU);
 		//map size
 		valid_opt_set.add(MAP_SIZE);
 		argToValueMap.put(MAP_SIZE, DEFAULT_MAP_SIZE);
@@ -182,7 +189,19 @@ public class ParserOptions implements Serializable{
 	private void checkError() throws OptionException{
 		// TODO
 		String mode = getArgValue(MODE);
-		if(mode.equals("test")){
+		if(mode.equals("train")) {
+		    String trainer = getArgValue(TRAINER);
+		    String mle = maxparser.trainer.MLETrainer.class.getName();
+		    String rmle = maxparser.trainer.RMLETrainer.class.getName();
+		    
+		    Set<String> probTrainers = new HashSet<String>();
+		    probTrainers.add(mle);
+		    probTrainers.add(rmle);
+		    if(probTrainers.contains(trainer) && !getArgValue(TYPE_LABELER).equals(DEFAULT_TYPELABELER_CLASS)) {
+		        throw new OptionException("trainer:" + trainer + " only supports default type-labeler: " + DEFAULT_TYPELABELER_CLASS);
+		    }
+		}
+		else if(mode.equals("test")){
 			if(getArgValue(TESTFILE) == null){
 				throw new OptionException("no test file\n" + helpInfo());
 			}
@@ -266,6 +285,10 @@ public class ParserOptions implements Serializable{
 	
 	public double getCost(){
 		return Double.parseDouble(getArgValue(COST));
+	}
+	
+	public double getTau() {
+	    return Double.parseDouble(getArgValue(TAU));
 	}
 
 	public boolean labeled(){

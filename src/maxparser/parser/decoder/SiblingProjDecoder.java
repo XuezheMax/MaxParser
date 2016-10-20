@@ -238,6 +238,12 @@ public class SiblingProjDecoder extends SingleEdgeProjDecoder{
 		return obj;
 	}
 	
+	@Override
+    public double calcRewardLogLinearGradient(double[] gradient, Manager manager, ParserModel model, double tau, ObjectReader in1, ObjectReader in2) throws TrainingException, IOException, ClassNotFoundException {
+        // TODO
+        return 0.0;
+    }
+	
 	protected void getGradient(double[] gradient, InOutForest ioForest, double z, int length, Manager manager, ParserModel model, ObjectReader in) throws ClassNotFoundException, IOException{
 		//read feature vector of current instance
 		int[] keys = (int[]) in.readObject();

@@ -243,6 +243,10 @@ public class ParserModel implements Serializable{
 		return options.getCost();
 	}
 	
+	public double tau() {
+	    return options.getTau();
+	}
+	
 	public int iterNum(){
 		return options.getIterNum();
 	}

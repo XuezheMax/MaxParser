@@ -258,6 +258,11 @@ public class SiblingCLMDecoder extends SingleEdgeCLMDecoder{
 	}
 	
 	@Override
+    public double calcRewardLogLinearGradient(double[] gradient, Manager manager, ParserModel model, double tau, ObjectReader in1, ObjectReader in2) throws TrainingException{
+        throw new TrainingException("SiblingCLMDecoder does not support reward gradient calculation.");
+    }
+	
+	@Override
 	public Marginal calcMarginals(Manager manager, ParserModel model, ObjectReader in) throws TrainingException, IOException, ClassNotFoundException {
 		throw new TrainingException("SiblingCLMDecoder does not support marginals calculation.");
 	}
