@@ -132,7 +132,7 @@ public class RMLETrainer extends Trainer {
 
                 if (devfile != null) {
                     // calc current accuracy
-                    logWriter.println(String.format("Cost:  %.3f", c));
+                    logWriter.println(String.format("Cost:  %.3f, tau:  %.2f", c, t));
                     double acc = evalCurrentAcc(manager, decoder, model, devfile, logWriter, numDevInst);
                     logWriter.println("------------------------------------------");
                     logWriter.flush();

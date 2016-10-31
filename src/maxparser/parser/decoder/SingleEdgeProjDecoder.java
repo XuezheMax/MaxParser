@@ -188,7 +188,7 @@ public class SingleEdgeProjDecoder extends Decoder {
 
         // calc rewards
         double[][] rewards = new double[inst.length()][inst.length()];
-        calcRewards(rewards, inst, model, tau);
+        calcRewards(rewards, inst, tau);
         SingleEdgeInOutForest rewardIOForest = new SingleEdgeInOutForest(inst.length());
         double z_reward = inside_reward(inst.length(), rewardIOForest, rewards);
         // calc reward outsize alpha
@@ -250,13 +250,10 @@ public class SingleEdgeProjDecoder extends Decoder {
         return obj_reward;
     }
 
-    protected void calcRewards(double[][] rewards, DependencyInstance inst, ParserModel model, double tau) {
-        boolean nopunc = model.nopunc();
+    protected void calcRewards(double[][] rewards, DependencyInstance inst, double tau) {
         int length = inst.length();
         for (int i = 1; i < length; ++i) {
-            if (!nopunc || !model.isPunct(inst.postags[i])) {
-                rewards[inst.heads[i]][i] = 1.0 / tau;
-            }
+            rewards[inst.heads[i]][i] = 1.0 / tau;
         }
     }
 
