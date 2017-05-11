@@ -45,8 +45,9 @@ public class RMLETrainer extends Trainer {
         double bestTau = 0.0;
         PrintWriter logWriter = new PrintWriter(new OutputStreamWriter(new FileOutputStream(logfile)));
 
-        for (double c = ((devfile != null && cost > 0.030) ? 0.030 : cost); c <= cost; c += 0.005) {
-            for (double t = ((devfile != null && tau > 0.1) ? 0.25 : tau); t <= tau + 0.05; t += 0.01) {
+//         for (double c = ((devfile != null && cost > 0.030) ? 0.030 : cost); c <= cost; c += 0.005) {
+        for (double c = cost; c <= cost; c += 0.005) {
+            for (double t = ((devfile != null && tau > 0.1) ? 0.1 : tau); t <= tau + 0.05; t += 0.1) {
                 double old_obj = 1e+37;
                 int converge = 0;
                 SimpleLBFGS lbfgs = new SimpleLBFGS(nsize);
